@@ -47,7 +47,7 @@ developer_msg = {
 
 user_msg = {
     "role" : "user",
-    "content": input("enter your task")
+    "content": input("enter your task:\n")
 }
 messages.append(developer_msg)
 messages.append(user_msg)
