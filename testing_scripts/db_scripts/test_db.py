@@ -3,8 +3,8 @@ from typing  import Optional
 from sqlalchemy.orm import Session, DeclarativeBase, mapped_column, Mapped, relationship
 
 from db_manager import create_root_example , create_embedding_lists, create_save_embeddings, create_vector_extension, drop_all_table,create_all_table
-from models import Node, Embeddings
-from vector_emb import create_embedding
+from testing_scripts.db_scripts.models import Node, Embeddings
+from testing_scripts.db_scripts.vector_emb import create_embedding
 
 db_url = "postgresql://postgres:test@127.0.0.1:5432/postgres"
 engine =create_engine(db_url)

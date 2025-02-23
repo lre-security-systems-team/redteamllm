@@ -1,6 +1,9 @@
 # venv files
 .*env
 
+# api key
+api_key
+
 # python trash files
 __pycache__/
 *.py[cod]
