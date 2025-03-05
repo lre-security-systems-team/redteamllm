@@ -1,1 +1,0 @@
-# this component will be given a task. It will reason about it and give the result, usually to the act component
