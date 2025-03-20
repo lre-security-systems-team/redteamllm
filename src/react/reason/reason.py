@@ -1,5 +1,5 @@
 # this component will be given a task. It will reason about it and give the result, usually to the act component
-from ...llm import LLM,register
+from ...llm import LLM, register
 
 
 #WHY ARE WE REWRITING THIS FUNCTION, IT IS ALREADY IN LLM
@@ -60,6 +60,5 @@ class Reason(LLM):
         assert(n>0)
         self._add_user_message(content)
         reasonning = self.__process_n_times(n)
-        self.print_conversation()
         return reasonning
 

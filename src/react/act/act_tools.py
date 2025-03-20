@@ -34,7 +34,7 @@ import subprocess
     "type": "function",
     "function": {
         "name": "exec_cmd",
-        "description": "Execute a command on a linux terminal with all the rights",
+        "description": "Execute a command on a linux terminal with all the rights. Be careful to use -y to not block the command.",
         "parameters": {
             "type": "object",
             "properties": {
@@ -57,4 +57,3 @@ def exec_cmd(command):
     res = subprocess.run(command,shell=True,capture_output=True)
 
     return f"stdout = {res.stdout.decode('utf-8')}\nstderr={res.stderr.decode('utf-8')}"
-

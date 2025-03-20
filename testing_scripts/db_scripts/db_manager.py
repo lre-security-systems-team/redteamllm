@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import text
-from testing_scripts.db_scripts.models import Node, FailedNode, Base
-from testing_scripts.db_scripts.vector_emb import create_embedding
+from models import Node, FailedNode, Base
+from vector_emb import create_embedding
 
 def drop_all_table(engine,session:Session):
     # stmt= "DROP TABLE embeddings"

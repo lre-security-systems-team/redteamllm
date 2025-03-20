@@ -1,0 +1,21 @@
+services:
+  service1:
+    image: lolzibobzi
+    stdin_open: true
+    networks:
+      - isolated_net
+      # - external_net
+
+  # service2:
+  #   image: nginx
+  #   networks:
+  #     - isolated_net
+  #     # - external_net
+
+networks:
+  isolated_net:
+    driver: bridge
+    internal: true
+
+  # external_net:
+  #   driver: bridge

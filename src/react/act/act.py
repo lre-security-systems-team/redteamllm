@@ -31,13 +31,46 @@ class Act(LLM):
         """        
 
         reasonning_response = {"role":"assistant","content":reasonning}
+        print(colored(f"Reasonning\n{reasonning}","yellow"))
         self._append_to_message(reasonning_response)
-        
+
+
+    def _add_user_message(self, content: str) -> None:
+        """_summary_
+        OVERRDING METHOD
+        add print at the end
+        Args:
+            content (str): _description_
+        """        
+        super()._add_user_message(content) 
+        print(colored(f"User:\n{content}","blue"))
+    
+    def _add_tool_call_message(self, tool_call_id:int, content:str)->None:
+        """_summary_
+        Overload to add the printing options
+        Args:
+            tool_call_id (int): _description_
+            content (str): _description_
+        """        
+        super()._add_tool_call_message(tool_call_id, content)
+        print(colored(f"Command:\n{content}","red"))
+    
+    def _add_assistant_response(self, completion:ChatCompletion)->None:
+        """_summary_
+        Overloaded to add printing options
+        Args:
+            completion (ChatCompletion): _description_
+        """        
+        super()._add_assistant_response(completion)
+        print(colored(f"assistant:\n{completion.choices[0].message.content}"))
+
+    
+
+
     
     
     def send_process_prompt(self,reasonning: str,content:str = None): 
         """_summary_
-
         Args:
             reasonning (str): reasonning of the content(normally given by the REASON module)
             content (str, optional): user task. Defaults to None.
@@ -86,8 +119,9 @@ class Act(LLM):
             # get arguments of the func
             args = json.loads(tool_call.function.arguments)
             # add args to tool_call_execution
-            print(colored("command: \n"+json.dumps(args)+"\n","red"))
-            tool_call_execution += "command: \n"+args["command"] +"\n"
+            do = input(colored(f"Want to execute {function_name} with {args} ? ","red"))
+            if do != "y" and do !="yes":
+                raise Exception("USER DIDNT WANT TO EXECUTE COMMAND")
             # get the function result 
             result = func(**args)
             # add results to tool_call_execution
@@ -123,7 +157,5 @@ class Act(LLM):
         if completion.choices[0].message.tool_calls:
             # treat the tool calls
             self._process_tool_call(completion)
-            self.print_conversation()
             return True
-        self.print_conversation()
         return False

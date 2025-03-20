@@ -29,7 +29,7 @@ class ReAct:
     
     def run(self):
         while True:
-            self.exec_task(input("Enter the task you want"))
+            self.exec_task(input(colored("User: ","green")))
     
 
 

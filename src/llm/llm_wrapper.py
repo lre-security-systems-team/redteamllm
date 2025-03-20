@@ -60,6 +60,7 @@ class LLM():
 
 
     def print_conversation(self):
+        print(colored("-------------------------------------------------------------------------","black"))
         for e in self.messages:
             cont = e["content"]
             if e["role"] == "assistant":
@@ -72,6 +73,7 @@ class LLM():
                 print(colored(f"DEVELOPER:\n{cont}","yellow"))
             else:
                 print(colored("wrong role","red"))
+        print(colored("-------------------------------------------------------------------------","black"))
 
 
     def override_system_prompt(self,prompt:str):
@@ -122,7 +124,7 @@ class LLM():
             max_completion_tokens=self.max_completion_token
         )
         # append result to the messgae's list
-        self.__add_assistant_response(completion)
+        self._add_assistant_response(completion)
         # Increment token count
         self._increment_token_info(completion)
         return completion
@@ -137,8 +139,6 @@ class LLM():
             content (dict): _description_
         """        
         self.messages.append(content)
-        # print("role:",content["role"])
-        # print("content: ",content["content"])
 
 
     def _add_user_message(self,content:str) -> None:
@@ -162,7 +162,7 @@ class LLM():
         tool_call_message = {"role":"tool","tool_call_id":tool_call_id,"content":content}
         self._append_to_message(tool_call_message)
 
-    def __add_assistant_response(self,completion:ChatCompletion) -> None:
+    def _add_assistant_response(self,completion:ChatCompletion) -> None:
         """_summary_
         add the llm response to the list of messages
         Args:
@@ -192,7 +192,10 @@ class LLM():
             # check if the function name is present in the tools dict
             if not self.__class__.tools[function_name]:
                 raise Exception("LLM trying to call a missing function")
-            
+
+            do = input(colored(f"Want to execute {function_name} with {args} ? ","red"))
+            if do != "y" and do !="yes":
+                raise Exception("USER DIDNT WANT TO EXECUTE COMMAND")
             # get the function to use
             func = self.__class__.tools[function_name]
             # get arguments of the func
