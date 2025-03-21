@@ -71,6 +71,7 @@ class Act(LLM):
     
     def send_process_prompt(self,reasonning: str,content:str = None): 
         """_summary_
+        Every process for act needs reasonning, this way we obblige the  process to have reasonning
         Args:
             reasonning (str): reasonning of the content(normally given by the REASON module)
             content (str, optional): user task. Defaults to None.
