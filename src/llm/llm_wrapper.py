@@ -9,7 +9,7 @@ def register(json_desc,cls):
     Decorator to register a function at compile time
 
     Args:
-        json_desc (_type_): _description_
+        json_desc (_type_): function description
     """    
     def decorator(func):
         cls.tool_descriptions.append(json_desc)
@@ -193,9 +193,6 @@ class LLM():
             if not self.__class__.tools[function_name]:
                 raise Exception("LLM trying to call a missing function")
 
-            do = input(colored(f"Want to execute {function_name} with {args} ? ","red"))
-            if do != "y" and do !="yes":
-                raise Exception("USER DIDNT WANT TO EXECUTE COMMAND")
             # get the function to use
             func = self.__class__.tools[function_name]
             # get arguments of the func

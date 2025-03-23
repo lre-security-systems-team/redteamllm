@@ -2,33 +2,6 @@ from .act import Act,register
 import subprocess
 
 
-# @register(
-#     {"type": "function",
-#     "function": {
-#         "name": "print_screen",
-#         "description": "print the argument on the screen",
-#         "parameters":{
-#             "type":"object",
-#             "properties":{
-#                 "to_print":{
-#                     "type": "string",
-#                     "description": "command to print on the screen"
-#                 }
-#             },
-#             "required":[
-#             "to_print",
-#             ]
-#         }
-#         ,
-#             "additionalProperties": False
-#         },
-#         "strict": True
-#     },
-#     Act
-# )
-# def print_screen(to_print):
-#     print(to_print)
-#     return f"PRINTED {to_print} on the screen"
 
 @register({
     "type": "function",

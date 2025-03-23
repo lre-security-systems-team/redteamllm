@@ -97,7 +97,6 @@ class Act(LLM):
         overriding parent class function and adding tool_call_execution.
         At every tool processing,tool calls and results are appendend to
         self.tool_call_execution
-        That means that process_tool_callonly
         Args:
             completion (_type_): oepnai_completion
 
@@ -120,9 +119,9 @@ class Act(LLM):
             # get arguments of the func
             args = json.loads(tool_call.function.arguments)
             # add args to tool_call_execution
-            do = input(colored(f"Want to execute {function_name} with {args} ? ","red"))
-            if do != "y" and do !="yes":
-                raise Exception("USER DIDNT WANT TO EXECUTE COMMAND")
+ #           do = input(colored(f"Want to execute {function_name} with {args} ? ","red"))
+#            if do != "y" and do !="yes":
+  #              raise Exception("USER DIDNT WANT TO EXECUTE COMMAND")
             # get the function result 
             result = func(**args)
             # add results to tool_call_execution

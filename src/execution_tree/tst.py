@@ -1,9 +1,9 @@
 from . import ExecutionNode
-from .visitor import ExecuterVisitor
+from ..visitor import ExecuterVisitor
 
 
 
-a = ExecutionNode()
-vis = ExecuterVisitor()
+# a = ExecutionNode("243",4)
+# vis = ExecuterVisitor()
 
-a.accept(vis)
+# a.accept(vis)
