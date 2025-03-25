@@ -8,3 +8,6 @@ class FailedNode(AbstractNode):
 
     def accept(self, visitor):
         return visitor.visit(self)
+    
+    def change_node_to_planning(self, node:AbstractNode):
+        raise Exception("Can not change failed node to a planning node !")

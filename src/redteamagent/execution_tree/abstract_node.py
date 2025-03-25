@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from ..visitor.abstract_visitor import AbstractVisitor
+from ..observer.observer import Observer
 class AbstractNode(ABC):
     """_summary_
     This class will represent the nodes in our execution graph
@@ -11,6 +12,8 @@ class AbstractNode(ABC):
         - Failed Node:
             This nodes' role is to represent a Failed Node
     """
+    # Observer's list
+    _observers : list[Observer] = []
     def __init__(self,task:str):
         """_summary_
         ABSTRACT
@@ -26,6 +29,28 @@ class AbstractNode(ABC):
         self.parent: AbstractNode = None
         # node lvl (depth)
         self.lvl: int = 0
+        self.children: list[AbstractNode] = []
+        self.next_node : AbstractNode = None
+    @staticmethod
+    def attach(observer:Observer):
+        """_summary_
+        add an observer to the list of observers
+        Args:
+            observer (Observer): the observer to add
+        """        
+        if observer not in AbstractNode._observers:
+            AbstractNode._observers.append(observer)
+
+    @staticmethod
+    def detach(self,observer:Observer):
+        """_summary_
+        remove an observer from the list of observers
+        Args:
+            observer (Observer): the observer to remove
+        """        
+        if observer in AbstractNode._observers:
+            AbstractNode._observers.remove(observer)
+
     
 
     def set_lvl(self,lvl:int) -> None:
@@ -35,7 +60,17 @@ class AbstractNode(ABC):
             lvl (int): _description_
         """        
         self.lvl = lvl
+    
+    
+    def notify(self):
+        for obsever in AbstractNode._observers:
+            obsever.update()
 
     @abstractmethod
     def accept(self,visitor:AbstractVisitor):
         pass
+    
+    @abstractmethod
+    def change_node_to_planning(self,node:"AbstractNode"):
+        pass
+    

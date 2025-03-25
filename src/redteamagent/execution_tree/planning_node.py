@@ -4,8 +4,6 @@ class PlanningNode(AbstractNode):
 
     def __init__(self, task:str):
         super().__init__(task)
-        self.children: list[AbstractNode] = []
-        self.next_node : AbstractNode = None
         # list of the nodes that failed
         self.failed_nodes : list[int] = []
         # what it needs from the previous node ( None if its the most left node)
@@ -15,3 +13,7 @@ class PlanningNode(AbstractNode):
 
     def accept(self, visitor):
         return visitor.visit(self)
+    
+
+    def change_node_to_planning(self, node:AbstractNode):
+        raise Exception("Can not change planning node to planning node !")
