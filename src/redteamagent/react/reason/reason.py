@@ -43,7 +43,7 @@ class Reason(LLM):
         assert(n >0)
         reasonning = ""
         for e in range(n):
-            reasonning += "\n"+self.send_process_prompt()
+            reasonning = self.send_process_prompt()
         return reasonning
     
     def reason_n_times(self,n:int,content:str)->str:

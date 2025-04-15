@@ -1,10 +1,8 @@
 from .redteamagent import RedTeamAgent
 
 def main():
-    agent = RedTeamAgent("Create a python script to calculate fibonnacci in a server web")
+    agent = RedTeamAgent("Create a POSIX shell in C")
     a = agent.plan()
-    print(a)
 
 if __name__ == "__main__":
     main()
-    

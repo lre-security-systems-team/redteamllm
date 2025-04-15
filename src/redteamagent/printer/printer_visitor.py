@@ -5,7 +5,7 @@ from graphviz import Digraph
 class PrinterVisitor(AbstractVisitor):
 
     def __init__(self):
-        self.dot = Digraph()
+        self.dot = Digraph('wide')
 
 
 
@@ -13,7 +13,8 @@ class PrinterVisitor(AbstractVisitor):
         self.dot.clear()
     
     def display(self):
-        self.dot.render(quiet_view=True,cleanup=True)
+        a = self.dot.unflatten(stagger=1)
+        a.view()
 
     @multimethod
     def visit(self, node:ExecutionNode):

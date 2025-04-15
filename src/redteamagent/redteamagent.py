@@ -23,6 +23,7 @@ class RedTeamAgent:
         Returns:
             AbstractNode: return root node
         """        
+        self.printer_observer.update()
         self.root_task[0].accept(self.planner)
         return self.root_task[0]
 

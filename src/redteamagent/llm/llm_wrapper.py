@@ -2,7 +2,28 @@ from typing import Optional
 from openai import OpenAI
 from openai.types.chat.chat_completion import ChatCompletion
 from termcolor import colored
+import os
 import json
+class SingletonMeta(type):
+    """
+    The Singleton class can be implemented in different ways in Python. Some
+    possible methods include: base class, decorator, metaclass. We will use the
+    metaclass because it is best suited for this purpose.
+    """
+
+    _instances = {}
+
+    def __call__(cls, *args, **kwargs):
+        """
+        Possible changes to the value of the `__init__` argument do not affect
+        the returned instance.
+        """
+        if cls not in cls._instances:
+            instance = super().__call__(*args, **kwargs)
+            cls._instances[cls] = instance
+        return cls._instances[cls]
+
+
 
 def register(json_desc,cls):
     """_summary_
@@ -16,6 +37,29 @@ def register(json_desc,cls):
         cls.tools[json_desc["function"]["name"]] = func
         return func
     return decorator
+
+
+
+
+class FileSaver(metaclass=SingletonMeta):
+    def __init__(self):
+        i = 1
+        while True:
+            dir_name = f"saved_{i}"
+            try:
+                os.mkdir(dir_name)
+                self.dir_name = dir_name
+                break
+            except FileExistsError:
+                i += 1
+    def give_dir_name(self)->str:
+        """_summary_
+        Returns the dir created
+        Returns:
+            str: dir created
+        """        
+        return self.dir_name
+        
 
 
 class LLM():
@@ -52,28 +96,82 @@ class LLM():
         self.total_tokens : int= 0
         self.total_input_tokens : int = 0
         self.total_completion_tokens : int = 0
-
-
         # tool calls
         self.tool_call_count : int= 0
+        self.user_input_count : int = 0
+        # api cllas
+        self.api_calls : int = 0
+        self.file_saver = FileSaver()
+
+    def give_base_messages(self)->list[dict[str,str]]:
+        """_summary_
+        Return the base messages of the llm:
+        Role: "dev"
+        content" sys prompt
+        Returns:
+            list[dict[str,str]]: _description_
+        """        
+
+        return [{"role" : "developer","content": self.system_prompt}]
+
+    
+
+    def save_conversation(self)->None:
+        """_summary_
+        Save conversation to a file with metrics
+        """        
+        file_path = os.path.join(self.file_saver.give_dir_name(),self.__class__.__name__+".txt")
+        with open(file_path,"w") as file:
+            file.write(self.give_metrics()+"\n"+self.give_conversation())
+
+            
+
+
+    def give_metrics(self)->str:
+        """_summary_
+        Return formatted version of all tokens cmetrics
+        Returns:
+            str: _description_
+        """        
+        to_print = "" \
+        f"TOTAL_INPUT_TOKEN: {self.total_input_tokens}\n"\
+        f"TOTAL_COMPLETION_TOKENS: {self.total_completion_tokens}\n"\
+        f"TOTAL_TOKEN: {self.total_tokens}\n"\
+        f"TOTAL_TOOL_CALL: {self.tool_call_count}\n"\
+        f"TOTAL_API_CALLS: {self.api_calls}\n"\
+        f"TOTAL_USER_INPUT: {self.total_input_tokens}\n"
+
+        return to_print
     
 
 
-    def print_conversation(self):
-        print(colored("-------------------------------------------------------------------------","black"))
+    def return_conversation(self)->str:
+        """_summary_
+        Returns messages as a string
+        Returns:
+            str: _description_
+        """        
+        to_ret = ""
         for e in self.messages:
             cont = e["content"]
             if e["role"] == "assistant":
-                print(colored(f"ASSISTANT:\n{ cont}","white"))
+                to_ret+= f"ASSISTANT:\n{ cont}\n"
             elif e["role"] == "user":
-                print(colored(f"USER:\n{cont}","green"))
+                to_ret += f"USER:\n{cont}\n"
             elif e["role"] == "tool":
-                print(colored(f"TOOL:\n{cont}","blue"))
+                to_ret+=f"TOOL:\n{cont}\n"
             elif e["role"] == "developer":
-                print(colored(f"DEVELOPER:\n{cont}","yellow"))
-            else:
-                print(colored("wrong role","red"))
-        print(colored("-------------------------------------------------------------------------","black"))
+                to_ret+= f"DEVELOPER:\n{cont}\n"
+        return to_ret
+    
+    def give_conversation(self)->str:
+        conv = ""
+        for e in self.messages:
+            cont = e["content"]
+            if cont == None:
+                cont = ""
+            conv += e["role"] + ":\n" + cont +"\n"
+        return conv
 
 
     def override_system_prompt(self,prompt:str):
@@ -84,7 +182,9 @@ class LLM():
         """        
         self.system_prompt = prompt
         self.messages[0]["content"] = self.system_prompt
-
+    
+    def _increment_user_input(self) -> None:
+        self.user_input_count += 1
     
     def _increment_tool_call_count(self) -> None:
         """_summary_
@@ -102,9 +202,14 @@ class LLM():
             completion (ChatCompletion): respone from a chatcompletion.create
         """        
         usage = completion.usage
-        self.total_tokens = usage.total_tokens
-        self.total_input_tokens = usage.prompt_tokens
-        self.total_completion_tokens = usage.completion_tokens
+        self.total_tokens += usage.total_tokens
+        self.total_input_tokens +=  usage.prompt_tokens
+        self.total_completion_tokens += usage.completion_tokens
+    def _increment_api_call(self)->None:
+        """_summary_
+        Increment api calls
+        """        
+        self.api_calls+=1
     
 
 
@@ -127,6 +232,8 @@ class LLM():
         self._add_assistant_response(completion)
         # Increment token count
         self._increment_token_info(completion)
+        self._increment_api_call()
+        self.save_conversation()
         return completion
 
 
@@ -149,6 +256,7 @@ class LLM():
             content (str): user's message
         """        
         user_message ={"role":"user","content":content}
+        self._increment_user_input()
         self._append_to_message(user_message)
     
     def _add_tool_call_message(self,tool_call_id:int,content:str) -> None:
@@ -231,5 +339,18 @@ class LLM():
         return completion.choices[0].message.content
      
 
+
+
+
+class test(LLM):
+    
+    def __init__(self, model_name, api_key, system_prompt = None, max_completion_tokens = None, temperature = None):
+        super().__init__(model_name, api_key, system_prompt, max_completion_tokens, temperature)
+        # this attribute is a list of tool call execution.
+        # the last tool call execution is always at the end of the list
+        self.tool_call_execution = []
+        tool: dict = {}
+        self.system_prompt = ""
+        self.messages : list[dict[str,str]] = [{"role" : "developer","content": self.system_prompt}]
 
 

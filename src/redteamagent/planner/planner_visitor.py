@@ -20,85 +20,67 @@ class PlannerVisitor(AbstractVisitor):
         self.root_task_node : list[AbstractNode] = root_task_node
         # mempry manager not yet installed
         self.memory_man = memory_manager
+        
         self.llm_planner= LLMPlanner(api_key="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",model_name="gpt-4o")
+
 
         
         prompt = "You are a planner. The user will give you a single task. Your job is to decide whether the task truly needs decomposition into subtasks considering that you (the LLM have full access to a terminal).\n"\
         "When to Decompose:\n"\
         "When the task is really big, only when its too complicated\n"\
         "When not to decompose\n"\
-        "Installing something shouldn't be a subtask"\
-        "setting up an environment shouldn't be a subtask"\
-        "Chosing a tool shouldn't be a subtask"\
-        "Detailing an implementation"
+        "When the task can be executed by another LLM having acces to a terminal without too much difficulty.\n"
         "How to Output Decompositions:\n"\
         "If you decide the task should be decomposed, use the 'decompose_task' tool with a concise list of only essential subtasks.\n"\
         "If the task can be handled without formal decomposition, call the 'decompose_task' tool with a null argument (indicating no decomposition).\n"\
         "Important:\n"\
-        "You need to decompose a subtask into MAXIMUM 5 subtasks.\n"\
-        "A subtask shouldn't be created to detail an implementation\n"\
-        "DO NOT INCLUDE TASKS THAT AREN'T DIRECTLY TIED TO SOMETHING TECHNICAL (conception, design, framework decision.\n"\
-        "Do not over-decompose tasks.\n"\
-        "Choices of languages, frameworks, tools aren't subtasks, a subtask MUST NEVER BE TO CHOSE A TOOL or a METHOD\n"\
+        "Every task must me decompose into MAXIMUM 5 subtasks.\n"\
         
 
         self.llm_planner.override_system_prompt(prompt)
 
-    def __get_higher_tasks_list(self,node:AbstractNode) -> list[str]:
-        """_summary_
-        From a node, get all the parent tasks recursively
-        Args:
-            node (AbstractNode): node
 
-        Returns:
-            list[str]: list of parent tasks. The left of the list
-            is the lowest task, the right of the list is the highest task
-        """        
-        higher_tasks : list[str]= []
-        act_node = node.parent
-        while act_node:
-            higher_tasks.append(act_node.task)
-            act_node = act_node.parent
-        return higher_tasks
-
-    def __format_higher_tasks(self,higher_tasks: list[str]) -> str:
-        """_summary_
-        Format the higher task into a (hopefully) comprehensive version 
-        for the llm
-        Args:
-            higher tasks (list[AbstractNode]): higher tasks list (top right is highes)
-
-        Returns:
-            str : formatted version
-            The task derives from:\n
-            subtask 1 -> subtask 2 -> subtask 3 -> .... subtask n -> 
-        """        
-        formatted_version: str = "The task derives from:\n"
-        i = len(higher_tasks) - 1
-        while i >=0 :
-            formatted_version += higher_tasks[i] + " -> "
-            i -= 1
-        return formatted_version
     
-    def __get_higher_tasks(self,node:AbstractNode)->str:
+
+    def __get_all_tasks(self,actual_node:AbstractNode)->str:
         """_summary_
-        for a given node x, give all its dependancy
-        ex:
-        root_task->child1_task->x_task
+        Get the whole tree plan and add an index to the actual node
         Args:
-            task (str): _description_
+            actual_node (AbstractNode): actual node
 
         Returns:
-            str: _description_
+            str: tree plan into text form:
+            1- task
+            1.2- task
+            1.2 - task
         """        
-        # gather parent tasks
-        higher_tasks = self.__get_higher_tasks_list(node)
-        # formatted the tasks
-        formatted_version =self.__format_higher_tasks(higher_tasks)
-        if len(formatted_version) != 0:
-            formatted_version+=node.task
-        return formatted_version
+        inital_task_prompt = ""
+        def get_all_tasks(pref:str,node:AbstractNode)->str:
+            context = pref+ f" - {node.task}"
+            if node == actual_node:
+                context += "( YOU ARE HERE )"
+                # tells to look out for the variable outside the scope
+                nonlocal inital_task_prompt
+                inital_task_prompt += f"You have to chose to decompose or no the task : {pref}\nTASK: {node.task}\n"
+            context += "\n"
+            i = 1
+            for e in node.children:
+                child_pref = pref+f".{i}"
+                res = get_all_tasks(child_pref,e) 
+                context += res
+                i+=1
+            return context 
+        tree_plan = get_all_tasks("1",self.root_task_node[0])
+        return inital_task_prompt + f"Here is the plan made until now:\n{tree_plan}"
 
+
+
+        
+
+
+
+
+        
 
 
 
@@ -115,7 +97,7 @@ class PlannerVisitor(AbstractVisitor):
         if the node is an execution node, will gather the parent information(higher task)
         and ask the llm to decompose or not
         Args:
-            node (ExecutionNode): _description_
+            node (ExecutionNode): node to visit
 
         Raises:
             Exception: _description_
@@ -124,10 +106,13 @@ class PlannerVisitor(AbstractVisitor):
         if node.lvl >= self.plan_lvl:
             print(f"Stopping decomposition lvl >= {self.plan_lvl}")
             return
-        higher_tasks = self.__get_higher_tasks(node)
+        # plan representing the tree of tasks        
+        from termcolor import colored
+        tree_plan_prompt = self.__get_all_tasks(node)
+        print(colored(tree_plan_prompt,"blue"))
+
         # create the prompt
-        prompt = f"task: \'{node.task}\'\n{higher_tasks}"
-        self.llm_planner.send_process_prompt(prompt)
+        self.llm_planner.send_process_prompt(tree_plan_prompt)
         # check if response is null (just return)
         result_node = LLMPlanner.llm_plan_result
         if result_node == None:

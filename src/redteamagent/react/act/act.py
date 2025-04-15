@@ -4,11 +4,14 @@ from termcolor import colored
 # Many execution rounds can happen consecutively
 from ...llm import LLM,register
 from openai.types.chat.chat_completion import ChatCompletion
+from ..summarizer.summarizer import Summarizer
 import json
+import os
 
 #WHY ARE WE REWRITING THIS FUNCTION, IT IS ALREADY IN LLM
 # BECAUSE WE NEED TO CHANGE THE LLM. to Act. because we dont want conflict
 # when setting different tools to different classes that inherits from LLM class
+
 class Act(LLM):
     # were overriding these 2 attributes because if we dont,
     # every time someone that inherits from LLM add a tool, 
@@ -20,6 +23,10 @@ class Act(LLM):
         # this attribute is a list of tool call execution.
         # the last tool call execution is always at the end of the list
         self.tool_call_execution = []
+        self.summarizer = Summarizer(model_name=self.model_name,api_key=self.api_key)
+
+        #######3
+
 
 
     def __add_reasonning(self,reasonning:str) -> None:
@@ -53,7 +60,7 @@ class Act(LLM):
             content (str): _description_
         """        
         super()._add_tool_call_message(tool_call_id, content)
-        print(colored(f"Command:\n{content}","red"))
+        print(colored(f"{content}","red"))
     
     def _add_assistant_response(self, completion:ChatCompletion)->None:
         """_summary_
@@ -122,10 +129,15 @@ class Act(LLM):
  #           do = input(colored(f"Want to execute {function_name} with {args} ? ","red"))
 #            if do != "y" and do !="yes":
   #              raise Exception("USER DIDNT WANT TO EXECUTE COMMAND")
+            print(colored(f"Command: {args}",'red',"on_black"))
             # get the function result 
             result = func(**args)
-            # add results to tool_call_execution
-            tool_call_execution+= "result:\n" + result +"\n" 
+            # summarize result
+            if len(result) > 3000 : 
+                result = self.summarizer.send_process_prompt(f"command:{args}\nresult:\n{result}")
+
+            # add results to tool_call_execution  
+            tool_call_execution+= "Command:\n"+args["command"]+"\nresult:\n" + result +"\n" 
             #append the result
             self._add_tool_call_message(tool_call.id,result)
         self.tool_call_execution.append(tool_call_execution)
@@ -139,7 +151,7 @@ class Act(LLM):
         """        
         self._add_user_message(task)
 
-    def send_process_messages(self,reasonning:str)->bool: 
+    def send_process_messages(self,reasonning:str = None)->bool: 
         """_summary_
         looks like 'send_process_messages' but with some twists.
         doesnt take any argument. Task is given before.
@@ -150,7 +162,8 @@ class Act(LLM):
             bool:   True if last execution was a toolcall
                     False if last excution was a normal response
         """        
-        self.__add_reasonning(reasonning)
+        if reasonning:
+            self.__add_reasonning(reasonning)
         # send past messages and recieve answer
         completion : ChatCompletion =self._get_response()
         # while the answer is a tool call
