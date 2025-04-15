@@ -1,10 +1,14 @@
 services:
   service1:
-    image: lolzibobzi
+    image: redteamcont
+    privileged: true
+    cap_add:
+      - SYS_PTRACE
+    # Disable the default seccomp profile to let strace work properly.
+    security_opt:
+      - seccomp:unconfined
     stdin_open: true
-    networks:
-      - isolated_net
-      # - external_net
+    tty : true
 
   # service2:
   #   image: nginx

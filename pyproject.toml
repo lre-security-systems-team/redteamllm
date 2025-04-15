@@ -8,7 +8,8 @@ name ="RedTeamAgent"
 dependencies = [
     "pydantic",
     "openai",
-    "multipledispatch"
+    "multipledispatch",
+    "termcolor"
     ]
 
 [project.scripts]
