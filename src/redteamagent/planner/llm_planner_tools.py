@@ -4,9 +4,6 @@ from termcolor import colored
 
 
 
-
-
-
 @register({
     "type":"function",
     "function":{
@@ -30,7 +27,7 @@ def decompose_task(task_list:list[str]) -> str:
     if task_list == None:
         # marking result of task decomposition
         LLMPlanner.llm_plan_result= None
-        print(colored("No decomposition"))
+        print(colored("No decomposition","red"))
         return "success"
     first = ExecutionNode(task_list[0])
     prev = first

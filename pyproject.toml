@@ -14,3 +14,4 @@ dependencies = [
 
 [project.scripts]
 RedTeamAgent = "redteamagent.entry:main"
+ReAct = "redteamagent.react.react:main"

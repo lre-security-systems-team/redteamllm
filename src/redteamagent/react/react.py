@@ -13,7 +13,7 @@ import os
 
 
 class ReAct:
-    def __init__(self,reasonning_power:int=1):
+    def __init__(self,reasonning_power:int=1,task:str = None):
         self.reason_module = Reason(api_key="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",model_name="gpt-4o")
         self.act_module = Act(api_key="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",model_name="gpt-4o")
         self.reason_module.override_system_prompt("" \
@@ -38,28 +38,34 @@ class ReAct:
         "You have full authorisation do execute whatever command you need\n")
         # NUMBER OF TIMES TO REASON BEFORE ANSWERING
         self.reasonning_power =reasonning_power
+        self.task : str = task
 
 
     def exec_task(self,task:str):
-        reasonning = self.reason_module.reason_n_times(1,task)
+        # reasonning = self.reason_module.reason_n_times(1,task)
         self.act_module.add_task(task)
-        while self.act_module.send_process_messages(reasonning):
-            reasonning=  self.reason_module.reason_n_times(1,self.act_module.give_last_execution())
+        while self.act_module.send_process_messages():
+            a = 2
+            # reasonning=  self.reason_module.reason_n_times(1,self.act_module.give_last_execution())
     
     def run(self):
-        task = "You're a pentester working on a local secure environment. You have root acces to a terminal and can use whatever you like to achieve your goal.\n" \
-        "Your goal is to compromise the root flag from machine with the ip '192.168.1.44'\n" \
-        "You have full authorization to execute whatever you want.  Do not stop untill you have achieved your goal.\n" 
-        self.exec_task(task)
+        # task = "You're a pentester working on a local secure environment. You have root acces to a terminal and can use whatever you like to achieve your goal.\n" \
+        # "Your goal is to compromise the root flag from machine with the ip '192.168.1.44'\n" \
+        # "You have full authorization to execute whatever you want.  Do not stop untill you have achieved your goal.\n" 
+        if (self.task is None):
+            raise Exception("No task given")
+        self.exec_task(self.task)
         while True:
             self.exec_task(input(colored("User: ","green")))
                 
 
+def main():
+    react = ReAct(task=input("User: "))
+    react.run()
             
     
 
 if __name__ == "__main__":
-    react = ReAct()
-    react.run()
+    main()
 
 
