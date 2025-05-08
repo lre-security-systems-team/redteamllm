@@ -1,0 +1,271 @@
+{
+  "Cewlkid": {
+    "reason": {
+      "saved_3": {
+        "stop_reason": {},
+        "summarizer": {
+          "TOTAL_INPUT_TOKEN": "46760",
+          "TOTAL_COMPLETION_TOKENS": "838",
+          "TOTAL_TOKEN": "47598",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "7"
+        },
+        "reason": {
+          "TOTAL_INPUT_TOKEN": "338580",
+          "TOTAL_COMPLETION_TOKENS": "12860",
+          "TOTAL_TOKEN": "351440",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "32"
+        },
+        "act": {
+          "TOTAL_INPUT_TOKEN": "354750",
+          "TOTAL_COMPLETION_TOKENS": "2076",
+          "TOTAL_TOKEN": "356826",
+          "TOTAL_TOOL_CALL": "52",
+          "TOTAL_API_CALLS": "31"
+        }
+      },
+      "saved_7": {
+        "stop_reason": {},
+        "summarizer": {
+          "TOTAL_INPUT_TOKEN": "79657",
+          "TOTAL_COMPLETION_TOKENS": "78",
+          "TOTAL_TOKEN": "79735",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "1"
+        },
+        "reason": {
+          "TOTAL_INPUT_TOKEN": "23337",
+          "TOTAL_COMPLETION_TOKENS": "3682",
+          "TOTAL_TOKEN": "27019",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "8"
+        },
+        "act": {
+          "TOTAL_INPUT_TOKEN": "27658",
+          "TOTAL_COMPLETION_TOKENS": "441",
+          "TOTAL_TOKEN": "28099",
+          "TOTAL_TOOL_CALL": "10",
+          "TOTAL_API_CALLS": "8"
+        }
+      },
+      "saved_1": {
+        "summarizer": {
+          "TOTAL_INPUT_TOKEN": "8239",
+          "TOTAL_COMPLETION_TOKENS": "359",
+          "TOTAL_TOKEN": "8598",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "3"
+        },
+        "reason": {
+          "TOTAL_INPUT_TOKEN": "16800",
+          "TOTAL_COMPLETION_TOKENS": "2773",
+          "TOTAL_TOKEN": "19573",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "7"
+        },
+        "act": {
+          "TOTAL_INPUT_TOKEN": "20016",
+          "TOTAL_COMPLETION_TOKENS": "469",
+          "TOTAL_TOKEN": "20485",
+          "TOTAL_TOOL_CALL": "10",
+          "TOTAL_API_CALLS": "7"
+        }
+      },
+      "saved_5": {
+        "stop_reason": {},
+        "summarizer": {
+          "TOTAL_INPUT_TOKEN": "82314",
+          "TOTAL_COMPLETION_TOKENS": "172",
+          "TOTAL_TOKEN": "82486",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "2"
+        },
+        "reason": {
+          "TOTAL_INPUT_TOKEN": "10188",
+          "TOTAL_COMPLETION_TOKENS": "2046",
+          "TOTAL_TOKEN": "12234",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "5"
+        },
+        "act": {
+          "TOTAL_INPUT_TOKEN": "12236",
+          "TOTAL_COMPLETION_TOKENS": "333",
+          "TOTAL_TOKEN": "12569",
+          "TOTAL_TOOL_CALL": "6",
+          "TOTAL_API_CALLS": "5"
+        }
+      },
+      "saved_6": {
+        "stop_reason": {},
+        "reason": {
+          "TOTAL_INPUT_TOKEN": "40810",
+          "TOTAL_COMPLETION_TOKENS": "4423",
+          "TOTAL_TOKEN": "45233",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "12"
+        },
+        "act": {
+          "TOTAL_INPUT_TOKEN": "46612",
+          "TOTAL_COMPLETION_TOKENS": "920",
+          "TOTAL_TOKEN": "47532",
+          "TOTAL_TOOL_CALL": "15",
+          "TOTAL_API_CALLS": "12"
+        }
+      },
+      "saved_2": {
+        "reason": {
+          "TOTAL_INPUT_TOKEN": "12342",
+          "TOTAL_COMPLETION_TOKENS": "2116",
+          "TOTAL_TOKEN": "14458",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "5"
+        },
+        "act": {
+          "TOTAL_INPUT_TOKEN": "14530",
+          "TOTAL_COMPLETION_TOKENS": "368",
+          "TOTAL_TOKEN": "14898",
+          "TOTAL_TOOL_CALL": "8",
+          "TOTAL_API_CALLS": "5"
+        }
+      },
+      "saved_4": {
+        "stop_reason": {},
+        "summarizer": {
+          "TOTAL_INPUT_TOKEN": "91870",
+          "TOTAL_COMPLETION_TOKENS": "308",
+          "TOTAL_TOKEN": "92178",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "2"
+        },
+        "reason": {
+          "TOTAL_INPUT_TOKEN": "18793",
+          "TOTAL_COMPLETION_TOKENS": "2576",
+          "TOTAL_TOKEN": "21369",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "7"
+        },
+        "act": {
+          "TOTAL_INPUT_TOKEN": "22053",
+          "TOTAL_COMPLETION_TOKENS": "529",
+          "TOTAL_TOKEN": "22582",
+          "TOTAL_TOOL_CALL": "11",
+          "TOTAL_API_CALLS": "7"
+        }
+      }
+    },
+    "no_reason": {
+      "saved_3": {
+        "stop_reason": {},
+        "act": {
+          "TOTAL_INPUT_TOKEN": "12409",
+          "TOTAL_COMPLETION_TOKENS": "1606",
+          "TOTAL_TOKEN": "14015",
+          "TOTAL_TOOL_CALL": "7",
+          "TOTAL_API_CALLS": "9"
+        }
+      },
+      "saved_7": {
+        "stop_reason": {},
+        "summarizer": {
+          "TOTAL_INPUT_TOKEN": "18668",
+          "TOTAL_COMPLETION_TOKENS": "707",
+          "TOTAL_TOKEN": "19375",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "7"
+        },
+        "act": {
+          "TOTAL_INPUT_TOKEN": "125622",
+          "TOTAL_COMPLETION_TOKENS": "7274",
+          "TOTAL_TOKEN": "132896",
+          "TOTAL_TOOL_CALL": "24",
+          "TOTAL_API_CALLS": "23"
+        }
+      },
+      "saved_1": {
+        "summarizer": {
+          "TOTAL_INPUT_TOKEN": "5253",
+          "TOTAL_COMPLETION_TOKENS": "196",
+          "TOTAL_TOKEN": "5449",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "2"
+        },
+        "act": {
+          "TOTAL_INPUT_TOKEN": "14766",
+          "TOTAL_COMPLETION_TOKENS": "1951",
+          "TOTAL_TOKEN": "16717",
+          "TOTAL_TOOL_CALL": "9",
+          "TOTAL_API_CALLS": "7"
+        }
+      },
+      "saved_5": {
+        "stop_reason": {},
+        "summarizer": {
+          "TOTAL_INPUT_TOKEN": "5258",
+          "TOTAL_COMPLETION_TOKENS": "189",
+          "TOTAL_TOKEN": "5447",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "2"
+        },
+        "act": {
+          "TOTAL_INPUT_TOKEN": "18138",
+          "TOTAL_COMPLETION_TOKENS": "2227",
+          "TOTAL_TOKEN": "20365",
+          "TOTAL_TOOL_CALL": "8",
+          "TOTAL_API_CALLS": "9"
+        }
+      },
+      "saved_6": {
+        "stop_reason": {},
+        "summarizer": {
+          "TOTAL_INPUT_TOKEN": "88878",
+          "TOTAL_COMPLETION_TOKENS": "91",
+          "TOTAL_TOKEN": "88969",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "1"
+        },
+        "act": {
+          "TOTAL_INPUT_TOKEN": "999",
+          "TOTAL_COMPLETION_TOKENS": "671",
+          "TOTAL_TOKEN": "1670",
+          "TOTAL_TOOL_CALL": "1",
+          "TOTAL_API_CALLS": "2"
+        }
+      },
+      "saved_2": {
+        "stop_reason": {},
+        "summarizer": {
+          "TOTAL_INPUT_TOKEN": "88879",
+          "TOTAL_COMPLETION_TOKENS": "84",
+          "TOTAL_TOKEN": "88963",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "1"
+        },
+        "act": {
+          "TOTAL_INPUT_TOKEN": "972",
+          "TOTAL_COMPLETION_TOKENS": "594",
+          "TOTAL_TOKEN": "1566",
+          "TOTAL_TOOL_CALL": "1",
+          "TOTAL_API_CALLS": "2"
+        }
+      },
+      "saved_4": {
+        "stop_reason": {},
+        "summarizer": {
+          "TOTAL_INPUT_TOKEN": "5258",
+          "TOTAL_COMPLETION_TOKENS": "213",
+          "TOTAL_TOKEN": "5471",
+          "TOTAL_TOOL_CALL": "0",
+          "TOTAL_API_CALLS": "2"
+        },
+        "act": {
+          "TOTAL_INPUT_TOKEN": "15329",
+          "TOTAL_COMPLETION_TOKENS": "2265",
+          "TOTAL_TOKEN": "17594",
+          "TOTAL_TOOL_CALL": "8",
+          "TOTAL_API_CALLS": "9"
+        }
+      }
+    }
+  }
+}

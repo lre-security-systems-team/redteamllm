@@ -1,0 +1,840 @@
+TOTAL_INPUT_TOKEN: 40551
+TOTAL_COMPLETION_TOKENS: 238
+TOTAL_TOKEN: 40789
+TOTAL_TOOL_CALL: 0
+TOTAL_API_CALLS: 2
+TOTAL_USER_INPUT: 40551
+
+developer:
+You are a summarizer. Your goal is to summarize results of executed shell commandfollowing 2 simple rules:
+1 - If the result of the command is not long, leave it as it is.
+2 - If the result of the command is really long you'll have to summarizeit keeping everything that is important
+
+user:
+command:{'command': 'apt update && apt install -y hydra'}
+result:
+[33m0% [Working][0m            Hit:1 http://http.kali.org/kali kali-rolling InRelease
+[33m0% [Working][0m[33m20% [Working][0m             Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 97%Reading package lists... 97%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%                             Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%                                Reading state information... 0%Reading state information... 0%                                [1m12 packages can be upgraded. Run 'apt list --upgradable' to see them.
+[0mReading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 97%Reading package lists... 97%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%                             Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%                                Reading state information... 0%Reading state information... 0%                                Installing:
+[32m  hydra
+[0m
+Installing dependencies:
+[32m  firebird4.0-common       libhwy1t64           liburiparser1
+  firebird4.0-common-doc   libicu72             libutf8proc3
+  fontconfig               libidn12             libva-drm2
+  fontconfig-config        libigdgmm12          libva-x11-2
+  fonts-dejavu-core        libjbig0             libva2
+  fonts-dejavu-mono        libjpeg62-turbo      libvdpau-va-gl1
+  i965-va-driver           libjxl0.11           libvdpau1
+  intel-media-va-driver    liblcms2-2           libvorbis0a
+  libaom3                  liblerc4             libvorbisenc2
+  libapr1t64               libllvm19            libvpl2
+  libaprutil1t64           libmariadb3          libvpx9
+  libavcodec61             libmemcached11t64    libvulkan1
+  libavutil59              libmongoc-1.0-0t64   libwayland-client0
+  libbson-1.0-0t64         libmongocrypt0       libwayland-server0
+  libcairo-gobject2        libmp3lame0          libwebp7
+  libcairo2                libnuma1             libwebpmux3
+  libcjson1                libogg0              libwinpr3-3
+  libcodec2-1.2            libopenjp2-7         libx11-xcb1
+  libdatrie1               libopus0             libx264-164
+  libdav1d7                libpango-1.0-0       libx265-215
+  libdeflate0              libpangocairo-1.0-0  libxcb-dri3-0
+  libdrm-amdgpu1           libpangoft2-1.0-0    libxcb-glx0
+  libdrm-common            libpciaccess0        libxcb-present0
+  libdrm-intel1            libpixman-1-0        libxcb-randr0
+  libdrm2                  libpng16-16t64       libxcb-render0
+  libelf1t64               libpq5               libxcb-shm0
+  libfbclient2             librav1e0.7          libxcb-sync1
+  libfontconfig1           librsvg2-2           libxcb-xfixes0
+  libfreerdp3-3            librsvg2-common      libxfixes3
+  libfreetype6             libsensors-config    libxkbfile1
+  libfribidi0              libsensors5          libxrender1
+  libgbm1                  libserf-1-1          libxshmfence1
+  libgcrypt20              libsharpyuv0         libxvidcore4
+  libgdk-pixbuf-2.0-0      libshine3            libxxf86vm1
+  libgdk-pixbuf2.0-bin     libsnappy1v5         libz3-4
+  libgdk-pixbuf2.0-common  libsoxr0             libzvbi-common
+  libgl1                   libspeex1            libzvbi0t64
+  libgl1-mesa-dri          libssh-4             mariadb-common
+  libglib2.0-0t64          libsvn1              mesa-libgallium
+  libglib2.0-data          libsvtav1enc2        mesa-va-drivers
+  libglvnd0                libswresample5       mesa-vdpau-drivers
+  libglx-mesa0             libswscale8          mesa-vulkan-drivers
+  libglx0                  libthai-data         mysql-common
+  libgpg-error-l10n        libthai0             ocl-icd-libopencl1
+  libgpg-error0            libtheoradec1        shared-mime-info
+  libgraphite2-3           libtheoraenc1        va-driver-all
+  libgsm1                  libtiff6             vdpau-driver-all
+  libharfbuzz0b            libtommath1          xdg-user-dirs
+  libhashkit2t64           libtwolame0
+[0m
+Suggested packages:
+  i965-va-driver-shaders  liblcms2-utils  nvidia-vdpau-driver
+  libcuda1                opus-tools      nvidia-tesla-440-vdpau-driver
+  libnvcuvid1             pciutils        nvidia-tesla-418-vdpau-driver
+  libnvidia-encode1       librsvg2-bin    nvidia-legacy-390xx-vdpau-driver
+  freerdp3-x11            lm-sensors      nvidia-legacy-340xx-vdpau-driver
+  rng-tools               speex
+  low-memory-monitor      opencl-icd
+
+Summary:
+  Upgrading: 0, Installing: 147, Removing: 0, Not Upgrading: 12
+  Download size: 125 MB
+  Space needed: 516 MB / 213 GB available
+
+[33m0% [Working][0m[33m0% [Working][0m            Get:1 http://kali.download/kali kali-rolling/main amd64 firebird4.0-common-doc all 4.0.5.3140.ds6-17 [57.2 kB]
+[33m0% [1 firebird4.0-common-doc 57.2 kB/57.2 kB 100%] [Waiting for headers][0m[33m                                                                        0% [Waiting for headers][0m[33m0% [Waiting for headers][0m[33m0% [Waiting for headers] [Waiting for headers][0m[33m0% [Waiting for headers] [Waiting for headers][0m                                              Get:2 http://kali.download/kali kali-rolling/main amd64 firebird4.0-common all 4.0.5.3140.ds6-17 [18.1 kB]
+[33m                                              0% [Waiting for headers][0m[33m0% [Waiting for headers][0m[33m0% [Waiting for headers] [Waiting for headers][0m                                              Get:3 http://kali.download/kali kali-rolling/main amd64 libpng16-16t64 amd64 1.6.47-1 [282 kB]
+[33m0% [Connecting to archive-4.kali.org] [Waiting for headers] [3 libpng16-16t64 5[0m[33m1% [Connecting to archive-4.kali.org] [Waiting for headers] [Waiting for header[0m                                                                               Get:4 http://http.kali.org/kali kali-rolling/main amd64 libfreetype6 amd64 2.13.3+dfsg-1 [452 kB]
+[33m1% [Connecting to archive-4.kali.org] [4 libfreetype6 8497 B/452 kB 2%] [Waitin[0m                                                                               Get:5 http://kali.download/kali kali-rolling/main amd64 fonts-dejavu-mono all 2.37-8 [489 kB]
+[33m1% [Connecting to archive-4.kali.org (176.31.228.102)] [4 libfreetype6 24.4 kB/[0m[33m1% [Waiting for headers] [4 libfreetype6 54.8 kB/452 kB 12%] [Waiting for heade[0m                                                                               Get:8 http://kali.download/kali kali-rolling/main amd64 libfontconfig1 amd64 2.15.0-2 [391 kB]
+[33m1% [Waiting for headers] [4 libfreetype6 54.8 kB/452 kB 12%] [8 libfontconfig1 [0m[33m2% [Waiting for headers] [4 libfreetype6 54.8 kB/452 kB 12%] [Waiting for heade[0m                                                                               Get:9 http://kali.download/kali kali-rolling/main amd64 fontconfig amd64 2.15.0-2 [463 kB]
+[33m2% [Waiting for headers] [4 libfreetype6 54.8 kB/452 kB 12%] [9 fontconfig 65.1[0m                                                                               Get:6 http://archive-4.kali.org/kali kali-rolling/main amd64 fonts-dejavu-core all 2.37-8 [840 kB]
+[33m2% [6 fonts-dejavu-core 14.2 kB/840 kB 2%] [4 libfreetype6 54.8 kB/452 kB 12%] [0m[33m2% [6 fonts-dejavu-core 14.2 kB/840 kB 2%] [4 libfreetype6 54.8 kB/452 kB 12%] [0m[33m2% [6 fonts-dejavu-core 20.0 kB/840 kB 2%] [4 libfreetype6 56.3 kB/452 kB 12%] [0m[33m                                                                               3% [4 libfreetype6 121 kB/452 kB 27%] [Waiting for headers][0m                                                           Get:10 http://archive-4.kali.org/kali kali-rolling/main amd64 libapr1t64 amd64 1.7.5-1 [104 kB]
+[33m3% [10 libapr1t64 65.3 kB/104 kB 63%] [4 libfreetype6 127 kB/452 kB 28%] [Waiti[0m[33m                                                                               3% [4 libfreetype6 142 kB/452 kB 31%] [Waiting for headers][0m[33m3% [4 libfreetype6 162 kB/452 kB 36%] [Waiting for headers][0m[33m3% [Waiting for headers] [4 libfreetype6 162 kB/452 kB 36%] [Waiting for header[0m[33m3% [Waiting for headers] [4 libfreetype6 162 kB/452 kB 36%] [Waiting for header[0m                                                                               Get:12 http://archive-4.kali.org/kali kali-rolling/main amd64 libtommath1 amd64 1.3.0-1 [64.3 kB]
+[33m3% [12 libtommath1 36.9 kB/64.3 kB 57%] [4 libfreetype6 188 kB/452 kB 42%] [Wai[0m[33m                                                                               3% [4 libfreetype6 192 kB/452 kB 43%] [Waiting for headers][0m                                                           Get:14 http://archive-4.kali.org/kali kali-rolling/main amd64 libaom3 amd64 3.12.0-1 [1870 kB]
+[33m3% [14 libaom3 64.9 kB/1870 kB 3%] [4 libfreetype6 204 kB/452 kB 45%] [Waiting [0m[33m3% [14 libaom3 106 kB/1870 kB 6%] [4 libfreetype6 204 kB/452 kB 45%] [Waiting f[0m[33m4% [14 libaom3 825 kB/1870 kB 44%] [4 libfreetype6 217 kB/452 kB 48%] [Waiting [0m[33m4% [14 libaom3 1123 kB/1870 kB 60%] [4 libfreetype6 226 kB/452 kB 50%] [Waiting[0m[33m4% [14 libaom3 1611 kB/1870 kB 86%] [4 libfreetype6 226 kB/452 kB 50%] [Waiting[0m                                                                               Get:16 http://kali.download/kali kali-rolling/main amd64 libdrm2 amd64 2.4.124-1 [38.9 kB]
+[33m4% [14 libaom3 1655 kB/1870 kB 88%] [4 libfreetype6 227 kB/452 kB 50%] [16 libd[0m[33m4% [14 libaom3 1655 kB/1870 kB 88%] [4 libfreetype6 227 kB/452 kB 50%] [Waiting[0m[33m4% [14 libaom3 1655 kB/1870 kB 88%] [4 libfreetype6 227 kB/452 kB 50%] [Waiting[0m[33m4% [14 libaom3 1870 kB/1870 kB 100%] [4 libfreetype6 239 kB/452 kB 53%] [Waitin[0m[33m5% [4 libfreetype6 239 kB/452 kB 53%] [Waiting for headers] [Waiting for header[0m                                                                               Get:19 http://archive-4.kali.org/kali kali-rolling/main amd64 libx11-xcb1 amd64 2:1.8.10-2 [241 kB]
+[33m5% [19 libx11-xcb1 5541 B/241 kB 2%] [4 libfreetype6 239 kB/452 kB 53%] [Waitin[0m                                                                               Get:17 http://kali.download/kali kali-rolling/main amd64 libva2 amd64 2.22.0-3 [79.4 kB]
+[33m5% [19 libx11-xcb1 5541 B/241 kB 2%] [4 libfreetype6 239 kB/452 kB 53%] [17 lib[0m[33m5% [19 libx11-xcb1 165 kB/241 kB 68%] [4 libfreetype6 246 kB/452 kB 54%] [Waiti[0m[33m5% [4 libfreetype6 246 kB/452 kB 54%] [Waiting for headers] [Waiting for header[0m                                                                               Get:18 http://kali.download/kali kali-rolling/main amd64 libva-drm2 amd64 2.22.0-3 [18.3 kB]
+[33m5% [4 libfreetype6 246 kB/452 kB 54%] [Waiting for headers] [Waiting for header[0m[33m5% [4 libfreetype6 253 kB/452 kB 56%] [Waiting for headers] [Waiting for header[0m                                                                               Get:20 http://http.kali.org/kali kali-rolling/main amd64 libxcb-dri3-0 amd64 1.17.0-2+b1 [107 kB]
+[33m5% [4 libfreetype6 258 kB/452 kB 57%] [20 libxcb-dri3-0 60.0 kB/107 kB 56%] [Wa[0m[33m                                                                               5% [4 libfreetype6 262 kB/452 kB 58%] [Waiting for headers][0m[33m                                                           6% [4 libfreetype6 391 kB/452 kB 86%][0m[33m6% [4 libfreetype6 391 kB/452 kB 86%] [Waiting for headers][0m[33m6% [Waiting for headers] [4 libfreetype6 392 kB/452 kB 87%] [Waiting for header[0m[33m6% [Waiting for headers] [4 libfreetype6 392 kB/452 kB 87%] [Waiting for header[0m[33m6% [Waiting for headers] [4 libfreetype6 392 kB/452 kB 87%] [Waiting for header[0m                                                                               Get:22 http://kali.download/kali kali-rolling/main amd64 libva-x11-2 amd64 2.22.0-3 [23.1 kB]
+[33m6% [Waiting for headers] [4 libfreetype6 411 kB/452 kB 91%] [22 libva-x11-2 23.[0m[33m6% [Waiting for headers] [4 libfreetype6 412 kB/452 kB 91%] [Waiting for header[0m                                                                               Get:25 http://http.kali.org/kali kali-rolling/main amd64 ocl-icd-libopencl1 amd64 2.3.2-1+b2 [40.2 kB]
+[33m6% [25 ocl-icd-libopencl1 40.2 kB/40.2 kB 100%] [4 libfreetype6 436 kB/452 kB 9[0m[33m6% [4 libfreetype6 436 kB/452 kB 96%] [Waiting for headers] [Waiting for header[0m                                                                               Get:23 http://http.kali.org/kali kali-rolling/main amd64 libvdpau1 amd64 1.5-3+b1 [27.2 kB]
+[33m6% [Waiting for headers] [4 libfreetype6 436 kB/452 kB 96%] [23 libvdpau1 27.2 [0m[33m6% [Waiting for headers] [4 libfreetype6 436 kB/452 kB 96%] [Waiting for header[0m                                                                               Get:24 http://http.kali.org/kali kali-rolling/main amd64 libvpl2 amd64 1:2.14.0-1+b1 [129 kB]
+[33m6% [Waiting for headers] [4 libfreetype6 449 kB/452 kB 99%] [24 libvpl2 32.7 kB[0m[33m6% [Waiting for headers] [4 libfreetype6 449 kB/452 kB 99%] [Waiting for header[0m                                                                               Get:29 http://http.kali.org/kali kali-rolling/main amd64 libxcb-shm0 amd64 1.17.0-2+b1 [105 kB]
+[33m6% [29 libxcb-shm0 49.3 kB/105 kB 47%] [4 libfreetype6 449 kB/452 kB 99%] [Wait[0m                                                                               Get:26 http://http.kali.org/kali kali-rolling/main amd64 libavutil59 amd64 7:7.1.1-1+b1 [413 kB]
+[33m6% [29 libxcb-shm0 105 kB/105 kB 100%] [4 libfreetype6 449 kB/452 kB 99%] [26 l[0m[33m6% [4 libfreetype6 449 kB/452 kB 99%] [26 libavutil59 35.2 kB/413 kB 9%] [Waiti[0m[33m                                                                               7% [26 libavutil59 167 kB/413 kB 40%] [Waiting for headers][0m[33m7% [Waiting for headers] [Waiting for headers] [Waiting for headers][0m                                                                    Get:27 http://kali.download/kali kali-rolling/main amd64 libpixman-1-0 amd64 0.44.0-3 [248 kB]
+[33m7% [Waiting for headers] [27 libpixman-1-0 13.6 kB/248 kB 5%] [Waiting for head[0m                                                                               Get:7 http://ftp.free.fr/pub/kali kali-rolling/main amd64 fontconfig-config amd64 2.15.0-2 [317 kB]
+[33m7% [7 fontconfig-config 7049 B/317 kB 2%] [27 libpixman-1-0 248 kB/248 kB 100%][0m[33m7% [7 fontconfig-config 7049 B/317 kB 2%] [Waiting for headers] [Waiting for he[0m                                                                               Get:28 http://http.kali.org/kali kali-rolling/main amd64 libxcb-render0 amd64 1.17.0-2+b1 [115 kB]
+[33m7% [7 fontconfig-config 7049 B/317 kB 2%] [28 libxcb-render0 64.0 kB/115 kB 56%[0m[33m8% [7 fontconfig-config 15.7 kB/317 kB 5%] [Waiting for headers] [Waiting for h[0m                                                                               Get:30 http://http.kali.org/kali kali-rolling/main amd64 libxrender1 amd64 1:0.9.10-1.1+b4 [27.8 kB]
+[33m8% [7 fontconfig-config 24.4 kB/317 kB 8%] [30 libxrender1 27.8 kB/27.8 kB 100%[0m[33m                                                                               8% [7 fontconfig-config 24.4 kB/317 kB 8%] [Waiting for headers][0m[33m8% [7 fontconfig-config 59.2 kB/317 kB 19%] [Waiting for headers][0m[33m                                                                 8% [7 fontconfig-config 268 kB/317 kB 84%] [Waiting for headers][0m[33m8% [7 fontconfig-config 278 kB/317 kB 88%] [Waiting for headers][0m[33m8% [7 fontconfig-config 284 kB/317 kB 89%] [Waiting for headers] [Waiting for h[0m[33m8% [7 fontconfig-config 284 kB/317 kB 89%] [Waiting for headers] [Waiting for h[0m                                                                               Get:33 http://kali.download/kali kali-rolling/main amd64 libdav1d7 amd64 1.5.1-1 [559 kB]
+[33m8% [7 fontconfig-config 292 kB/317 kB 92%] [33 libdav1d7 20.5 kB/559 kB 4%] [Wa[0m[33m8% [7 fontconfig-config 292 kB/317 kB 92%] [33 libdav1d7 392 kB/559 kB 70%] [Wa[0m[33m8% [7 fontconfig-config 294 kB/317 kB 93%] [33 libdav1d7 559 kB/559 kB 100%] [W[0m[33m8% [7 fontconfig-config 294 kB/317 kB 93%] [33 libdav1d7 559 kB/559 kB 100%] [W[0m[33m                                                                               8% [7 fontconfig-config 295 kB/317 kB 93%] [Waiting for headers][0m[33m8% [7 fontconfig-config 298 kB/317 kB 94%] [Waiting for headers][0m                                                                Get:35 http://http.kali.org/kali kali-rolling/main amd64 libgsm1 amd64 1.0.22-1+b2 [29.3 kB]
+[33m8% [7 fontconfig-config 311 kB/317 kB 98%] [35 libgsm1 29.3 kB/29.3 kB 100%] [W[0m[33m9% [7 fontconfig-config 315 kB/317 kB 99%] [Waiting for headers] [Waiting for h[0m                                                                               Get:36 http://http.kali.org/kali kali-rolling/main amd64 libhwy1t64 amd64 1.2.0-2+b2 [676 kB]
+[33m9% [7 fontconfig-config 317 kB/317 kB 100%] [36 libhwy1t64 17.0 kB/676 kB 3%] [[0m                                                                               Get:11 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libbson-1.0-0t64 amd64 1.30.2-1 [87.4 kB]
+[33m9% [11 libbson-1.0-0t64 2267 B/87.4 kB 3%] [36 libhwy1t64 65.0 kB/676 kB 10%] [[0m[33m9% [11 libbson-1.0-0t64 6611 B/87.4 kB 8%] [Waiting for headers] [Waiting for h[0m                                                                               Get:37 http://kali.download/kali kali-rolling/main amd64 liblcms2-2 amd64 2.16-2 [160 kB]
+[33m9% [11 libbson-1.0-0t64 6611 B/87.4 kB 8%] [37 liblcms2-2 41.0 kB/160 kB 26%] [[0m[33m9% [11 libbson-1.0-0t64 13.7 kB/87.4 kB 16%] [Waiting for headers] [Waiting for[0m                                                                               Get:38 http://kali.download/kali kali-rolling/main amd64 libjxl0.11 amd64 0.11.1-4 [1132 kB]
+[33m9% [11 libbson-1.0-0t64 13.7 kB/87.4 kB 16%] [38 libjxl0.11 65.0 kB/1132 kB 6%][0m[33m10% [11 libbson-1.0-0t64 31.1 kB/87.4 kB 36%] [Waiting for headers] [Waiting fo[0m                                                                               Get:39 http://http.kali.org/kali kali-rolling/main amd64 libmp3lame0 amd64 3.100-6+b3 [363 kB]
+[33m10% [11 libbson-1.0-0t64 31.1 kB/87.4 kB 36%] [39 libmp3lame0 144 kB/363 kB 40%[0m[33m11% [11 libbson-1.0-0t64 32.6 kB/87.4 kB 37%] [Waiting for headers] [Waiting fo[0m                                                                               Get:40 http://kali.download/kali kali-rolling/main amd64 libopenjp2-7 amd64 2.5.3-2 [204 kB]
+[33m11% [11 libbson-1.0-0t64 32.6 kB/87.4 kB 37%] [40 libopenjp2-7 91.1 kB/204 kB 4[0m[33m11% [11 libbson-1.0-0t64 41.2 kB/87.4 kB 47%] [40 libopenjp2-7 204 kB/204 kB 10[0m[33m                                                                               11% [11 libbson-1.0-0t64 41.2 kB/87.4 kB 47%] [Waiting for headers][0m                                                                   Get:41 http://kali.download/kali kali-rolling/main amd64 libopus0 amd64 1.5.2-2 [2852 kB]
+[33m11% [11 libbson-1.0-0t64 64.4 kB/87.4 kB 74%] [41 libopus0 35.2 kB/2852 kB 1%] [0m[33m                                                                               13% [11 libbson-1.0-0t64 77.4 kB/87.4 kB 89%] [Waiting for headers][0m[33m                                                                   13% [Waiting for headers] [Waiting for headers][0m                                               Get:13 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libfbclient2 amd64 4.0.5.3140.ds6-17 [824 kB]
+[33m13% [13 libfbclient2 5773 B/824 kB 1%] [Waiting for headers][0m[33m13% [13 libfbclient2 10.1 kB/824 kB 1%] [Waiting for headers][0m[33m13% [13 libfbclient2 11.6 kB/824 kB 1%] [Waiting for headers][0m[33m13% [13 libfbclient2 11.6 kB/824 kB 1%] [Waiting for headers] [Waiting for head[0m[33m13% [Waiting for headers] [13 libfbclient2 20.3 kB/824 kB 2%] [Waiting for head[0m                                                                               Get:43 http://kali.download/kali kali-rolling/main amd64 libcairo-gobject2 amd64 1.18.2-2 [130 kB]
+[33m13% [Waiting for headers] [13 libfbclient2 20.3 kB/824 kB 2%] [43 libcairo-gobj[0m                                                                               Get:44 http://http.kali.org/kali kali-rolling/main amd64 libgdk-pixbuf2.0-common all 2.42.12+dfsg-2 [311 kB]
+[33m13% [44 libgdk-pixbuf2.0-common 28.7 kB/311 kB 9%] [13 libfbclient2 20.3 kB/824[0m[33m13% [44 libgdk-pixbuf2.0-common 208 kB/311 kB 67%] [13 libfbclient2 21.7 kB/824[0m[33m13% [44 libgdk-pixbuf2.0-common 208 kB/311 kB 67%] [13 libfbclient2 21.7 kB/824[0m[33m14% [44 libgdk-pixbuf2.0-common 311 kB/311 kB 100%] [13 libfbclient2 26.0 kB/82[0m[33m14% [13 libfbclient2 26.0 kB/824 kB 3%] [Waiting for headers] [Waiting for head[0m                                                                               Get:45 http://http.kali.org/kali kali-rolling/main amd64 shared-mime-info amd64 2.4-5+b2 [760 kB]
+[33m14% [Waiting for headers] [13 libfbclient2 26.0 kB/824 kB 3%] [45 shared-mime-i[0m[33m14% [Waiting for headers] [13 libfbclient2 27.5 kB/824 kB 3%] [45 shared-mime-i[0m[33m14% [Waiting for headers] [13 libfbclient2 30.4 kB/824 kB 4%] [45 shared-mime-i[0m[33m14% [Waiting for headers] [13 libfbclient2 34.7 kB/824 kB 4%] [45 shared-mime-i[0m[33m14% [Waiting for headers] [13 libfbclient2 34.7 kB/824 kB 4%] [Waiting for head[0m                                                                               Get:47 http://http.kali.org/kali kali-rolling/main amd64 libdeflate0 amd64 1.23-1+b1 [47.5 kB]
+[33m14% [47 libdeflate0 25.6 kB/47.5 kB 54%] [13 libfbclient2 34.7 kB/824 kB 4%] [W[0m[33m14% [13 libfbclient2 34.7 kB/824 kB 4%] [Waiting for headers] [Waiting for head[0m                                                                               Get:46 http://kali.download/kali kali-rolling/main amd64 libjpeg62-turbo amd64 1:2.1.5-3.1 [168 kB]
+[33m15% [Waiting for headers] [13 libfbclient2 42.0 kB/824 kB 5%] [46 libjpeg62-tur[0m[33m15% [Waiting for headers] [13 libfbclient2 42.0 kB/824 kB 5%] [Waiting for head[0m                                                                               Get:50 http://archive-4.kali.org/kali kali-rolling/main amd64 libsharpyuv0 amd64 1.5.0-0.1 [116 kB]
+[33m15% [13 libfbclient2 42.0 kB/824 kB 5%] [Waiting for headers] [Waiting for head[0m                                                                               Get:48 http://http.kali.org/kali kali-rolling/main amd64 libjbig0 amd64 2.1-6.1+b2 [32.1 kB]
+[33m15% [13 libfbclient2 42.0 kB/824 kB 5%] [48 libjbig0 32.1 kB/32.1 kB 100%] [Wai[0m[33m15% [13 libfbclient2 42.0 kB/824 kB 5%] [Waiting for headers] [Waiting for head[0m                                                                               Get:49 http://http.kali.org/kali kali-rolling/main amd64 liblerc4 amd64 4.0.0+ds-5 [183 kB]
+[33m15% [13 libfbclient2 42.0 kB/824 kB 5%] [49 liblerc4 88.2 kB/183 kB 48%] [Waiti[0m[33m15% [13 libfbclient2 49.2 kB/824 kB 6%] [49 liblerc4 154 kB/183 kB 84%] [Waitin[0m[33m                                                                               15% [13 libfbclient2 49.2 kB/824 kB 6%] [Waiting for headers][0m                                                             Get:51 http://kali.download/kali kali-rolling/main amd64 libwebp7 amd64 1.5.0-0.1 [318 kB]
+[33m15% [13 libfbclient2 56.4 kB/824 kB 7%] [51 libwebp7 36.5 kB/318 kB 11%] [Waiti[0m[33m                                                                               16% [13 libfbclient2 57.8 kB/824 kB 7%] [Waiting for headers][0m[33m16% [13 libfbclient2 66.5 kB/824 kB 8%] [Waiting for headers][0m[33m16% [13 libfbclient2 66.5 kB/824 kB 8%] [Waiting for headers][0m[33m16% [13 libfbclient2 66.5 kB/824 kB 8%] [Waiting for headers][0m[33m                                                             16% [13 libfbclient2 70.9 kB/824 kB 9%][0m                                       Get:54 http://archive-4.kali.org/kali kali-rolling/main amd64 libfribidi0 amd64 1.0.16-1 [26.5 kB]
+[33m16% [54 libfribidi0 14.2 kB/26.5 kB 54%] [13 libfbclient2 88.2 kB/824 kB 11%] [[0m                                                                               Get:52 http://kali.download/kali kali-rolling/main amd64 libtiff6 amd64 4.7.0-2 [345 kB]
+[33m16% [54 libfribidi0 14.2 kB/26.5 kB 54%] [13 libfbclient2 94.0 kB/824 kB 11%] [[0m[33m16% [13 libfbclient2 99.8 kB/824 kB 12%] [52 libtiff6 345 kB/345 kB 100%] [Wait[0m[33m                                                                               16% [13 libfbclient2 99.8 kB/824 kB 12%] [Waiting for headers][0m                                                              Get:61 http://archive-4.kali.org/kali kali-rolling/main amd64 libpangoft2-1.0-0 amd64 1.56.1-1 [55.3 kB]
+[33m16% [61 libpangoft2-1.0-0 22.9 kB/55.3 kB 41%] [13 libfbclient2 114 kB/824 kB 1[0m                                                                               Get:56 http://kali.download/kali kali-rolling/main amd64 libharfbuzz0b amd64 10.2.0-1 [479 kB]
+[33m16% [61 libpangoft2-1.0-0 28.7 kB/55.3 kB 52%] [13 libfbclient2 114 kB/824 kB 1[0m[33m17% [13 libfbclient2 122 kB/824 kB 15%] [56 libharfbuzz0b 479 kB/479 kB 100%] [[0m[33m17% [13 libfbclient2 122 kB/824 kB 15%] [Waiting for headers] [Waiting for head[0m                                                                               Get:57 http://kali.download/kali kali-rolling/main amd64 libthai-data all 0.1.29-2 [168 kB]
+[33m17% [13 libfbclient2 122 kB/824 kB 15%] [57 libthai-data 65.1 kB/168 kB 39%] [W[0m[33m17% [13 libfbclient2 127 kB/824 kB 15%] [Waiting for headers] [Waiting for head[0m                                                                               Get:58 http://http.kali.org/kali kali-rolling/main amd64 libdatrie1 amd64 0.2.13-3+b1 [38.1 kB]
+[33m17% [13 libfbclient2 135 kB/824 kB 16%] [58 libdatrie1 36.7 kB/38.1 kB 96%] [Wa[0m[33m17% [13 libfbclient2 135 kB/824 kB 16%] [Waiting for headers] [Waiting for head[0m                                                                               Get:59 http://http.kali.org/kali kali-rolling/main amd64 libthai0 amd64 0.1.29-2+b1 [49.4 kB]
+[33m17% [13 libfbclient2 148 kB/824 kB 18%] [59 libthai0 49.4 kB/49.4 kB 100%] [Wai[0m[33m17% [13 libfbclient2 158 kB/824 kB 19%] [Waiting for headers] [Waiting for head[0m                                                                               Get:60 http://kali.download/kali kali-rolling/main amd64 libpango-1.0-0 amd64 1.56.1-1 [226 kB]
+[33m17% [13 libfbclient2 158 kB/824 kB 19%] [60 libpango-1.0-0 64.0 kB/226 kB 28%] [0m[33m                                                                               18% [13 libfbclient2 165 kB/824 kB 20%] [Waiting for headers][0m[33m18% [13 libfbclient2 191 kB/824 kB 23%] [Waiting for headers][0m[33m18% [13 libfbclient2 200 kB/824 kB 24%] [Waiting for headers] [Waiting for head[0m[33m18% [13 libfbclient2 203 kB/824 kB 25%] [Waiting for headers] [Waiting for head[0m[33m18% [13 libfbclient2 203 kB/824 kB 25%] [Waiting for headers] [Waiting for head[0m[33m18% [13 libfbclient2 203 kB/824 kB 25%] [Waiting for headers] [Waiting for head[0m[33m18% [13 libfbclient2 211 kB/824 kB 26%] [Waiting for headers] [Waiting for head[0m                                                                               Get:62 http://kali.download/kali kali-rolling/main amd64 libpangocairo-1.0-0 amd64 1.56.1-1 [35.8 kB]
+[33m18% [13 libfbclient2 220 kB/824 kB 27%] [62 libpangocairo-1.0-0 35.8 kB/35.8 kB[0m[33m                                                                               18% [13 libfbclient2 220 kB/824 kB 27%] [Waiting for headers][0m[33m18% [13 libfbclient2 220 kB/824 kB 27%] [Waiting for headers] [Waiting for head[0m[33m18% [13 libfbclient2 233 kB/824 kB 28%] [Waiting for headers] [Waiting for head[0m                                                                               Get:63 http://http.kali.org/kali kali-rolling/main amd64 librsvg2-2 amd64 2.60.0+dfsg-1 [1789 kB]
+[33m18% [13 libfbclient2 272 kB/824 kB 33%] [63 librsvg2-2 9738 B/1789 kB 1%] [Wait[0m[33m19% [13 libfbclient2 291 kB/824 kB 35%] [Waiting for headers] [Waiting for head[0m                                                                               Get:64 http://http.kali.org/kali kali-rolling/main amd64 libshine3 amd64 3.1.1-2+b2 [23.1 kB]
+[33m19% [13 libfbclient2 291 kB/824 kB 35%] [Waiting for headers] [Waiting for head[0m                                                                               Get:65 http://kali.download/kali kali-rolling/main amd64 libsnappy1v5 amd64 1.2.2-1 [29.3 kB]
+[33m19% [13 libfbclient2 352 kB/824 kB 43%] [65 libsnappy1v5 29.3 kB/29.3 kB 100%] [0m[33m20% [13 libfbclient2 365 kB/824 kB 44%] [Waiting for headers] [Waiting for head[0m                                                                               Get:66 http://kali.download/kali kali-rolling/main amd64 libspeex1 amd64 1.2.1-3 [56.8 kB]
+[33m20% [13 libfbclient2 378 kB/824 kB 46%] [66 libspeex1 56.8 kB/56.8 kB 100%] [Wa[0m[33m20% [13 libfbclient2 381 kB/824 kB 46%] [Waiting for headers] [Waiting for head[0m                                                                               Get:67 http://http.kali.org/kali kali-rolling/main amd64 libsvtav1enc2 amd64 2.3.0+dfsg-1 [2489 kB]
+[33m20% [13 libfbclient2 381 kB/824 kB 46%] [67 libsvtav1enc2 64.1 kB/2489 kB 3%] [[0m[33m20% [13 libfbclient2 381 kB/824 kB 46%] [67 libsvtav1enc2 539 kB/2489 kB 22%] [[0m[33m22% [13 libfbclient2 408 kB/824 kB 50%] [Waiting for headers] [Waiting for head[0m                                                                               Get:68 http://http.kali.org/kali kali-rolling/main amd64 libsoxr0 amd64 0.1.3-4+b2 [81.0 kB]
+[33m22% [13 libfbclient2 408 kB/824 kB 50%] [68 libsoxr0 65.1 kB/81.0 kB 80%] [Wait[0m[33m22% [13 libfbclient2 408 kB/824 kB 50%] [Waiting for headers] [Waiting for head[0m                                                                               Get:69 http://http.kali.org/kali kali-rolling/main amd64 libswresample5 amd64 7:7.1.1-1+b1 [98.0 kB]
+[33m22% [13 libfbclient2 423 kB/824 kB 51%] [69 libswresample5 64.5 kB/98.0 kB 66%][0m[33m22% [13 libfbclient2 429 kB/824 kB 52%] [Waiting for headers] [Waiting for head[0m                                                                               Get:72 http://http.kali.org/kali kali-rolling/main amd64 libtheoraenc1 amd64 1.2.0~alpha1+dfsg-6 [108 kB]
+[33m22% [13 libfbclient2 429 kB/824 kB 52%] [72 libtheoraenc1 49.2 kB/108 kB 45%] [[0m[33m                                                                               22% [13 libfbclient2 436 kB/824 kB 53%] [Waiting for headers][0m[33m22% [13 libfbclient2 518 kB/824 kB 63%] [Waiting for headers][0m[33m22% [13 libfbclient2 531 kB/824 kB 65%] [Waiting for headers] [Waiting for head[0m[33m22% [13 libfbclient2 546 kB/824 kB 66%] [Waiting for headers] [Waiting for head[0m                                                                               Get:73 http://http.kali.org/kali kali-rolling/main amd64 libtwolame0 amd64 0.4.0-2+b2 [51.3 kB]
+[33m22% [13 libfbclient2 546 kB/824 kB 66%] [73 libtwolame0 51.3 kB/51.3 kB 100%] [[0m[33m                                                                               22% [13 libfbclient2 546 kB/824 kB 66%] [Waiting for headers][0m[33m22% [13 libfbclient2 546 kB/824 kB 66%] [Waiting for headers] [Waiting for head[0m[33m22% [Waiting for headers] [13 libfbclient2 553 kB/824 kB 67%] [Waiting for head[0m[33m22% [Waiting for headers] [13 libfbclient2 556 kB/824 kB 67%] [Waiting for head[0m[33m22% [Waiting for headers] [13 libfbclient2 556 kB/824 kB 67%] [Waiting for head[0m                                                                               Get:76 http://archive-4.kali.org/kali kali-rolling/main amd64 libvpx9 amd64 1.15.0-2 [1115 kB]
+[33m22% [76 libvpx9 41.7 kB/1115 kB 4%] [13 libfbclient2 556 kB/824 kB 67%] [Waitin[0m[33m22% [76 libvpx9 41.7 kB/1115 kB 4%] [13 libfbclient2 556 kB/824 kB 67%] [Waitin[0m[33m22% [76 libvpx9 41.7 kB/1115 kB 4%] [13 libfbclient2 566 kB/824 kB 69%] [Waitin[0m                                                                               Get:74 http://http.kali.org/kali kali-rolling/main amd64 libvorbis0a amd64 1.3.7-2+b1 [91.1 kB]
+[33m22% [76 libvpx9 41.7 kB/1115 kB 4%] [13 libfbclient2 568 kB/824 kB 69%] [74 lib[0m[33m23% [76 libvpx9 41.7 kB/1115 kB 4%] [13 libfbclient2 568 kB/824 kB 69%] [Waitin[0m                                                                               Get:75 http://http.kali.org/kali kali-rolling/main amd64 libvorbisenc2 amd64 1.3.7-2+b1 [76.1 kB]
+[33m23% [76 libvpx9 126 kB/1115 kB 11%] [13 libfbclient2 568 kB/824 kB 69%] [75 lib[0m[33m23% [76 libvpx9 126 kB/1115 kB 11%] [13 libfbclient2 568 kB/824 kB 69%] [Waitin[0m                                                                               Get:77 http://kali.download/kali kali-rolling/main amd64 libwebpmux3 amd64 1.5.0-0.1 [126 kB]
+[33m23% [76 libvpx9 294 kB/1115 kB 26%] [13 libfbclient2 575 kB/824 kB 70%] [77 lib[0m[33m23% [76 libvpx9 295 kB/1115 kB 26%] [13 libfbclient2 576 kB/824 kB 70%] [Waitin[0m                                                                               Get:79 http://http.kali.org/kali kali-rolling/main amd64 libnuma1 amd64 2.0.18-1+b1 [22.3 kB]
+[33m23% [76 libvpx9 295 kB/1115 kB 26%] [13 libfbclient2 576 kB/824 kB 70%] [79 lib[0m[33m23% [76 libvpx9 295 kB/1115 kB 26%] [13 libfbclient2 576 kB/824 kB 70%] [Waitin[0m                                                                               Get:80 http://kali.download/kali kali-rolling/main amd64 libx265-215 amd64 4.1-2 [1237 kB]
+[33m23% [76 libvpx9 491 kB/1115 kB 44%] [13 libfbclient2 579 kB/824 kB 70%] [80 lib[0m[33m25% [76 libvpx9 717 kB/1115 kB 64%] [13 libfbclient2 582 kB/824 kB 71%] [Waitin[0m[33m                                                                               25% [13 libfbclient2 582 kB/824 kB 71%] [Waiting for headers][0m[33m25% [Waiting for headers] [13 libfbclient2 594 kB/824 kB 72%] [Waiting for head[0m                                                                               Get:78 http://http.kali.org/kali kali-rolling/main amd64 libx264-164 amd64 2:0.164.3108+git31e19f9-2+b1 [558 kB]
+[33m25% [78 libx264-164 41.1 kB/558 kB 7%] [13 libfbclient2 594 kB/824 kB 72%] [Wai[0m[33m25% [13 libfbclient2 599 kB/824 kB 73%] [Waiting for headers] [Waiting for head[0m                                                                               Get:82 http://kali.download/kali kali-rolling/main amd64 libzvbi-common all 0.2.44-1 [71.4 kB]
+[33m25% [13 libfbclient2 605 kB/824 kB 73%] [82 libzvbi-common 65.1 kB/71.4 kB 91%][0m[33m                                                                               26% [13 libfbclient2 605 kB/824 kB 73%] [Waiting for headers][0m[33m26% [13 libfbclient2 730 kB/824 kB 89%] [Waiting for headers][0m[33m26% [Waiting for headers] [13 libfbclient2 738 kB/824 kB 90%] [Waiting for head[0m[33m26% [Waiting for headers] [13 libfbclient2 738 kB/824 kB 90%] [Waiting for head[0m                                                                               Get:83 http://archive-4.kali.org/kali kali-rolling/main amd64 libzvbi0t64 amd64 0.2.44-1 [278 kB]
+[33m26% [83 libzvbi0t64 47.5 kB/278 kB 17%] [13 libfbclient2 738 kB/824 kB 90%] [Wa[0m[33m26% [83 libzvbi0t64 269 kB/278 kB 97%] [13 libfbclient2 747 kB/824 kB 91%] [Wai[0m[33m26% [13 libfbclient2 747 kB/824 kB 91%] [Waiting for headers] [Waiting for head[0m[33m26% [13 libfbclient2 756 kB/824 kB 92%] [Waiting for headers] [Waiting for head[0m[33m26% [13 libfbclient2 769 kB/824 kB 93%] [Waiting for headers] [Waiting for head[0m[33m26% [Waiting for headers] [13 libfbclient2 782 kB/824 kB 95%] [Waiting for head[0m                                                                               Get:86 http://http.kali.org/kali kali-rolling/main amd64 libcjson1 amd64 1.7.18-3+b1 [29.9 kB]
+[33m26% [Waiting for headers] [13 libfbclient2 782 kB/824 kB 95%] [86 libcjson1 29.[0m[33m26% [Waiting for headers] [13 libfbclient2 782 kB/824 kB 95%] [Waiting for head[0m[33m26% [Waiting for headers] [13 libfbclient2 782 kB/824 kB 95%] [Waiting for head[0m[33m26% [Waiting for headers] [13 libfbclient2 795 kB/824 kB 97%] [Waiting for head[0m                                                                               Get:88 http://http.kali.org/kali kali-rolling/main amd64 liburiparser1 amd64 0.9.8+dfsg-2 [45.5 kB]
+[33m26% [88 liburiparser1 45.5 kB/45.5 kB 100%] [13 libfbclient2 821 kB/824 kB 100%[0m[33m26% [13 libfbclient2 821 kB/824 kB 100%] [Waiting for headers] [Waiting for hea[0m                                                                               Get:87 http://kali.download/kali kali-rolling/main amd64 libicu72 amd64 72.1-6 [9421 kB]
+[33m26% [Waiting for headers] [13 libfbclient2 821 kB/824 kB 100%] [87 libicu72 49.[0m[33m27% [Waiting for headers] [Waiting for headers] [87 libicu72 1294 kB/9421 kB 14[0m                                                                               Get:15 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libdrm-common all 2.4.124-1 [8180 B]
+[33m27% [Waiting for headers] [15 libdrm-common 8180 B/8180 B 100%] [87 libicu72 12[0m[33m27% [Waiting for headers] [87 libicu72 1294 kB/9421 kB 14%] [Waiting for header[0m                                                                               Get:21 http://http.kali.org/kali kali-rolling/main amd64 libxfixes3 amd64 1:6.0.0-2+b4 [20.2 kB]
+[33m27% [Waiting for headers] [21 libxfixes3 1741 B/20.2 kB 9%] [87 libicu72 1294 k[0m                                                                               Get:90 http://http.kali.org/kali kali-rolling/main amd64 libxkbfile1 amd64 1:1.1.0-1+b4 [76.5 kB]
+[33m28% [90 libxkbfile1 65.3 kB/76.5 kB 85%] [21 libxfixes3 15.2 kB/20.2 kB 75%] [8[0m[33m28% [21 libxfixes3 15.2 kB/20.2 kB 75%] [87 libicu72 2112 kB/9421 kB 22%] [Wait[0m[33m29% [Waiting for headers] [87 libicu72 3171 kB/9421 kB 34%] [Waiting for header[0m                                                                               Get:31 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libcairo2 amd64 1.18.2-2 [535 kB]
+[33m29% [31 libcairo2 12.1 kB/535 kB 2%] [87 libicu72 3195 kB/9421 kB 34%] [Waiting[0m[33m30% [31 libcairo2 29.5 kB/535 kB 6%] [87 libicu72 4751 kB/9421 kB 50%] [Waiting[0m[33m33% [31 libcairo2 89.2 kB/535 kB 17%] [Waiting for headers] [Waiting for header[0m                                                                               Get:89 http://http.kali.org/kali kali-rolling/main amd64 libwinpr3-3 amd64 3.12.0+dfsg-1 [362 kB]
+[33m33% [31 libcairo2 89.2 kB/535 kB 17%] [89 libwinpr3-3 131 kB/362 kB 36%] [Waiti[0m[33m34% [31 libcairo2 89.2 kB/535 kB 17%] [Waiting for headers] [Waiting for header[0m                                                                               Get:92 http://kali.download/kali kali-rolling/main amd64 libgpg-error0 amd64 1.51-3 [82.2 kB]
+[33m34% [31 libcairo2 105 kB/535 kB 20%] [92 libgpg-error0 41.0 kB/82.2 kB 50%] [Wa[0m[33m                                                                               34% [31 libcairo2 105 kB/535 kB 20%] [Waiting for headers][0m[33m34% [31 libcairo2 125 kB/535 kB 23%] [Waiting for headers][0m[33m34% [31 libcairo2 134 kB/535 kB 25%] [Waiting for headers] [Waiting for headers[0m                                                                               Get:93 http://kali.download/kali kali-rolling/main amd64 libgcrypt20 amd64 1.11.0-7 [843 kB]
+[33m34% [Waiting for headers] [31 libcairo2 138 kB/535 kB 26%] [93 libgcrypt20 64.1[0m[33m34% [Waiting for headers] [31 libcairo2 143 kB/535 kB 27%] [93 libgcrypt20 331 [0m[33m34% [Waiting for headers] [31 libcairo2 143 kB/535 kB 27%] [93 libgcrypt20 843 [0m[33m34% [Waiting for headers] [31 libcairo2 143 kB/535 kB 27%] [Waiting for headers[0m                                                                               Get:94 http://archive-4.kali.org/kali kali-rolling/main amd64 libidn12 amd64 1.43-1 [47.7 kB]
+[33m34% [94 libidn12 20.0 kB/47.7 kB 42%] [31 libcairo2 150 kB/535 kB 28%] [Waiting[0m[33m35% [94 libidn12 47.7 kB/47.7 kB 100%] [31 libcairo2 159 kB/535 kB 30%] [Waitin[0m[33m35% [31 libcairo2 159 kB/535 kB 30%] [Waiting for headers] [Waiting for headers[0m[33m35% [Waiting for headers] [31 libcairo2 169 kB/535 kB 32%] [Waiting for headers[0m                                                                               Get:97 http://archive-4.kali.org/kali kali-rolling/main amd64 libmariadb3 amd64 1:11.8.1-2 [187 kB]
+[33m35% [97 libmariadb3 54.8 kB/187 kB 29%] [31 libcairo2 169 kB/535 kB 32%] [Waiti[0m[33m35% [31 libcairo2 179 kB/535 kB 33%] [Waiting for headers] [Waiting for headers[0m[33m35% [31 libcairo2 183 kB/535 kB 34%] [Waiting for headers] [Waiting for headers[0m[33m35% [31 libcairo2 183 kB/535 kB 34%] [Waiting for headers] [Waiting for headers[0m[33m35% [31 libcairo2 195 kB/535 kB 36%] [Waiting for headers] [Waiting for headers[0m                                                                               Get:96 http://kali.download/kali kali-rolling/main amd64 mariadb-common all 1:11.8.1-2 [28.9 kB]
+[33m35% [31 libcairo2 228 kB/535 kB 43%] [96 mariadb-common 28.9 kB/28.9 kB 100%] [[0m[33m                                                                               35% [31 libcairo2 228 kB/535 kB 43%] [Waiting for headers][0m[33m35% [31 libcairo2 235 kB/535 kB 44%] [Waiting for headers] [Waiting for headers[0m                                                                               Get:98 http://http.kali.org/kali kali-rolling/main amd64 libhashkit2t64 amd64 1.1.4-1.1+b2 [18.8 kB]
+[33m35% [31 libcairo2 251 kB/535 kB 47%] [98 libhashkit2t64 18.8 kB/18.8 kB 100%] [[0m[33m35% [31 libcairo2 251 kB/535 kB 47%] [Waiting for headers] [Waiting for headers[0m                                                                               Get:99 http://http.kali.org/kali kali-rolling/main amd64 libmemcached11t64 amd64 1.1.4-1.1+b2 [81.9 kB]
+[33m35% [31 libcairo2 262 kB/535 kB 49%] [99 libmemcached11t64 40.2 kB/81.9 kB 49%][0m[33m35% [31 libcairo2 262 kB/535 kB 49%] [Waiting for headers] [Waiting for headers[0m                                                                               Get:100 http://kali.download/kali kali-rolling/main amd64 libmongocrypt0 amd64 1.13.0-1 [1371 kB]
+[33m35% [31 libcairo2 262 kB/535 kB 49%] [100 libmongocrypt0 65.0 kB/1371 kB 5%] [W[0m[33m36% [31 libcairo2 269 kB/535 kB 50%] [Waiting for headers] [Waiting for headers[0m                                                                               Get:101 http://http.kali.org/kali kali-rolling/main amd64 libutf8proc3 amd64 2.9.0-1+b2 [61.0 kB]
+[33m37% [31 libcairo2 269 kB/535 kB 50%] [Waiting for headers] [Waiting for headers[0m                                                                               Get:102 http://kali.download/kali kali-rolling/main amd64 libmongoc-1.0-0t64 amd64 1.30.2-1 [389 kB]
+[33m37% [31 libcairo2 272 kB/535 kB 51%] [102 libmongoc-1.0-0t64 97.8 kB/389 kB 25%[0m[33m                                                                               37% [31 libcairo2 272 kB/535 kB 51%] [Waiting for headers][0m[33m37% [31 libcairo2 308 kB/535 kB 58%] [Waiting for headers][0m[33m37% [31 libcairo2 317 kB/535 kB 59%] [Waiting for headers] [Waiting for headers[0m                                                                               Get:103 http://kali.download/kali kali-rolling/main amd64 libpq5 amd64 17.4-2 [227 kB]
+[33m37% [31 libcairo2 317 kB/535 kB 59%] [103 libpq5 35.6 kB/227 kB 16%] [Waiting f[0m[33m37% [31 libcairo2 318 kB/535 kB 59%] [103 libpq5 215 kB/227 kB 94%] [Waiting fo[0m[33m37% [Waiting for headers] [31 libcairo2 318 kB/535 kB 59%] [Waiting for headers[0m[33m37% [Waiting for headers] [31 libcairo2 318 kB/535 kB 59%] [Waiting for headers[0m[33m37% [Waiting for headers] [31 libcairo2 318 kB/535 kB 59%] [Waiting for headers[0m[33m37% [Waiting for headers] [31 libcairo2 331 kB/535 kB 62%] [Waiting for headers[0m                                                                               Get:105 http://http.kali.org/kali kali-rolling/main amd64 libaprutil1t64 amd64 1.6.3-3+b1 [89.4 kB]
+[33m37% [105 libaprutil1t64 25.7 kB/89.4 kB 29%] [31 libcairo2 331 kB/535 kB 62%] [[0m[33m38% [31 libcairo2 337 kB/535 kB 63%] [Waiting for headers] [Waiting for headers[0m[33m38% [31 libcairo2 337 kB/535 kB 63%] [Waiting for headers] [Waiting for headers[0m[33m38% [31 libcairo2 337 kB/535 kB 63%] [Waiting for headers] [Waiting for headers[0m                                                                               Get:106 http://http.kali.org/kali kali-rolling/main amd64 libserf-1-1 amd64 1.3.10-3+b1 [53.0 kB]
+[33m38% [31 libcairo2 340 kB/535 kB 64%] [106 libserf-1-1 53.0 kB/53.0 kB 100%] [Wa[0m[33m38% [31 libcairo2 340 kB/535 kB 64%] [106 libserf-1-1 53.0 kB/53.0 kB 100%] [Wa[0m[33m                                                                               38% [31 libcairo2 340 kB/535 kB 64%] [Waiting for headers][0m                                                          Get:107 http://kali.download/kali kali-rolling/main amd64 libsvn1 amd64 1.14.5-3 [1423 kB]
+[33m38% [31 libcairo2 347 kB/535 kB 65%] [107 libsvn1 65.0 kB/1423 kB 5%] [Waiting [0m[33m39% [31 libcairo2 357 kB/535 kB 67%] [Waiting for headers] [Waiting for headers[0m                                                                               Get:108 http://kali.download/kali kali-rolling/main amd64 hydra amd64 9.5-3 [274 kB]
+[33m39% [31 libcairo2 357 kB/535 kB 67%] [108 hydra 35.7 kB/274 kB 13%] [Waiting fo[0m[33m39% [31 libcairo2 361 kB/535 kB 68%] [Waiting for headers] [Waiting for headers[0m[33m39% [31 libcairo2 361 kB/535 kB 68%] [Waiting for headers] [Waiting for headers[0m                                                                               Get:109 http://http.kali.org/kali kali-rolling/main amd64 libpciaccess0 amd64 0.17-3+b3 [51.9 kB]
+[33m39% [31 libcairo2 361 kB/535 kB 68%] [109 libpciaccess0 51.9 kB/51.9 kB 100%] [[0m[33m39% [Waiting for headers] [31 libcairo2 361 kB/535 kB 68%] [Waiting for headers[0m                                                                               Get:110 http://kali.download/kali kali-rolling/main amd64 libdrm-intel1 amd64 2.4.124-1 [63.8 kB]
+[33m39% [Waiting for headers] [31 libcairo2 370 kB/535 kB 69%] [110 libdrm-intel1 5[0m[33m39% [Waiting for headers] [31 libcairo2 370 kB/535 kB 69%] [Waiting for headers[0m                                                                               Get:112 http://http.kali.org/kali kali-rolling/main amd64 libigdgmm12 amd64 22.7.1+ds1-1 [177 kB]
+[33m39% [112 libigdgmm12 53.3 kB/177 kB 30%] [31 libcairo2 374 kB/535 kB 70%] [Wait[0m                                                                               Get:111 http://http.kali.org/kali kali-rolling/main amd64 i965-va-driver amd64 2.4.1+dfsg1-2 [315 kB]
+[33m40% [112 libigdgmm12 177 kB/177 kB 100%] [31 libcairo2 374 kB/535 kB 70%] [111 [0m[33m40% [31 libcairo2 374 kB/535 kB 70%] [111 i965-va-driver 156 kB/315 kB 49%] [Wa[0m[33m                                                                               40% [31 libcairo2 374 kB/535 kB 70%] [Waiting for headers][0m[33m40% [31 libcairo2 469 kB/535 kB 88%] [Waiting for headers][0m[33m40% [31 libcairo2 479 kB/535 kB 90%] [Waiting for headers] [Waiting for headers[0m                                                                               Get:113 http://http.kali.org/kali kali-rolling/main amd64 intel-media-va-driver amd64 25.1.4+dfsg1-1 [3451 kB]
+[33m40% [31 libcairo2 485 kB/535 kB 91%] [113 intel-media-va-driver 50.3 kB/3451 kB[0m[33m40% [31 libcairo2 492 kB/535 kB 92%] [113 intel-media-va-driver 504 kB/3451 kB [0m[33m41% [31 libcairo2 492 kB/535 kB 92%] [113 intel-media-va-driver 1020 kB/3451 kB[0m[33m41% [Waiting for headers] [31 libcairo2 496 kB/535 kB 93%] [113 intel-media-va-[0m[33m41% [Waiting for headers] [31 libcairo2 496 kB/535 kB 93%] [113 intel-media-va-[0m[33m42% [Waiting for headers] [31 libcairo2 496 kB/535 kB 93%] [113 intel-media-va-[0m                                                                               Get:116 http://archive-4.kali.org/kali kali-rolling/main amd64 libwayland-server0 amd64 1.23.1-3 [34.4 kB]
+[33m42% [116 libwayland-server0 24.4 kB/34.4 kB 71%] [31 libcairo2 496 kB/535 kB 93[0m[33m42% [31 libcairo2 496 kB/535 kB 93%] [113 intel-media-va-driver 2419 kB/3451 kB[0m[33m42% [31 libcairo2 496 kB/535 kB 93%] [113 intel-media-va-driver 2475 kB/3451 kB[0m[33m42% [Waiting for headers] [31 libcairo2 496 kB/535 kB 93%] [113 intel-media-va-[0m                                                                               Get:118 http://archive-4.kali.org/kali kali-rolling/main amd64 libllvm19 amd64 1:19.1.7-3 [26.0 MB]
+[33m43% [118 libllvm19 35.9 kB/26.0 MB 0%] [31 libcairo2 509 kB/535 kB 95%] [113 in[0m[33m43% [118 libllvm19 127 kB/26.0 MB 0%] [31 libcairo2 509 kB/535 kB 95%] [Waiting[0m                                                                               Get:114 http://kali.download/kali kali-rolling/main amd64 libdrm-amdgpu1 amd64 2.4.124-1 [22.4 kB]
+[33m43% [118 libllvm19 860 kB/26.0 MB 3%] [31 libcairo2 509 kB/535 kB 95%] [114 lib[0m[33m43% [118 libllvm19 1035 kB/26.0 MB 4%] [31 libcairo2 509 kB/535 kB 95%] [Waitin[0m                                                                               Get:115 http://kali.download/kali kali-rolling/main amd64 libelf1t64 amd64 0.192-4 [189 kB]
+[33m44% [118 libllvm19 1469 kB/26.0 MB 6%] [31 libcairo2 516 kB/535 kB 97%] [115 li[0m[33m44% [118 libllvm19 1603 kB/26.0 MB 6%] [31 libcairo2 516 kB/535 kB 97%] [Waitin[0m                                                                               Get:117 http://kali.download/kali kali-rolling/main amd64 libz3-4 amd64 4.13.3-1 [8560 kB]
+[33m44% [118 libllvm19 1642 kB/26.0 MB 6%] [31 libcairo2 516 kB/535 kB 97%] [117 li[0m[33m46% [118 libllvm19 2608 kB/26.0 MB 10%] [31 libcairo2 519 kB/535 kB 97%] [117 l[0m[33m51% [118 libllvm19 5257 kB/26.0 MB 20%] [Waiting for headers] [117 libz3-4 7321[0m                                                                               Get:32 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libcodec2-1.2 amd64 1.2.0-3 [8170 kB]
+[33m51% [118 libllvm19 5295 kB/26.0 MB 20%] [32 libcodec2-1.2 3372 B/8170 kB 0%] [1[0m[33m52% [118 libllvm19 5747 kB/26.0 MB 22%] [32 libcodec2-1.2 3372 B/8170 kB 0%] [1[0m[33m53% [118 libllvm19 5943 kB/26.0 MB 23%] [32 libcodec2-1.2 3372 B/8170 kB 0%] [W[0m[33m53% [118 libllvm19 6015 kB/26.0 MB 23%] [32 libcodec2-1.2 3372 B/8170 kB 0%] [W[0m                                                                               Get:119 http://kali.download/kali kali-rolling/main amd64 libsensors-config all 1:3.6.0-10 [14.6 kB]
+[33m53% [118 libllvm19 6042 kB/26.0 MB 23%] [32 libcodec2-1.2 3372 B/8170 kB 0%] [1[0m[33m53% [118 libllvm19 6138 kB/26.0 MB 24%] [32 libcodec2-1.2 10.6 kB/8170 kB 0%] [[0m                                                                               Get:120 http://http.kali.org/kali kali-rolling/main amd64 libsensors5 amd64 1:3.6.0-10+b1 [35.1 kB]
+[33m53% [118 libllvm19 6158 kB/26.0 MB 24%] [32 libcodec2-1.2 10.6 kB/8170 kB 0%] [[0m[33m53% [118 libllvm19 6296 kB/26.0 MB 24%] [32 libcodec2-1.2 10.6 kB/8170 kB 0%] [[0m[33m53% [118 libllvm19 6296 kB/26.0 MB 24%] [32 libcodec2-1.2 10.6 kB/8170 kB 0%] [[0m[33m53% [118 libllvm19 6475 kB/26.0 MB 25%] [32 libcodec2-1.2 10.6 kB/8170 kB 0%] [[0m                                                                               Get:121 http://http.kali.org/kali kali-rolling/main amd64 libxcb-present0 amd64 1.17.0-2+b1 [106 kB]
+[33m53% [118 libllvm19 6495 kB/26.0 MB 25%] [32 libcodec2-1.2 10.6 kB/8170 kB 0%] [[0m[33m53% [118 libllvm19 6540 kB/26.0 MB 25%] [32 libcodec2-1.2 10.6 kB/8170 kB 0%] [[0m[33m54% [118 libllvm19 6664 kB/26.0 MB 26%] [32 libcodec2-1.2 10.6 kB/8170 kB 0%] [[0m                                                                               Get:122 http://http.kali.org/kali kali-rolling/main amd64 libxcb-randr0 amd64 1.17.0-2+b1 [117 kB]
+[33m54% [118 libllvm19 7269 kB/26.0 MB 28%] [32 libcodec2-1.2 25.1 kB/8170 kB 0%] [[0m[33m54% [118 libllvm19 7677 kB/26.0 MB 30%] [32 libcodec2-1.2 25.1 kB/8170 kB 0%] [[0m                                                                               Get:125 http://http.kali.org/kali kali-rolling/main amd64 libxshmfence1 amd64 1.3-1+b3 [8852 B]
+[33m55% [118 libllvm19 8484 kB/26.0 MB 33%] [32 libcodec2-1.2 30.9 kB/8170 kB 0%] [[0m[33m55% [118 libllvm19 8572 kB/26.0 MB 33%] [32 libcodec2-1.2 30.9 kB/8170 kB 0%] [[0m                                                                               Get:126 http://kali.download/kali kali-rolling/main amd64 mesa-libgallium amd64 25.0.3-1 [9624 kB]
+[33m55% [118 libllvm19 8947 kB/26.0 MB 34%] [32 libcodec2-1.2 38.1 kB/8170 kB 0%] [[0m[33m60% [118 libllvm19 11.8 MB/26.0 MB 45%] [32 libcodec2-1.2 72.8 kB/8170 kB 1%] [[0m[33m66% [118 libllvm19 16.6 MB/26.0 MB 64%] [32 libcodec2-1.2 98.9 kB/8170 kB 1%] [[0m[33m66% [118 libllvm19 16.8 MB/26.0 MB 64%] [32 libcodec2-1.2 98.9 kB/8170 kB 1%] [[0m[33m66% [118 libllvm19 16.9 MB/26.0 MB 65%] [32 libcodec2-1.2 112 kB/8170 kB 1%] [1[0m[33m66% [118 libllvm19 17.0 MB/26.0 MB 65%] [32 libcodec2-1.2 112 kB/8170 kB 1%] [1[0m[33m66% [118 libllvm19 17.1 MB/26.0 MB 66%] [32 libcodec2-1.2 112 kB/8170 kB 1%] [1[0m[33m67% [118 libllvm19 17.3 MB/26.0 MB 66%] [32 libcodec2-1.2 112 kB/8170 kB 1%] [1[0m[33m67% [118 libllvm19 17.6 MB/26.0 MB 68%] [32 libcodec2-1.2 112 kB/8170 kB 1%] [1[0m[33m67% [118 libllvm19 17.7 MB/26.0 MB 68%] [32 libcodec2-1.2 112 kB/8170 kB 1%] [1[0m[33m68% [118 libllvm19 18.4 MB/26.0 MB 71%] [32 libcodec2-1.2 116 kB/8170 kB 1%] [W[0m                                                                               Get:127 http://kali.download/kali kali-rolling/main amd64 libgbm1 amd64 25.0.3-1 [44.2 kB]
+[33m68% [118 libllvm19 18.4 MB/26.0 MB 71%] [32 libcodec2-1.2 116 kB/8170 kB 1%] [1[0m[33m68% [118 libllvm19 18.4 MB/26.0 MB 71%] [32 libcodec2-1.2 116 kB/8170 kB 1%] [W[0m                                                                               Get:130 http://http.kali.org/kali kali-rolling/main amd64 libxcb-glx0 amd64 1.17.0-2+b1 [122 kB]
+[33m68% [118 libllvm19 18.7 MB/26.0 MB 72%] [32 libcodec2-1.2 116 kB/8170 kB 1%] [1[0m[33m68% [118 libllvm19 18.8 MB/26.0 MB 72%] [32 libcodec2-1.2 116 kB/8170 kB 1%] [W[0m                                                                               Get:133 http://kali.download/kali kali-rolling/main amd64 libgl1-mesa-dri amd64 25.0.3-1 [45.7 kB]
+[33m69% [118 libllvm19 20.0 MB/26.0 MB 77%] [32 libcodec2-1.2 123 kB/8170 kB 2%] [1[0m[33m69% [118 libllvm19 20.1 MB/26.0 MB 77%] [32 libcodec2-1.2 123 kB/8170 kB 2%] [W[0m                                                                               Get:135 http://http.kali.org/kali kali-rolling/main amd64 libglx0 amd64 1.7.0-1+b2 [34.9 kB]
+[33m70% [118 libllvm19 20.4 MB/26.0 MB 79%] [32 libcodec2-1.2 123 kB/8170 kB 2%] [1[0m[33m70% [118 libllvm19 20.4 MB/26.0 MB 79%] [32 libcodec2-1.2 123 kB/8170 kB 2%] [W[0m                                                                               Get:137 http://kali.download/kali kali-rolling/main amd64 libglib2.0-data all 2.83.3-2 [1282 kB]
+[33m70% [118 libllvm19 20.5 MB/26.0 MB 79%] [32 libcodec2-1.2 131 kB/8170 kB 2%] [1[0m[33m72% [118 libllvm19 22.8 MB/26.0 MB 88%] [32 libcodec2-1.2 138 kB/8170 kB 2%] [W[0m                                                                               Get:138 http://kali.download/kali kali-rolling/main amd64 libgpg-error-l10n all 1.51-3 [114 kB]
+[33m72% [118 libllvm19 22.9 MB/26.0 MB 88%] [32 libcodec2-1.2 138 kB/8170 kB 2%] [1[0m[33m73% [118 libllvm19 22.9 MB/26.0 MB 88%] [32 libcodec2-1.2 138 kB/8170 kB 2%] [W[0m[33m73% [118 libllvm19 23.0 MB/26.0 MB 88%] [32 libcodec2-1.2 138 kB/8170 kB 2%] [W[0m                                                                               Get:139 http://http.kali.org/kali kali-rolling/main amd64 librsvg2-common amd64 2.60.0+dfsg-1 [154 kB]
+[33m73% [118 libllvm19 23.3 MB/26.0 MB 90%] [32 libcodec2-1.2 138 kB/8170 kB 2%] [1[0m[33m73% [118 libllvm19 23.5 MB/26.0 MB 90%] [32 libcodec2-1.2 138 kB/8170 kB 2%] [W[0m[33m                                                                               75% [32 libcodec2-1.2 163 kB/8170 kB 2%] [Waiting for headers][0m                                                              Get:123 http://http.kali.org/kali kali-rolling/main amd64 libxcb-sync1 amd64 1.17.0-2+b1 [109 kB]
+[33m75% [123 libxcb-sync1 64.9 kB/109 kB 60%] [32 libcodec2-1.2 184 kB/8170 kB 2%] [0m[33m75% [Waiting for headers] [32 libcodec2-1.2 184 kB/8170 kB 2%] [Waiting for hea[0m                                                                               Get:124 http://http.kali.org/kali kali-rolling/main amd64 libxcb-xfixes0 amd64 1.17.0-2+b1 [109 kB]
+[33m75% [124 libxcb-xfixes0 109 kB/109 kB 100%] [32 libcodec2-1.2 184 kB/8170 kB 2%[0m                                                                               Get:128 http://http.kali.org/kali kali-rolling/main amd64 libgdk-pixbuf2.0-bin amd64 2.42.12+dfsg-2 [18.5 kB]
+[33m75% [128 libgdk-pixbuf2.0-bin 18.5 kB/18.5 kB 100%] [32 libcodec2-1.2 184 kB/81[0m                                                                               Get:129 http://http.kali.org/kali kali-rolling/main amd64 libglvnd0 amd64 1.7.0-1+b2 [52.0 kB]
+[33m76% [129 libglvnd0 51.6 kB/52.0 kB 99%] [32 libcodec2-1.2 184 kB/8170 kB 2%] [W[0m[33m76% [Waiting for headers] [32 libcodec2-1.2 229 kB/8170 kB 3%] [Waiting for hea[0m                                                                               Get:140 http://archive-4.kali.org/kali kali-rolling/main amd64 libvdpau-va-gl1 amd64 0.4.2-2 [74.3 kB]
+                                                                               Get:141 http://archive-4.kali.org/kali kali-rolling/main amd64 libwayland-client0 amd64 1.23.1-3 [26.8 kB]
+[33m76% [141 libwayland-client0 25.9 kB/26.8 kB 97%] [32 libcodec2-1.2 241 kB/8170 [0m[33m                                                                               76% [32 libcodec2-1.2 241 kB/8170 kB 3%] [Waiting for headers][0m[33m76% [32 libcodec2-1.2 241 kB/8170 kB 3%] [Waiting for headers][0m[33m76% [32 libcodec2-1.2 252 kB/8170 kB 3%] [Waiting for headers][0m                                                              Get:144 http://kali.download/kali kali-rolling/main amd64 mesa-vulkan-drivers amd64 25.0.3-1 [14.2 MB]
+[33m76% [32 libcodec2-1.2 273 kB/8170 kB 3%] [144 mesa-vulkan-drivers 45.1 kB/14.2 [0m[33m                                                                               85% [32 libcodec2-1.2 536 kB/8170 kB 7%][0m                                        Get:145 http://kali.download/kali kali-rolling/main amd64 va-driver-all amd64 2.22.0-3 [14.9 kB]
+[33m85% [32 libcodec2-1.2 575 kB/8170 kB 7%] [145 va-driver-all 14.9 kB/14.9 kB 100[0m[33m                                                                               86% [32 libcodec2-1.2 575 kB/8170 kB 7%] [Waiting for headers][0m                                                              Get:147 http://kali.download/kali kali-rolling/main amd64 xdg-user-dirs amd64 0.18-2 [53.2 kB]
+[33m86% [32 libcodec2-1.2 575 kB/8170 kB 7%] [147 xdg-user-dirs 53.2 kB/53.2 kB 100[0m[33m                                                                               86% [32 libcodec2-1.2 575 kB/8170 kB 7%][0m[33m86% [32 libcodec2-1.2 1159 kB/8170 kB 14%][0m[33m86% [32 libcodec2-1.2 1739 kB/8170 kB 21%]                         16.9 MB/s 1s[0m[33m87% [32 libcodec2-1.2 1987 kB/8170 kB 24%]                         16.9 MB/s 0s[0m[33m87% [32 libcodec2-1.2 2148 kB/8170 kB 26%]                         16.9 MB/s 0s[0m[33m87% [32 libcodec2-1.2 2504 kB/8170 kB 31%]                         16.9 MB/s 0s[0m[33m87% [32 libcodec2-1.2 2995 kB/8170 kB 37%]                         16.9 MB/s 0s[0m[33m88% [32 libcodec2-1.2 3581 kB/8170 kB 44%]                         16.9 MB/s 0s[0m[33m88% [32 libcodec2-1.2 4036 kB/8170 kB 49%]                         16.9 MB/s 0s[0m[33m88% [32 libcodec2-1.2 4486 kB/8170 kB 55%]                         16.9 MB/s 0s[0m[33m89% [32 libcodec2-1.2 4938 kB/8170 kB 60%]                         16.9 MB/s 0s[0m[33m89% [32 libcodec2-1.2 5498 kB/8170 kB 67%]                         16.9 MB/s 0s[0m[33m89% [32 libcodec2-1.2 5950 kB/8170 kB 73%]                         16.9 MB/s 0s[0m[33m90% [32 libcodec2-1.2 6474 kB/8170 kB 79%]                         16.9 MB/s 0s[0m[33m90% [32 libcodec2-1.2 7070 kB/8170 kB 87%]                         887 kB/s 13s[0m[33m90% [32 libcodec2-1.2 7669 kB/8170 kB 94%]                         887 kB/s 12s[0m[33m91% [Waiting for headers]                                          887 kB/s 11s[0m                                                                               Get:34 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libglib2.0-0t64 amd64 2.83.3-2 [1511 kB]
+[33m91% [34 libglib2.0-0t64 9944 B/1511 kB 1%]                         887 kB/s 11s[0m[33m91% [34 libglib2.0-0t64 484 kB/1511 kB 32%]                        887 kB/s 11s[0m[33m91% [34 libglib2.0-0t64 979 kB/1511 kB 65%]                        887 kB/s 10s[0m[33m92% [34 libglib2.0-0t64 1451 kB/1511 kB 96%]                       887 kB/s 10s[0m                                                                               Get:42 http://http.kali.org/kali kali-rolling/main amd64 librav1e0.7 amd64 0.7.1-9+b1 [946 kB]
+[33m92% [42 librav1e0.7 5381 B/946 kB 1%]                              887 kB/s 10s[0m[33m92% [42 librav1e0.7 667 kB/946 kB 71%]                              887 kB/s 9s[0m[33m93% [Waiting for headers]                                           887 kB/s 8s[0m                                                                               Get:53 http://http.kali.org/kali kali-rolling/main amd64 libgdk-pixbuf-2.0-0 amd64 2.42.12+dfsg-2 [140 kB]
+[33m93% [53 libgdk-pixbuf-2.0-0 18.8 kB/140 kB 13%]                     887 kB/s 8s[0m[33m93% [Waiting for headers]                                           887 kB/s 8s[0m                                                                               Get:55 http://http.kali.org/kali kali-rolling/main amd64 libgraphite2-3 amd64 1.3.14-2+b1 [75.4 kB]
+[33m93% [55 libgraphite2-3 1290 B/75.4 kB 2%]                           887 kB/s 8s[0m[33m93% [Waiting for headers]                                           887 kB/s 8s[0m                                                                               Get:70 http://http.kali.org/kali kali-rolling/main amd64 libtheoradec1 amd64 1.2.0~alpha1+dfsg-6 [58.4 kB]
+[33m93% [70 libtheoradec1 5282 B/58.4 kB 9%]                            887 kB/s 8s[0m[33m93% [Waiting for headers]                                           887 kB/s 8s[0m                                                                               Get:71 http://http.kali.org/kali kali-rolling/main amd64 libogg0 amd64 1.3.5-3+b2 [23.8 kB]
+[33m93% [71 libogg0 10.6 kB/23.8 kB 44%]                                887 kB/s 8s[0m                                                                               Get:81 http://http.kali.org/kali kali-rolling/main amd64 libxvidcore4 amd64 2:1.3.7-1+b2 [252 kB]
+[33m93% [81 libxvidcore4 12.6 kB/252 kB 5%]                             887 kB/s 8s[0m[33m94% [Waiting for headers]                                           887 kB/s 8s[0m                                                                               Get:84 http://http.kali.org/kali kali-rolling/main amd64 libavcodec61 amd64 7:7.1.1-1+b1 [5801 kB]
+[33m94% [84 libavcodec61 2836 B/5801 kB 0%]                             887 kB/s 8s[0m[33m94% [84 libavcodec61 434 kB/5801 kB 7%]                             887 kB/s 7s[0m[33m94% [84 libavcodec61 1180 kB/5801 kB 20%]                           887 kB/s 7s[0m[33m95% [84 libavcodec61 1766 kB/5801 kB 30%]                           887 kB/s 6s[0m[33m95% [84 libavcodec61 2261 kB/5801 kB 39%]                           887 kB/s 5s[0m[33m95% [84 libavcodec61 2806 kB/5801 kB 48%]                          1149 kB/s 4s[0m[33m96% [84 libavcodec61 3440 kB/5801 kB 59%]                          1149 kB/s 3s[0m[33m96% [84 libavcodec61 3989 kB/5801 kB 69%]                          1149 kB/s 2s[0m[33m97% [84 libavcodec61 4616 kB/5801 kB 80%]                          1149 kB/s 2s[0m[33m97% [84 libavcodec61 5235 kB/5801 kB 90%]                          1149 kB/s 1s[0m[33m97% [84 libavcodec61 5764 kB/5801 kB 99%]                          1149 kB/s 1s[0m[33m97% [Waiting for headers]                                          1149 kB/s 1s[0m                                                                               Get:85 http://http.kali.org/kali kali-rolling/main amd64 libswscale8 amd64 7:7.1.1-1+b1 [230 kB]
+[33m97% [85 libswscale8 10.4 kB/230 kB 5%]                             1149 kB/s 1s[0m                                                                               Get:91 http://http.kali.org/kali kali-rolling/main amd64 libfreerdp3-3 amd64 3.12.0+dfsg-1 [755 kB]
+[33m98% [91 libfreerdp3-3 1989 B/755 kB 0%]                            1149 kB/s 1s[0m[33m98% [91 libfreerdp3-3 589 kB/755 kB 78%]                           1149 kB/s 0s[0m[33m98% [Waiting for headers]                                          1149 kB/s 0s[0m                                                                               Get:95 http://http.kali.org/kali kali-rolling/main amd64 mysql-common all 5.8+1.1.1 [6784 B]
+[33m98% [95 mysql-common 643 B/6784 B 9%]                              1149 kB/s 0s[0m[33m99% [Waiting for headers]                                          1149 kB/s 0s[0m                                                                               Get:104 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libssh-4 amd64 0.11.1-1 [208 kB]
+[33m99% [104 libssh-4 3804 B/208 kB 2%]                                1149 kB/s 0s[0m                                                                               Get:131 http://http.kali.org/kali kali-rolling/main amd64 libxxf86vm1 amd64 1:1.1.4-1+b4 [19.3 kB]
+[33m99% [131 libxxf86vm1 11.6 kB/19.3 kB 60%]                          1149 kB/s 0s[0m                                                                               Get:132 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libvulkan1 amd64 1.4.309.0-1 [130 kB]
+[33m99% [132 libvulkan1 2209 B/130 kB 2%]                              1149 kB/s 0s[0m[33m99% [Waiting for headers]                                          1149 kB/s 0s[0m                                                                               Get:134 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libglx-mesa0 amd64 25.0.3-1 [143 kB]
+[33m99% [134 libglx-mesa0 3065 B/143 kB 2%]                            1149 kB/s 0s[0m[33m99% [Waiting for headers]                                          1149 kB/s 0s[0m                                                                               Get:136 http://http.kali.org/kali kali-rolling/main amd64 libgl1 amd64 1.7.0-1+b2 [89.5 kB]
+[33m99% [136 libgl1 6574 B/89.5 kB 7%]                                 1149 kB/s 0s[0m[33m100% [Waiting for headers]                                         1149 kB/s 0s[0m                                                                               Get:142 http://ftp.free.fr/pub/kali kali-rolling/main amd64 mesa-va-drivers amd64 25.0.3-1 [19.6 kB]
+[33m100% [142 mesa-va-drivers 15.9 kB/19.6 kB 81%]                     1149 kB/s 0s[0m[33m100% [Waiting for headers]                                         1149 kB/s 0s[0m                                                                               Get:143 http://ftp.free.fr/pub/kali kali-rolling/main amd64 mesa-vdpau-drivers amd64 25.0.3-1 [19.7 kB]
+[33m100% [143 mesa-vdpau-drivers 4874 B/19.7 kB 25%]                   1149 kB/s 0s[0m                                                                               Get:146 http://http.kali.org/kali kali-rolling/main amd64 vdpau-driver-all amd64 1.5-3+b1 [4704 B]
+[33m100% [146 vdpau-driver-all 4704 B/4704 B 100%]                     1149 kB/s 0s[0m[33m100% [Working]                                                     1149 kB/s 0s[0m                                                                               Fetched 125 MB in 22s (5573 kB/s)
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 79, <STDIN> line 147.)
+debconf: falling back to frontend: Readline
+Extracting templates from packages: 20%Extracting templates from packages: 40%Extracting templates from packages: 61%Extracting templates from packages: 81%Extracting templates from packages: 100%
+Preconfiguring packages ...
+Selecting previously unselected package firebird4.0-common-doc.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 71660 files and directories currently installed.)
+Preparing to unpack .../000-firebird4.0-common-doc_4.0.5.3140.ds6-17_all.deb ...
+Unpacking firebird4.0-common-doc (4.0.5.3140.ds6-17) ...
+Selecting previously unselected package firebird4.0-common.
+Preparing to unpack .../001-firebird4.0-common_4.0.5.3140.ds6-17_all.deb ...
+Unpacking firebird4.0-common (4.0.5.3140.ds6-17) ...
+Selecting previously unselected package libpng16-16t64:amd64.
+Preparing to unpack .../002-libpng16-16t64_1.6.47-1_amd64.deb ...
+Unpacking libpng16-16t64:amd64 (1.6.47-1) ...
+Selecting previously unselected package libfreetype6:amd64.
+Preparing to unpack .../003-libfreetype6_2.13.3+dfsg-1_amd64.deb ...
+Unpacking libfreetype6:amd64 (2.13.3+dfsg-1) ...
+Selecting previously unselected package fonts-dejavu-mono.
+Preparing to unpack .../004-fonts-dejavu-mono_2.37-8_all.deb ...
+Unpacking fonts-dejavu-mono (2.37-8) ...
+Selecting previously unselected package fonts-dejavu-core.
+Preparing to unpack .../005-fonts-dejavu-core_2.37-8_all.deb ...
+Unpacking fonts-dejavu-core (2.37-8) ...
+Selecting previously unselected package fontconfig-config.
+Preparing to unpack .../006-fontconfig-config_2.15.0-2_amd64.deb ...
+Unpacking fontconfig-config (2.15.0-2) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Preparing to unpack .../007-libfontconfig1_2.15.0-2_amd64.deb ...
+Unpacking libfontconfig1:amd64 (2.15.0-2) ...
+Selecting previously unselected package fontconfig.
+Preparing to unpack .../008-fontconfig_2.15.0-2_amd64.deb ...
+Unpacking fontconfig (2.15.0-2) ...
+Selecting previously unselected package libapr1t64:amd64.
+Preparing to unpack .../009-libapr1t64_1.7.5-1_amd64.deb ...
+Unpacking libapr1t64:amd64 (1.7.5-1) ...
+Selecting previously unselected package libbson-1.0-0t64.
+Preparing to unpack .../010-libbson-1.0-0t64_1.30.2-1_amd64.deb ...
+Unpacking libbson-1.0-0t64 (1.30.2-1) ...
+Selecting previously unselected package libtommath1:amd64.
+Preparing to unpack .../011-libtommath1_1.3.0-1_amd64.deb ...
+Unpacking libtommath1:amd64 (1.3.0-1) ...
+Selecting previously unselected package libfbclient2:amd64.
+Preparing to unpack .../012-libfbclient2_4.0.5.3140.ds6-17_amd64.deb ...
+Unpacking libfbclient2:amd64 (4.0.5.3140.ds6-17) ...
+Selecting previously unselected package libaom3:amd64.
+Preparing to unpack .../013-libaom3_3.12.0-1_amd64.deb ...
+Unpacking libaom3:amd64 (3.12.0-1) ...
+Selecting previously unselected package libdrm-common.
+Preparing to unpack .../014-libdrm-common_2.4.124-1_all.deb ...
+Unpacking libdrm-common (2.4.124-1) ...
+Selecting previously unselected package libdrm2:amd64.
+Preparing to unpack .../015-libdrm2_2.4.124-1_amd64.deb ...
+Unpacking libdrm2:amd64 (2.4.124-1) ...
+Selecting previously unselected package libva2:amd64.
+Preparing to unpack .../016-libva2_2.22.0-3_amd64.deb ...
+Unpacking libva2:amd64 (2.22.0-3) ...
+Selecting previously unselected package libva-drm2:amd64.
+Preparing to unpack .../017-libva-drm2_2.22.0-3_amd64.deb ...
+Unpacking libva-drm2:amd64 (2.22.0-3) ...
+Selecting previously unselected package libx11-xcb1:amd64.
+Preparing to unpack .../018-libx11-xcb1_2%3a1.8.10-2_amd64.deb ...
+Unpacking libx11-xcb1:amd64 (2:1.8.10-2) ...
+Selecting previously unselected package libxcb-dri3-0:amd64.
+Preparing to unpack .../019-libxcb-dri3-0_1.17.0-2+b1_amd64.deb ...
+Unpacking libxcb-dri3-0:amd64 (1.17.0-2+b1) ...
+Selecting previously unselected package libxfixes3:amd64.
+Preparing to unpack .../020-libxfixes3_1%3a6.0.0-2+b4_amd64.deb ...
+Unpacking libxfixes3:amd64 (1:6.0.0-2+b4) ...
+Selecting previously unselected package libva-x11-2:amd64.
+Preparing to unpack .../021-libva-x11-2_2.22.0-3_amd64.deb ...
+Unpacking libva-x11-2:amd64 (2.22.0-3) ...
+Selecting previously unselected package libvdpau1:amd64.
+Preparing to unpack .../022-libvdpau1_1.5-3+b1_amd64.deb ...
+Unpacking libvdpau1:amd64 (1.5-3+b1) ...
+Selecting previously unselected package libvpl2.
+Preparing to unpack .../023-libvpl2_1%3a2.14.0-1+b1_amd64.deb ...
+Unpacking libvpl2 (1:2.14.0-1+b1) ...
+Selecting previously unselected package ocl-icd-libopencl1:amd64.
+Preparing to unpack .../024-ocl-icd-libopencl1_2.3.2-1+b2_amd64.deb ...
+Unpacking ocl-icd-libopencl1:amd64 (2.3.2-1+b2) ...
+Selecting previously unselected package libavutil59:amd64.
+Preparing to unpack .../025-libavutil59_7%3a7.1.1-1+b1_amd64.deb ...
+Unpacking libavutil59:amd64 (7:7.1.1-1+b1) ...
+Selecting previously unselected package libpixman-1-0:amd64.
+Preparing to unpack .../026-libpixman-1-0_0.44.0-3_amd64.deb ...
+Unpacking libpixman-1-0:amd64 (0.44.0-3) ...
+Selecting previously unselected package libxcb-render0:amd64.
+Preparing to unpack .../027-libxcb-render0_1.17.0-2+b1_amd64.deb ...
+Unpacking libxcb-render0:amd64 (1.17.0-2+b1) ...
+Selecting previously unselected package libxcb-shm0:amd64.
+Preparing to unpack .../028-libxcb-shm0_1.17.0-2+b1_amd64.deb ...
+Unpacking libxcb-shm0:amd64 (1.17.0-2+b1) ...
+Selecting previously unselected package libxrender1:amd64.
+Preparing to unpack .../029-libxrender1_1%3a0.9.10-1.1+b4_amd64.deb ...
+Unpacking libxrender1:amd64 (1:0.9.10-1.1+b4) ...
+Selecting previously unselected package libcairo2:amd64.
+Preparing to unpack .../030-libcairo2_1.18.2-2_amd64.deb ...
+Unpacking libcairo2:amd64 (1.18.2-2) ...
+Selecting previously unselected package libcodec2-1.2:amd64.
+Preparing to unpack .../031-libcodec2-1.2_1.2.0-3_amd64.deb ...
+Unpacking libcodec2-1.2:amd64 (1.2.0-3) ...
+Selecting previously unselected package libdav1d7:amd64.
+Preparing to unpack .../032-libdav1d7_1.5.1-1_amd64.deb ...
+Unpacking libdav1d7:amd64 (1.5.1-1) ...
+Selecting previously unselected package libglib2.0-0t64:amd64.
+Preparing to unpack .../033-libglib2.0-0t64_2.83.3-2_amd64.deb ...
+Unpacking libglib2.0-0t64:amd64 (2.83.3-2) ...
+Selecting previously unselected package libgsm1:amd64.
+Preparing to unpack .../034-libgsm1_1.0.22-1+b2_amd64.deb ...
+Unpacking libgsm1:amd64 (1.0.22-1+b2) ...
+Selecting previously unselected package libhwy1t64:amd64.
+Preparing to unpack .../035-libhwy1t64_1.2.0-2+b2_amd64.deb ...
+Unpacking libhwy1t64:amd64 (1.2.0-2+b2) ...
+Selecting previously unselected package liblcms2-2:amd64.
+Preparing to unpack .../036-liblcms2-2_2.16-2_amd64.deb ...
+Unpacking liblcms2-2:amd64 (2.16-2) ...
+Selecting previously unselected package libjxl0.11:amd64.
+Preparing to unpack .../037-libjxl0.11_0.11.1-4_amd64.deb ...
+Unpacking libjxl0.11:amd64 (0.11.1-4) ...
+Selecting previously unselected package libmp3lame0:amd64.
+Preparing to unpack .../038-libmp3lame0_3.100-6+b3_amd64.deb ...
+Unpacking libmp3lame0:amd64 (3.100-6+b3) ...
+Selecting previously unselected package libopenjp2-7:amd64.
+Preparing to unpack .../039-libopenjp2-7_2.5.3-2_amd64.deb ...
+Unpacking libopenjp2-7:amd64 (2.5.3-2) ...
+Selecting previously unselected package libopus0:amd64.
+Preparing to unpack .../040-libopus0_1.5.2-2_amd64.deb ...
+Unpacking libopus0:amd64 (1.5.2-2) ...
+Selecting previously unselected package librav1e0.7:amd64.
+Preparing to unpack .../041-librav1e0.7_0.7.1-9+b1_amd64.deb ...
+Unpacking librav1e0.7:amd64 (0.7.1-9+b1) ...
+Selecting previously unselected package libcairo-gobject2:amd64.
+Preparing to unpack .../042-libcairo-gobject2_1.18.2-2_amd64.deb ...
+Unpacking libcairo-gobject2:amd64 (1.18.2-2) ...
+Selecting previously unselected package libgdk-pixbuf2.0-common.
+Preparing to unpack .../043-libgdk-pixbuf2.0-common_2.42.12+dfsg-2_all.deb ...
+Unpacking libgdk-pixbuf2.0-common (2.42.12+dfsg-2) ...
+Selecting previously unselected package shared-mime-info.
+Preparing to unpack .../044-shared-mime-info_2.4-5+b2_amd64.deb ...
+Unpacking shared-mime-info (2.4-5+b2) ...
+Selecting previously unselected package libjpeg62-turbo:amd64.
+Preparing to unpack .../045-libjpeg62-turbo_1%3a2.1.5-3.1_amd64.deb ...
+Unpacking libjpeg62-turbo:amd64 (1:2.1.5-3.1) ...
+Selecting previously unselected package libdeflate0:amd64.
+Preparing to unpack .../046-libdeflate0_1.23-1+b1_amd64.deb ...
+Unpacking libdeflate0:amd64 (1.23-1+b1) ...
+Selecting previously unselected package libjbig0:amd64.
+Preparing to unpack .../047-libjbig0_2.1-6.1+b2_amd64.deb ...
+Unpacking libjbig0:amd64 (2.1-6.1+b2) ...
+Selecting previously unselected package liblerc4:amd64.
+Preparing to unpack .../048-liblerc4_4.0.0+ds-5_amd64.deb ...
+Unpacking liblerc4:amd64 (4.0.0+ds-5) ...
+Selecting previously unselected package libsharpyuv0:amd64.
+Preparing to unpack .../049-libsharpyuv0_1.5.0-0.1_amd64.deb ...
+Unpacking libsharpyuv0:amd64 (1.5.0-0.1) ...
+Selecting previously unselected package libwebp7:amd64.
+Preparing to unpack .../050-libwebp7_1.5.0-0.1_amd64.deb ...
+Unpacking libwebp7:amd64 (1.5.0-0.1) ...
+Selecting previously unselected package libtiff6:amd64.
+Preparing to unpack .../051-libtiff6_4.7.0-2_amd64.deb ...
+Unpacking libtiff6:amd64 (4.7.0-2) ...
+Selecting previously unselected package libgdk-pixbuf-2.0-0:amd64.
+Preparing to unpack .../052-libgdk-pixbuf-2.0-0_2.42.12+dfsg-2_amd64.deb ...
+Unpacking libgdk-pixbuf-2.0-0:amd64 (2.42.12+dfsg-2) ...
+Selecting previously unselected package libfribidi0:amd64.
+Preparing to unpack .../053-libfribidi0_1.0.16-1_amd64.deb ...
+Unpacking libfribidi0:amd64 (1.0.16-1) ...
+Selecting previously unselected package libgraphite2-3:amd64.
+Preparing to unpack .../054-libgraphite2-3_1.3.14-2+b1_amd64.deb ...
+Unpacking libgraphite2-3:amd64 (1.3.14-2+b1) ...
+Selecting previously unselected package libharfbuzz0b:amd64.
+Preparing to unpack .../055-libharfbuzz0b_10.2.0-1_amd64.deb ...
+Unpacking libharfbuzz0b:amd64 (10.2.0-1) ...
+Selecting previously unselected package libthai-data.
+Preparing to unpack .../056-libthai-data_0.1.29-2_all.deb ...
+Unpacking libthai-data (0.1.29-2) ...
+Selecting previously unselected package libdatrie1:amd64.
+Preparing to unpack .../057-libdatrie1_0.2.13-3+b1_amd64.deb ...
+Unpacking libdatrie1:amd64 (0.2.13-3+b1) ...
+Selecting previously unselected package libthai0:amd64.
+Preparing to unpack .../058-libthai0_0.1.29-2+b1_amd64.deb ...
+Unpacking libthai0:amd64 (0.1.29-2+b1) ...
+Selecting previously unselected package libpango-1.0-0:amd64.
+Preparing to unpack .../059-libpango-1.0-0_1.56.1-1_amd64.deb ...
+Unpacking libpango-1.0-0:amd64 (1.56.1-1) ...
+Selecting previously unselected package libpangoft2-1.0-0:amd64.
+Preparing to unpack .../060-libpangoft2-1.0-0_1.56.1-1_amd64.deb ...
+Unpacking libpangoft2-1.0-0:amd64 (1.56.1-1) ...
+Selecting previously unselected package libpangocairo-1.0-0:amd64.
+Preparing to unpack .../061-libpangocairo-1.0-0_1.56.1-1_amd64.deb ...
+Unpacking libpangocairo-1.0-0:amd64 (1.56.1-1) ...
+Selecting previously unselected package librsvg2-2:amd64.
+Preparing to unpack .../062-librsvg2-2_2.60.0+dfsg-1_amd64.deb ...
+Unpacking librsvg2-2:amd64 (2.60.0+dfsg-1) ...
+Selecting previously unselected package libshine3:amd64.
+Preparing to unpack .../063-libshine3_3.1.1-2+b2_amd64.deb ...
+Unpacking libshine3:amd64 (3.1.1-2+b2) ...
+Selecting previously unselected package libsnappy1v5:amd64.
+Preparing to unpack .../064-libsnappy1v5_1.2.2-1_amd64.deb ...
+Unpacking libsnappy1v5:amd64 (1.2.2-1) ...
+Selecting previously unselected package libspeex1:amd64.
+Preparing to unpack .../065-libspeex1_1.2.1-3_amd64.deb ...
+Unpacking libspeex1:amd64 (1.2.1-3) ...
+Selecting previously unselected package libsvtav1enc2:amd64.
+Preparing to unpack .../066-libsvtav1enc2_2.3.0+dfsg-1_amd64.deb ...
+Unpacking libsvtav1enc2:amd64 (2.3.0+dfsg-1) ...
+Selecting previously unselected package libsoxr0:amd64.
+Preparing to unpack .../067-libsoxr0_0.1.3-4+b2_amd64.deb ...
+Unpacking libsoxr0:amd64 (0.1.3-4+b2) ...
+Selecting previously unselected package libswresample5:amd64.
+Preparing to unpack .../068-libswresample5_7%3a7.1.1-1+b1_amd64.deb ...
+Unpacking libswresample5:amd64 (7:7.1.1-1+b1) ...
+Selecting previously unselected package libtheoradec1:amd64.
+Preparing to unpack .../069-libtheoradec1_1.2.0~alpha1+dfsg-6_amd64.deb ...
+Unpacking libtheoradec1:amd64 (1.2.0~alpha1+dfsg-6) ...
+Selecting previously unselected package libogg0:amd64.
+Preparing to unpack .../070-libogg0_1.3.5-3+b2_amd64.deb ...
+Unpacking libogg0:amd64 (1.3.5-3+b2) ...
+Selecting previously unselected package libtheoraenc1:amd64.
+Preparing to unpack .../071-libtheoraenc1_1.2.0~alpha1+dfsg-6_amd64.deb ...
+Unpacking libtheoraenc1:amd64 (1.2.0~alpha1+dfsg-6) ...
+Selecting previously unselected package libtwolame0:amd64.
+Preparing to unpack .../072-libtwolame0_0.4.0-2+b2_amd64.deb ...
+Unpacking libtwolame0:amd64 (0.4.0-2+b2) ...
+Selecting previously unselected package libvorbis0a:amd64.
+Preparing to unpack .../073-libvorbis0a_1.3.7-2+b1_amd64.deb ...
+Unpacking libvorbis0a:amd64 (1.3.7-2+b1) ...
+Selecting previously unselected package libvorbisenc2:amd64.
+Preparing to unpack .../074-libvorbisenc2_1.3.7-2+b1_amd64.deb ...
+Unpacking libvorbisenc2:amd64 (1.3.7-2+b1) ...
+Selecting previously unselected package libvpx9:amd64.
+Preparing to unpack .../075-libvpx9_1.15.0-2_amd64.deb ...
+Unpacking libvpx9:amd64 (1.15.0-2) ...
+Selecting previously unselected package libwebpmux3:amd64.
+Preparing to unpack .../076-libwebpmux3_1.5.0-0.1_amd64.deb ...
+Unpacking libwebpmux3:amd64 (1.5.0-0.1) ...
+Selecting previously unselected package libx264-164:amd64.
+Preparing to unpack .../077-libx264-164_2%3a0.164.3108+git31e19f9-2+b1_amd64.deb ...
+Unpacking libx264-164:amd64 (2:0.164.3108+git31e19f9-2+b1) ...
+Selecting previously unselected package libnuma1:amd64.
+Preparing to unpack .../078-libnuma1_2.0.18-1+b1_amd64.deb ...
+Unpacking libnuma1:amd64 (2.0.18-1+b1) ...
+Selecting previously unselected package libx265-215:amd64.
+Preparing to unpack .../079-libx265-215_4.1-2_amd64.deb ...
+Unpacking libx265-215:amd64 (4.1-2) ...
+Selecting previously unselected package libxvidcore4:amd64.
+Preparing to unpack .../080-libxvidcore4_2%3a1.3.7-1+b2_amd64.deb ...
+Unpacking libxvidcore4:amd64 (2:1.3.7-1+b2) ...
+Selecting previously unselected package libzvbi-common.
+Preparing to unpack .../081-libzvbi-common_0.2.44-1_all.deb ...
+Unpacking libzvbi-common (0.2.44-1) ...
+Selecting previously unselected package libzvbi0t64:amd64.
+Preparing to unpack .../082-libzvbi0t64_0.2.44-1_amd64.deb ...
+Unpacking libzvbi0t64:amd64 (0.2.44-1) ...
+Selecting previously unselected package libavcodec61:amd64.
+Preparing to unpack .../083-libavcodec61_7%3a7.1.1-1+b1_amd64.deb ...
+Unpacking libavcodec61:amd64 (7:7.1.1-1+b1) ...
+Selecting previously unselected package libswscale8:amd64.
+Preparing to unpack .../084-libswscale8_7%3a7.1.1-1+b1_amd64.deb ...
+Unpacking libswscale8:amd64 (7:7.1.1-1+b1) ...
+Selecting previously unselected package libcjson1:amd64.
+Preparing to unpack .../085-libcjson1_1.7.18-3+b1_amd64.deb ...
+Unpacking libcjson1:amd64 (1.7.18-3+b1) ...
+Selecting previously unselected package libicu72:amd64.
+Preparing to unpack .../086-libicu72_72.1-6_amd64.deb ...
+Unpacking libicu72:amd64 (72.1-6) ...
+Selecting previously unselected package liburiparser1:amd64.
+Preparing to unpack .../087-liburiparser1_0.9.8+dfsg-2_amd64.deb ...
+Unpacking liburiparser1:amd64 (0.9.8+dfsg-2) ...
+Selecting previously unselected package libwinpr3-3:amd64.
+Preparing to unpack .../088-libwinpr3-3_3.12.0+dfsg-1_amd64.deb ...
+Unpacking libwinpr3-3:amd64 (3.12.0+dfsg-1) ...
+Selecting previously unselected package libxkbfile1:amd64.
+Preparing to unpack .../089-libxkbfile1_1%3a1.1.0-1+b4_amd64.deb ...
+Unpacking libxkbfile1:amd64 (1:1.1.0-1+b4) ...
+Selecting previously unselected package libfreerdp3-3:amd64.
+Preparing to unpack .../090-libfreerdp3-3_3.12.0+dfsg-1_amd64.deb ...
+Unpacking libfreerdp3-3:amd64 (3.12.0+dfsg-1) ...
+Selecting previously unselected package libgpg-error0:amd64.
+Preparing to unpack .../091-libgpg-error0_1.51-3_amd64.deb ...
+Unpacking libgpg-error0:amd64 (1.51-3) ...
+Selecting previously unselected package libgcrypt20:amd64.
+Preparing to unpack .../092-libgcrypt20_1.11.0-7_amd64.deb ...
+Unpacking libgcrypt20:amd64 (1.11.0-7) ...
+Selecting previously unselected package libidn12:amd64.
+Preparing to unpack .../093-libidn12_1.43-1_amd64.deb ...
+Unpacking libidn12:amd64 (1.43-1) ...
+Selecting previously unselected package mysql-common.
+Preparing to unpack .../094-mysql-common_5.8+1.1.1_all.deb ...
+Unpacking mysql-common (5.8+1.1.1) ...
+Selecting previously unselected package mariadb-common.
+Preparing to unpack .../095-mariadb-common_1%3a11.8.1-2_all.deb ...
+Unpacking mariadb-common (1:11.8.1-2) ...
+Selecting previously unselected package libmariadb3:amd64.
+Preparing to unpack .../096-libmariadb3_1%3a11.8.1-2_amd64.deb ...
+Unpacking libmariadb3:amd64 (1:11.8.1-2) ...
+Selecting previously unselected package libhashkit2t64:amd64.
+Preparing to unpack .../097-libhashkit2t64_1.1.4-1.1+b2_amd64.deb ...
+Unpacking libhashkit2t64:amd64 (1.1.4-1.1+b2) ...
+Selecting previously unselected package libmemcached11t64:amd64.
+Preparing to unpack .../098-libmemcached11t64_1.1.4-1.1+b2_amd64.deb ...
+Unpacking libmemcached11t64:amd64 (1.1.4-1.1+b2) ...
+Selecting previously unselected package libmongocrypt0:amd64.
+Preparing to unpack .../099-libmongocrypt0_1.13.0-1_amd64.deb ...
+Unpacking libmongocrypt0:amd64 (1.13.0-1) ...
+Selecting previously unselected package libutf8proc3:amd64.
+Preparing to unpack .../100-libutf8proc3_2.9.0-1+b2_amd64.deb ...
+Unpacking libutf8proc3:amd64 (2.9.0-1+b2) ...
+Selecting previously unselected package libmongoc-1.0-0t64.
+Preparing to unpack .../101-libmongoc-1.0-0t64_1.30.2-1_amd64.deb ...
+Unpacking libmongoc-1.0-0t64 (1.30.2-1) ...
+Selecting previously unselected package libpq5:amd64.
+Preparing to unpack .../102-libpq5_17.4-2_amd64.deb ...
+Unpacking libpq5:amd64 (17.4-2) ...
+Selecting previously unselected package libssh-4:amd64.
+Preparing to unpack .../103-libssh-4_0.11.1-1_amd64.deb ...
+Unpacking libssh-4:amd64 (0.11.1-1) ...
+Selecting previously unselected package libaprutil1t64:amd64.
+Preparing to unpack .../104-libaprutil1t64_1.6.3-3+b1_amd64.deb ...
+Unpacking libaprutil1t64:amd64 (1.6.3-3+b1) ...
+Selecting previously unselected package libserf-1-1:amd64.
+Preparing to unpack .../105-libserf-1-1_1.3.10-3+b1_amd64.deb ...
+Unpacking libserf-1-1:amd64 (1.3.10-3+b1) ...
+Selecting previously unselected package libsvn1:amd64.
+Preparing to unpack .../106-libsvn1_1.14.5-3_amd64.deb ...
+Unpacking libsvn1:amd64 (1.14.5-3) ...
+Selecting previously unselected package hydra.
+Preparing to unpack .../107-hydra_9.5-3_amd64.deb ...
+Unpacking hydra (9.5-3) ...
+Selecting previously unselected package libpciaccess0:amd64.
+Preparing to unpack .../108-libpciaccess0_0.17-3+b3_amd64.deb ...
+Unpacking libpciaccess0:amd64 (0.17-3+b3) ...
+Selecting previously unselected package libdrm-intel1:amd64.
+Preparing to unpack .../109-libdrm-intel1_2.4.124-1_amd64.deb ...
+Unpacking libdrm-intel1:amd64 (2.4.124-1) ...
+Selecting previously unselected package i965-va-driver:amd64.
+Preparing to unpack .../110-i965-va-driver_2.4.1+dfsg1-2_amd64.deb ...
+Unpacking i965-va-driver:amd64 (2.4.1+dfsg1-2) ...
+Selecting previously unselected package libigdgmm12:amd64.
+Preparing to unpack .../111-libigdgmm12_22.7.1+ds1-1_amd64.deb ...
+Unpacking libigdgmm12:amd64 (22.7.1+ds1-1) ...
+Selecting previously unselected package intel-media-va-driver:amd64.
+Preparing to unpack .../112-intel-media-va-driver_25.1.4+dfsg1-1_amd64.deb ...
+Unpacking intel-media-va-driver:amd64 (25.1.4+dfsg1-1) ...
+Selecting previously unselected package libdrm-amdgpu1:amd64.
+Preparing to unpack .../113-libdrm-amdgpu1_2.4.124-1_amd64.deb ...
+Unpacking libdrm-amdgpu1:amd64 (2.4.124-1) ...
+Selecting previously unselected package libelf1t64:amd64.
+Preparing to unpack .../114-libelf1t64_0.192-4_amd64.deb ...
+Unpacking libelf1t64:amd64 (0.192-4) ...
+Selecting previously unselected package libwayland-server0:amd64.
+Preparing to unpack .../115-libwayland-server0_1.23.1-3_amd64.deb ...
+Unpacking libwayland-server0:amd64 (1.23.1-3) ...
+Selecting previously unselected package libz3-4:amd64.
+Preparing to unpack .../116-libz3-4_4.13.3-1_amd64.deb ...
+Unpacking libz3-4:amd64 (4.13.3-1) ...
+Selecting previously unselected package libllvm19:amd64.
+Preparing to unpack .../117-libllvm19_1%3a19.1.7-3_amd64.deb ...
+Unpacking libllvm19:amd64 (1:19.1.7-3) ...
+Selecting previously unselected package libsensors-config.
+Preparing to unpack .../118-libsensors-config_1%3a3.6.0-10_all.deb ...
+Unpacking libsensors-config (1:3.6.0-10) ...
+Selecting previously unselected package libsensors5:amd64.
+Preparing to unpack .../119-libsensors5_1%3a3.6.0-10+b1_amd64.deb ...
+Unpacking libsensors5:amd64 (1:3.6.0-10+b1) ...
+Selecting previously unselected package libxcb-present0:amd64.
+Preparing to unpack .../120-libxcb-present0_1.17.0-2+b1_amd64.deb ...
+Unpacking libxcb-present0:amd64 (1.17.0-2+b1) ...
+Selecting previously unselected package libxcb-randr0:amd64.
+Preparing to unpack .../121-libxcb-randr0_1.17.0-2+b1_amd64.deb ...
+Unpacking libxcb-randr0:amd64 (1.17.0-2+b1) ...
+Selecting previously unselected package libxcb-sync1:amd64.
+Preparing to unpack .../122-libxcb-sync1_1.17.0-2+b1_amd64.deb ...
+Unpacking libxcb-sync1:amd64 (1.17.0-2+b1) ...
+Selecting previously unselected package libxcb-xfixes0:amd64.
+Preparing to unpack .../123-libxcb-xfixes0_1.17.0-2+b1_amd64.deb ...
+Unpacking libxcb-xfixes0:amd64 (1.17.0-2+b1) ...
+Selecting previously unselected package libxshmfence1:amd64.
+Preparing to unpack .../124-libxshmfence1_1.3-1+b3_amd64.deb ...
+Unpacking libxshmfence1:amd64 (1.3-1+b3) ...
+Selecting previously unselected package mesa-libgallium:amd64.
+Preparing to unpack .../125-mesa-libgallium_25.0.3-1_amd64.deb ...
+Unpacking mesa-libgallium:amd64 (25.0.3-1) ...
+Selecting previously unselected package libgbm1:amd64.
+Preparing to unpack .../126-libgbm1_25.0.3-1_amd64.deb ...
+Unpacking libgbm1:amd64 (25.0.3-1) ...
+Selecting previously unselected package libgdk-pixbuf2.0-bin.
+Preparing to unpack .../127-libgdk-pixbuf2.0-bin_2.42.12+dfsg-2_amd64.deb ...
+Unpacking libgdk-pixbuf2.0-bin (2.42.12+dfsg-2) ...
+Selecting previously unselected package libglvnd0:amd64.
+Preparing to unpack .../128-libglvnd0_1.7.0-1+b2_amd64.deb ...
+Unpacking libglvnd0:amd64 (1.7.0-1+b2) ...
+Selecting previously unselected package libxcb-glx0:amd64.
+Preparing to unpack .../129-libxcb-glx0_1.17.0-2+b1_amd64.deb ...
+Unpacking libxcb-glx0:amd64 (1.17.0-2+b1) ...
+Selecting previously unselected package libxxf86vm1:amd64.
+Preparing to unpack .../130-libxxf86vm1_1%3a1.1.4-1+b4_amd64.deb ...
+Unpacking libxxf86vm1:amd64 (1:1.1.4-1+b4) ...
+Selecting previously unselected package libvulkan1:amd64.
+Preparing to unpack .../131-libvulkan1_1.4.309.0-1_amd64.deb ...
+Unpacking libvulkan1:amd64 (1.4.309.0-1) ...
+Selecting previously unselected package libgl1-mesa-dri:amd64.
+Preparing to unpack .../132-libgl1-mesa-dri_25.0.3-1_amd64.deb ...
+Unpacking libgl1-mesa-dri:amd64 (25.0.3-1) ...
+Selecting previously unselected package libglx-mesa0:amd64.
+Preparing to unpack .../133-libglx-mesa0_25.0.3-1_amd64.deb ...
+Unpacking libglx-mesa0:amd64 (25.0.3-1) ...
+Selecting previously unselected package libglx0:amd64.
+Preparing to unpack .../134-libglx0_1.7.0-1+b2_amd64.deb ...
+Unpacking libglx0:amd64 (1.7.0-1+b2) ...
+Selecting previously unselected package libgl1:amd64.
+Preparing to unpack .../135-libgl1_1.7.0-1+b2_amd64.deb ...
+Unpacking libgl1:amd64 (1.7.0-1+b2) ...
+Selecting previously unselected package libglib2.0-data.
+Preparing to unpack .../136-libglib2.0-data_2.83.3-2_all.deb ...
+Unpacking libglib2.0-data (2.83.3-2) ...
+Selecting previously unselected package libgpg-error-l10n.
+Preparing to unpack .../137-libgpg-error-l10n_1.51-3_all.deb ...
+Unpacking libgpg-error-l10n (1.51-3) ...
+Selecting previously unselected package librsvg2-common:amd64.
+Preparing to unpack .../138-librsvg2-common_2.60.0+dfsg-1_amd64.deb ...
+Unpacking librsvg2-common:amd64 (2.60.0+dfsg-1) ...
+Selecting previously unselected package libvdpau-va-gl1:amd64.
+Preparing to unpack .../139-libvdpau-va-gl1_0.4.2-2_amd64.deb ...
+Unpacking libvdpau-va-gl1:amd64 (0.4.2-2) ...
+Selecting previously unselected package libwayland-client0:amd64.
+Preparing to unpack .../140-libwayland-client0_1.23.1-3_amd64.deb ...
+Unpacking libwayland-client0:amd64 (1.23.1-3) ...
+Selecting previously unselected package mesa-va-drivers:amd64.
+Preparing to unpack .../141-mesa-va-drivers_25.0.3-1_amd64.deb ...
+Unpacking mesa-va-drivers:amd64 (25.0.3-1) ...
+Selecting previously unselected package mesa-vdpau-drivers:amd64.
+Preparing to unpack .../142-mesa-vdpau-drivers_25.0.3-1_amd64.deb ...
+Unpacking mesa-vdpau-drivers:amd64 (25.0.3-1) ...
+Selecting previously unselected package mesa-vulkan-drivers:amd64.
+Preparing to unpack .../143-mesa-vulkan-drivers_25.0.3-1_amd64.deb ...
+Unpacking mesa-vulkan-drivers:amd64 (25.0.3-1) ...
+Selecting previously unselected package va-driver-all:amd64.
+Preparing to unpack .../144-va-driver-all_2.22.0-3_amd64.deb ...
+Unpacking va-driver-all:amd64 (2.22.0-3) ...
+Selecting previously unselected package vdpau-driver-all:amd64.
+Preparing to unpack .../145-vdpau-driver-all_1.5-3+b1_amd64.deb ...
+Unpacking vdpau-driver-all:amd64 (1.5-3+b1) ...
+Selecting previously unselected package xdg-user-dirs.
+Preparing to unpack .../146-xdg-user-dirs_0.18-2_amd64.deb ...
+Unpacking xdg-user-dirs (0.18-2) ...
+Setting up libhwy1t64:amd64 (1.2.0-2+b2) ...
+Setting up libgraphite2-3:amd64 (1.3.14-2+b1) ...
+Setting up libxcb-dri3-0:amd64 (1.17.0-2+b1) ...
+Setting up liblcms2-2:amd64 (2.16-2) ...
+Setting up libpixman-1-0:amd64 (0.44.0-3) ...
+Setting up libsharpyuv0:amd64 (1.5.0-0.1) ...
+Setting up libwayland-server0:amd64 (1.23.1-3) ...
+Setting up libaom3:amd64 (3.12.0-1) ...
+Setting up libx11-xcb1:amd64 (2:1.8.10-2) ...
+Setting up libpciaccess0:amd64 (0.17-3+b3) ...
+Setting up mysql-common (5.8+1.1.1) ...
+update-alternatives: using /etc/mysql/my.cnf.fallback to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Setting up libicu72:amd64 (72.1-6) ...
+Setting up libxcb-xfixes0:amd64 (1.17.0-2+b1) ...
+Setting up libogg0:amd64 (1.3.5-3+b2) ...
+Setting up liblerc4:amd64 (4.0.0+ds-5) ...
+Setting up libspeex1:amd64 (1.2.1-3) ...
+Setting up libshine3:amd64 (3.1.1-2+b2) ...
+Setting up libvpl2 (1:2.14.0-1+b1) ...
+Setting up libx264-164:amd64 (2:0.164.3108+git31e19f9-2+b1) ...
+Setting up libtwolame0:amd64 (0.4.0-2+b2) ...
+Setting up libgpg-error0:amd64 (1.51-3) ...
+Setting up libxrender1:amd64 (1:0.9.10-1.1+b4) ...
+Setting up libdatrie1:amd64 (0.2.13-3+b1) ...
+Setting up xdg-user-dirs (0.18-2) ...
+Setting up libutf8proc3:amd64 (2.9.0-1+b2) ...
+Setting up libgsm1:amd64 (1.0.22-1+b2) ...
+Setting up libxcb-render0:amd64 (1.17.0-2+b1) ...
+Setting up libsoxr0:amd64 (0.1.3-4+b2) ...
+Setting up libtommath1:amd64 (1.3.0-1) ...
+Setting up libglvnd0:amd64 (1.7.0-1+b2) ...
+Setting up libcodec2-1.2:amd64 (1.2.0-3) ...
+Setting up libxcb-glx0:amd64 (1.17.0-2+b1) ...
+Setting up libgdk-pixbuf2.0-common (2.42.12+dfsg-2) ...
+Setting up libsensors-config (1:3.6.0-10) ...
+Setting up libpq5:amd64 (17.4-2) ...
+Setting up libdeflate0:amd64 (1.23-1+b1) ...
+Setting up libgcrypt20:amd64 (1.11.0-7) ...
+Setting up firebird4.0-common-doc (4.0.5.3140.ds6-17) ...
+Setting up libxcb-shm0:amd64 (1.17.0-2+b1) ...
+Setting up libigdgmm12:amd64 (22.7.1+ds1-1) ...
+Setting up libcjson1:amd64 (1.7.18-3+b1) ...
+Setting up libxvidcore4:amd64 (2:1.3.7-1+b2) ...
+Setting up libjbig0:amd64 (2.1-6.1+b2) ...
+Setting up libelf1t64:amd64 (0.192-4) ...
+Setting up libxxf86vm1:amd64 (1:1.1.4-1+b4) ...
+Setting up libsnappy1v5:amd64 (1.2.2-1) ...
+Setting up libxcb-present0:amd64 (1.17.0-2+b1) ...
+Setting up mariadb-common (1:11.8.1-2) ...
+update-alternatives: using /etc/mysql/mariadb.cnf to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Setting up libtheoraenc1:amd64 (1.2.0~alpha1+dfsg-6) ...
+Setting up libz3-4:amd64 (4.13.3-1) ...
+Setting up libglib2.0-0t64:amd64 (2.83.3-2) ...
+No schema files found: doing nothing.
+Setting up libglib2.0-data (2.83.3-2) ...
+Setting up libjpeg62-turbo:amd64 (1:2.1.5-3.1) ...
+Setting up libva2:amd64 (2.22.0-3) ...
+Setting up libsvtav1enc2:amd64 (2.3.0+dfsg-1) ...
+Setting up libxfixes3:amd64 (1:6.0.0-2+b4) ...
+Setting up libxcb-sync1:amd64 (1.17.0-2+b1) ...
+Setting up libfribidi0:amd64 (1.0.16-1) ...
+Setting up libopus0:amd64 (1.5.2-2) ...
+Setting up shared-mime-info (2.4-5+b2) ...
+Setting up intel-media-va-driver:amd64 (25.1.4+dfsg1-1) ...
+Setting up fonts-dejavu-mono (2.37-8) ...
+Setting up libpng16-16t64:amd64 (1.6.47-1) ...
+Setting up libvorbis0a:amd64 (1.3.7-2+b1) ...
+Setting up libidn12:amd64 (1.43-1) ...
+Setting up firebird4.0-common (4.0.5.3140.ds6-17) ...
+Configuring /etc/firebird/4.0/service-port.conf to use port 3050
+Setting up libmariadb3:amd64 (1:11.8.1-2) ...
+Setting up fonts-dejavu-core (2.37-8) ...
+Setting up libsensors5:amd64 (1:3.6.0-10+b1) ...
+Setting up libssh-4:amd64 (0.11.1-1) ...
+Setting up libvulkan1:amd64 (1.4.309.0-1) ...
+Setting up libwebp7:amd64 (1.5.0-0.1) ...
+Setting up liburiparser1:amd64 (0.9.8+dfsg-2) ...
+Setting up libnuma1:amd64 (2.0.18-1+b1) ...
+Setting up libvpx9:amd64 (1.15.0-2) ...
+Setting up libdav1d7:amd64 (1.5.1-1) ...
+Setting up ocl-icd-libopencl1:amd64 (2.3.2-1+b2) ...
+Setting up libxshmfence1:amd64 (1.3-1+b3) ...
+Setting up libvdpau1:amd64 (1.5-3+b1) ...
+Setting up libtiff6:amd64 (4.7.0-2) ...
+Setting up libxcb-randr0:amd64 (1.17.0-2+b1) ...
+Setting up librav1e0.7:amd64 (0.7.1-9+b1) ...
+Setting up libapr1t64:amd64 (1.7.5-1) ...
+Setting up libhashkit2t64:amd64 (1.1.4-1.1+b2) ...
+Setting up libopenjp2-7:amd64 (2.5.3-2) ...
+Setting up libthai-data (0.1.29-2) ...
+Setting up libgdk-pixbuf-2.0-0:amd64 (2.42.12+dfsg-2) ...
+Setting up libxkbfile1:amd64 (1:1.1.0-1+b4) ...
+Setting up libx265-215:amd64 (4.1-2) ...
+Setting up libbson-1.0-0t64 (1.30.2-1) ...
+Setting up libwebpmux3:amd64 (1.5.0-0.1) ...
+Setting up libgpg-error-l10n (1.51-3) ...
+Setting up libdrm-common (2.4.124-1) ...
+Setting up libjxl0.11:amd64 (0.11.1-4) ...
+Setting up libzvbi-common (0.2.44-1) ...
+Setting up libmp3lame0:amd64 (3.100-6+b3) ...
+Setting up libvorbisenc2:amd64 (1.3.7-2+b1) ...
+Setting up libmongocrypt0:amd64 (1.13.0-1) ...
+Setting up libwayland-client0:amd64 (1.23.1-3) ...
+Setting up libwinpr3-3:amd64 (3.12.0+dfsg-1) ...
+Setting up mesa-vdpau-drivers:amd64 (25.0.3-1) ...
+Setting up libllvm19:amd64 (1:19.1.7-3) ...
+Setting up libaprutil1t64:amd64 (1.6.3-3+b1) ...
+Setting up libzvbi0t64:amd64 (0.2.44-1) ...
+Setting up fontconfig-config (2.15.0-2) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 79.)
+debconf: falling back to frontend: Readline
+Setting up libserf-1-1:amd64 (1.3.10-3+b1) ...
+Setting up libmemcached11t64:amd64 (1.1.4-1.1+b2) ...
+Setting up libfbclient2:amd64 (4.0.5.3140.ds6-17) ...
+Setting up libthai0:amd64 (0.1.29-2+b1) ...
+Setting up libfreetype6:amd64 (2.13.3+dfsg-1) ...
+Setting up libmongoc-1.0-0t64 (1.30.2-1) ...
+Setting up libdrm2:amd64 (2.4.124-1) ...
+Setting up libva-drm2:amd64 (2.22.0-3) ...
+Setting up libgdk-pixbuf2.0-bin (2.42.12+dfsg-2) ...
+Setting up libharfbuzz0b:amd64 (10.2.0-1) ...
+Setting up libfontconfig1:amd64 (2.15.0-2) ...
+Setting up libsvn1:amd64 (1.14.5-3) ...
+Setting up libva-x11-2:amd64 (2.22.0-3) ...
+Setting up libdrm-amdgpu1:amd64 (2.4.124-1) ...
+Setting up mesa-vulkan-drivers:amd64 (25.0.3-1) ...
+Setting up fontconfig (2.15.0-2) ...
+Regenerating fonts cache... done.
+Setting up libpango-1.0-0:amd64 (1.56.1-1) ...
+Setting up libdrm-intel1:amd64 (2.4.124-1) ...
+Setting up libavutil59:amd64 (7:7.1.1-1+b1) ...
+Setting up libcairo2:amd64 (1.18.2-2) ...
+Setting up libswresample5:amd64 (7:7.1.1-1+b1) ...
+Setting up libswscale8:amd64 (7:7.1.1-1+b1) ...
+Setting up libtheoradec1:amd64 (1.2.0~alpha1+dfsg-6) ...
+Setting up libcairo-gobject2:amd64 (1.18.2-2) ...
+Setting up libpangoft2-1.0-0:amd64 (1.56.1-1) ...
+Setting up i965-va-driver:amd64 (2.4.1+dfsg1-2) ...
+Setting up libpangocairo-1.0-0:amd64 (1.56.1-1) ...
+Setting up mesa-libgallium:amd64 (25.0.3-1) ...
+Setting up libgbm1:amd64 (25.0.3-1) ...
+Setting up libgl1-mesa-dri:amd64 (25.0.3-1) ...
+Setting up librsvg2-2:amd64 (2.60.0+dfsg-1) ...
+Setting up libavcodec61:amd64 (7:7.1.1-1+b1) ...
+Setting up librsvg2-common:amd64 (2.60.0+dfsg-1) ...
+Setting up libfreerdp3-3:amd64 (3.12.0+dfsg-1) ...
+Setting up mesa-va-drivers:amd64 (25.0.3-1) ...
+Setting up hydra (9.5-3) ...
+Setting up libglx-mesa0:amd64 (25.0.3-1) ...
+Setting up libglx0:amd64 (1.7.0-1+b2) ...
+Setting up libgl1:amd64 (1.7.0-1+b2) ...
+Setting up va-driver-all:amd64 (2.22.0-3) ...
+Setting up libvdpau-va-gl1:amd64 (0.4.2-2) ...
+Setting up vdpau-driver-all:amd64 (1.5-3+b1) ...
+Processing triggers for libc-bin (2.40-3) ...
+Processing triggers for libgdk-pixbuf-2.0-0:amd64 (2.42.12+dfsg-2) ...
+
+assistant:
+The command executed was `apt update && apt install -y hydra`. It involved updating package lists and installing the Hydra package along with its dependencies. The process downloaded 125 MB of data to install Hydra and 147 dependencies, with a required disk space of 516 MB. The installation encountered a minor issue with the debconf frontend but switched to a fallback method, and all packages were successfully configured and installed.

@@ -1,0 +1,3 @@
+reconnaissance:1
+Generaltechnique:3
+exploit:1

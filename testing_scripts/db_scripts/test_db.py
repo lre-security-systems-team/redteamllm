@@ -13,8 +13,8 @@ engine =create_engine(db_url,echo=True)
 
 with Session(engine) as session:
     with session.begin():
-        drop_all_table(engine,session)
-        create_vector_extension(session)
+        #drop_all_table(engine,session)
+        # create_vector_extension(session)
         create_all_table(engine,session)
     
         # root =create_root_example()

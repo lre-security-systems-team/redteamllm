@@ -2,6 +2,7 @@ from typing import Optional
 from openai import OpenAI
 from openai.types.chat.chat_completion import ChatCompletion
 from termcolor import colored
+from ..config.config import configuration
 import os
 import json
 class SingletonMeta(type):
@@ -77,7 +78,7 @@ class LLM():
             max_completion_tokens (int, optional): maximum number of tokens in a single completion. Defaults to None.
             temperature (_type_, optional): controll the randomness of the answer. [0-2], 0 for deterministic and 2 for complete randomness. Defaults to None.
         """        
-        self.system_prompt = "You are an autonomous agent that will have complete access to a linux terminal with all the rights. You will be given a task and need to complete it. You need to be fully autonomous in your actions"
+        self.system_prompt = configuration.base_prompt
         if system_prompt != None:
             self.system_prompt = system_prompt
         # message parametre

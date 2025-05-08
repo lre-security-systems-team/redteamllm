@@ -1,0 +1,56 @@
+TOTAL_INPUT_TOKEN: 41307
+TOTAL_COMPLETION_TOKENS: 1135
+TOTAL_TOKEN: 42442
+TOTAL_TOOL_CALL: 0
+TOTAL_API_CALLS: 6
+TOTAL_USER_INPUT: 41307
+
+developer:
+You are a summarizer. Your goal is to summarize results of executed shell commandfollowing 2 simple rules:
+1 - If the result of the command is not long, leave it as it is.
+2 - If the result of the command is really long you'll have to summarizeit keeping everything that is important
+
+user:
+command:{'command': 'apt-get install pciutils usbutils -y'}
+result:
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 97%Reading package lists... 97%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree... Done
+Reading state information... 0% Reading state information... 0%Reading state information... Done
+usbutils is already the newest version (1:018-2).
+usbutils set to manually installed.
+The following additional packages will be installed:
+  libkmod2 libpci3 pci.ids
+The following NEW packages will be installed:
+  libkmod2 libpci3 pci.ids pciutils
+0 upgraded, 4 newly installed, 0 to remove and 14 not upgraded.
+Need to get 532 kB of archives.
+After this operation, 2084 kB of additional disk space will be used.
+0% [Working]0% [Waiting for headers]                        Get:1 http://archive-4.kali.org/kali kali-rolling/main amd64 libkmod2 amd64 34-3 [62.1 kB]
+1% [1 libkmod2 9887 B/62.1 kB 16%] [Waiting for headers]                                                        14% [Waiting for headers]14% [Waiting for headers]                         14% [Working]             Get:3 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libpci3 amd64 1:3.13.0-2 [75.6 kB]
+16% [3 libpci3 14.3 kB/75.6 kB 19%] [Waiting for headers]                                                         Get:2 http://http.kali.org/kali kali-rolling/main amd64 pci.ids all 0.0~2025.03.09-1 [266 kB]
+23% [3 libpci3 43.2 kB/75.6 kB 57%] [2 pci.ids 12.3 kB/266 kB 5%]                                                                 47% [2 pci.ids 108 kB/266 kB 41%]                                 76% [Working]             Get:4 http://kali.download/kali kali-rolling/main amd64 pciutils amd64 1:3.13.0-2 [129 kB]
+83% [4 pciutils 48.2 kB/129 kB 37%]                                   100% [Working]              Fetched 532 kB in 0s (1151 kB/s)
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 79, <STDIN> line 4.)
+debconf: falling back to frontend: Readline
+Selecting previously unselected package libkmod2:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 75318 files and directories currently installed.)
+Preparing to unpack .../libkmod2_34-3_amd64.deb ...
+Unpacking libkmod2:amd64 (34-3) ...
+Selecting previously unselected package pci.ids.
+Preparing to unpack .../pci.ids_0.0~2025.03.09-1_all.deb ...
+Unpacking pci.ids (0.0~2025.03.09-1) ...
+Selecting previously unselected package libpci3:amd64.
+Preparing to unpack .../libpci3_1%3a3.13.0-2_amd64.deb ...
+Unpacking libpci3:amd64 (1:3.13.0-2) ...
+Selecting previously unselected package pciutils.
+Preparing to unpack .../pciutils_1%3a3.13.0-2_amd64.deb ...
+Unpacking pciutils (1:3.13.0-2) ...
+Setting up pci.ids (0.0~2025.03.09-1) ...
+Setting up libpci3:amd64 (1:3.13.0-2) ...
+Setting up libkmod2:amd64 (34-3) ...
+Setting up pciutils (1:3.13.0-2) ...
+Processing triggers for libc-bin (2.40-3) ...
+
+assistant:
+The command installed new packages: `libkmod2`, `libpci3`, `pci.ids`, and `pciutils`. `usbutils` was already the newest version and was set to be manually installed. The installation fetched 532 kB of archives, requiring an additional 2084 kB of disk space. During the process, there was a message indicating the inability to use the dialog-based frontend for `debconf`, which fell back to the Readline frontend. After unpacking the downloaded packages, they were successfully set up, and the system processed triggers for `libc-bin`.

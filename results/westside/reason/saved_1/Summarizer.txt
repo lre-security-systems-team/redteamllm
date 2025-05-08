@@ -1,0 +1,227 @@
+TOTAL_INPUT_TOKEN: 10950
+TOTAL_COMPLETION_TOKENS: 208
+TOTAL_TOKEN: 11158
+TOTAL_TOOL_CALL: 0
+TOTAL_API_CALLS: 2
+TOTAL_USER_INPUT: 10950
+
+developer:
+You are a summarizer. Your goal is to summarize results of executed shell commandfollowing 2 simple rules:
+1 - If the result of the command is not long, leave it as it is.
+2 - If the result of the command is really long you'll have to summarizeit keeping everything that is important
+
+user:
+command:{'command': 'apt-get update && apt-get install -y smbclient'}
+result:
+0% [Working]            Hit:1 http://http.kali.org/kali kali-rolling InRelease
+0% [Working]20% [Working]             Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 97%Reading package lists... 97%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Reading package lists... 0%Reading package lists... 0%Reading package lists... 0%Reading package lists... 97%Reading package lists... 97%Reading package lists... 98%Reading package lists... 98%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... 99%Reading package lists... Done
+Building dependency tree... 0%Building dependency tree... 0%Building dependency tree... 50%Building dependency tree... 50%Building dependency tree... Done
+Reading state information... 0% Reading state information... 0%Reading state information... Done
+The following additional packages will be installed:
+  libarchive13t64 libavahi-client3 libavahi-common-data libavahi-common3
+  libcups2t64 libicu76 libldb2 liblmdb0 libncurses6 libpopt0 libsmbclient0
+  libtalloc2 libtdb1 libtevent0t64 libtext-charwidth-perl
+  libtext-wrapi18n-perl libtirpc-common libtirpc3t64 libwbclient0
+  python3-bcrypt python3-cffi-backend python3-cryptography python3-ldb
+  python3-samba python3-talloc python3-tdb samba-common samba-common-bin
+  samba-libs sensible-utils tdb-tools ucf
+Suggested packages:
+  lrzip cups-common python-cryptography-doc python3-cryptography-vectors
+  heimdal-clients cifs-utils
+The following NEW packages will be installed:
+  libarchive13t64 libavahi-client3 libavahi-common-data libavahi-common3
+  libcups2t64 libicu76 libldb2 liblmdb0 libncurses6 libpopt0 libsmbclient0
+  libtalloc2 libtdb1 libtevent0t64 libtext-charwidth-perl
+  libtext-wrapi18n-perl libtirpc-common libtirpc3t64 libwbclient0
+  python3-bcrypt python3-cffi-backend python3-cryptography python3-ldb
+  python3-samba python3-talloc python3-tdb samba-common samba-common-bin
+  samba-libs sensible-utils smbclient tdb-tools ucf
+0 upgraded, 33 newly installed, 0 to remove and 12 not upgraded.
+Need to get 23.7 MB of archives.
+After this operation, 104 MB of additional disk space will be used.
+0% [Working]0% [Working]            Get:1 http://ftp.free.fr/pub/kali kali-rolling/main amd64 sensible-utils all 0.0.24 [24.8 kB]
+0% [1 sensible-utils 24.8 kB/24.8 kB 100%] [Waiting for headers]                                                                1% [Waiting for headers]1% [Waiting for headers]1% [Waiting for headers]1% [Connecting to archive-4.kali.org] [Waiting for headers]1% [Connecting to archive-4.kali.org] [Waiting for headers]1% [Connecting to kali.download] [Connecting to archive-4.kali.org (176.31.228.                                                                               1% [Connecting to kali.download] [Waiting for headers] [Waiting for headers]1% [Connecting to kali.download (104.17.253.239)] [Waiting for headers] [Waitin                                                                               Get:2 http://http.kali.org/kali kali-rolling/main amd64 libtext-charwidth-perl amd64 0.04-11+b4 [9476 B]
+1% [Waiting for headers] [2 libtext-charwidth-perl 9476 B/9476 B 100%] [Waiting                                                                               1% [Waiting for headers] [Waiting for headers] [Waiting for headers]                                                                    Get:8 http://ftp.free.fr/pub/kali kali-rolling/main amd64 libavahi-client3 amd64 0.8-16 [48.4 kB]
+1% [Waiting for headers] [8 libavahi-client3 9946 B/48.4 kB 21%] [Waiting for h1% [Waiting for headers] [8 libavahi-client3 40.4 kB/48.4 kB 83%] [Waiting for                                                                                2% [Waiting for headers] [Waiting for headers]2% [Waiting for headers] [Waiting for headers]                                              Get:3 http://kali.download/kali kali-rolling/main amd64 libtext-wrapi18n-perl all 0.06-10 [8808 B]
+2% [3 libtext-wrapi18n-perl 8808 B/8808 B 100%] [Waiting for headers]                                                                     3% [Waiting for headers]3% [Waiting for headers] [Waiting for headers]                                              Get:4 http://kali.download/kali kali-rolling/main amd64 ucf all 3.0051 [42.8 kB]
+3% [4 ucf 9743 B/42.8 kB 23%] [Waiting for headers]                                                   3% [Waiting for headers] [Waiting for headers]                                              Get:5 http://kali.download/kali kali-rolling/main amd64 libarchive13t64 amd64 3.7.4-1.1 [349 kB]
+3% [5 libarchive13t64 3947 B/349 kB 1%] [Waiting for headers]                                                             5% [Waiting for headers] [Waiting for headers]                                              Get:6 http://kali.download/kali kali-rolling/main amd64 libavahi-common-data amd64 0.8-16 [112 kB]
+5% [6 libavahi-common-data 56.9 kB/112 kB 51%] [Waiting for headers]                                                                    6% [Waiting for headers] [Waiting for headers]                                              Get:7 http://kali.download/kali kali-rolling/main amd64 libavahi-common3 amd64 0.8-16 [44.2 kB]
+6% [7 libavahi-common3 44.2 kB/44.2 kB 100%] [Waiting for headers]                                                                  7% [Waiting for headers] [Waiting for headers]                                              Get:9 http://http.kali.org/kali kali-rolling/main amd64 libcups2t64 amd64 2.4.10-2+b1 [251 kB]
+7% [9 libcups2t64 65.0 kB/251 kB 26%] [Waiting for headers]                                                           8% [Waiting for headers] [Waiting for headers]                                              Get:10 http://kali.download/kali kali-rolling/main amd64 libicu76 amd64 76.1-3 [9721 kB]
+9% [10 libicu76 41.3 kB/9721 kB 0%] [Waiting for headers]10% [10 libicu76 377 kB/9721 kB 4%] [Waiting for headers]11% [10 libicu76 631 kB/9721 kB 6%] [Waiting for headers] [Waiting for headers]11% [10 libicu76 844 kB/9721 kB 9%] [Waiting for headers] [Waiting for headers]                                                                               Get:12 http://http.kali.org/kali kali-rolling/main amd64 libtalloc2 amd64 2:2.4.3+samba4.22.0+dfsg-3 [58.7 kB]
+11% [10 libicu76 844 kB/9721 kB 9%] [12 libtalloc2 20.0 kB/58.7 kB 34%] [Waitin11% [10 libicu76 844 kB/9721 kB 9%] [12 libtalloc2 20.0 kB/58.7 kB 34%] [Waitin12% [10 libicu76 1119 kB/9721 kB 12%] [12 libtalloc2 20.0 kB/58.7 kB 34%] [Wait13% [10 libicu76 1255 kB/9721 kB 13%] [12 libtalloc2 20.0 kB/58.7 kB 34%] [Wait                                                                               Get:16 http://http.kali.org/kali kali-rolling/main amd64 libncurses6 amd64 6.5+20250216-1 [105 kB]
+13% [10 libicu76 1286 kB/9721 kB 13%] [12 libtalloc2 20.0 kB/58.7 kB 34%] [16 l14% [10 libicu76 1377 kB/9721 kB 14%] [12 libtalloc2 55.6 kB/58.7 kB 95%] [16 l14% [10 libicu76 1377 kB/9721 kB 14%] [12 libtalloc2 58.7 kB/58.7 kB 100%] [16 14% [10 libicu76 1377 kB/9721 kB 14%] [16 libncurses6 89.6 kB/105 kB 85%] [Wait                                                                               17% [10 libicu76 1942 kB/9721 kB 20%] [Waiting for headers]                                                           Get:18 http://http.kali.org/kali kali-rolling/main amd64 libtirpc-common all 1.3.4+ds-1.3 [10.9 kB]
+19% [10 libicu76 2532 kB/9721 kB 26%] [18 libtirpc-common 10.9 kB/10.9 kB 100%]                                                                               20% [10 libicu76 2576 kB/9721 kB 27%] [Waiting for headers]26% [10 libicu76 4581 kB/9721 kB 47%] [Waiting for headers]                                                           44% [Waiting for headers] [Waiting for headers]                                               Get:11 http://http.kali.org/kali kali-rolling/main amd64 liblmdb0 amd64 0.9.31-1+b2 [45.2 kB]
+                                               45% [Waiting for headers]45% [Waiting for headers] [Waiting for headers]                                               Get:13 http://http.kali.org/kali kali-rolling/main amd64 libtdb1 amd64 2:1.4.13+samba4.22.0+dfsg-3 [78.5 kB]
+45% [13 libtdb1 53.2 kB/78.5 kB 68%] [Waiting for headers]                                                          46% [Waiting for headers] [Waiting for headers]46% [Waiting for headers] [Waiting for headers]                                               Get:14 http://http.kali.org/kali kali-rolling/main amd64 libtevent0t64 amd64 2:0.16.2+samba4.22.0+dfsg-3 [73.7 kB]
+46% [14 libtevent0t64 32.8 kB/73.7 kB 44%] [Waiting for headers]                                                                47% [Waiting for headers] [Waiting for headers]47% [Waiting for headers] [Waiting for headers]                                               Get:15 http://http.kali.org/kali kali-rolling/main amd64 libldb2 amd64 2:2.11.0+samba4.22.0+dfsg-3 [175 kB]
+47% [15 libldb2 65.0 kB/175 kB 37%] [Waiting for headers]                                                         47% [15 libldb2 131 kB/175 kB 75%] [Waiting for headers]                                                        48% [Waiting for headers] [Waiting for headers]48% [Waiting for headers] [Waiting for headers]                                               Get:17 http://http.kali.org/kali kali-rolling/main amd64 libpopt0 amd64 1.19+dfsg-2 [43.8 kB]
+48% [17 libpopt0 43.8 kB/43.8 kB 100%] [Waiting for headers]                                                            49% [Waiting for headers] [Waiting for headers]49% [Waiting for headers] [Waiting for headers]49% [Waiting for headers] [Waiting for headers]                                               Get:19 http://http.kali.org/kali kali-rolling/main amd64 libtirpc3t64 amd64 1.3.4+ds-1.3+b1 [83.1 kB]
+49% [19 libtirpc3t64 60.0 kB/83.1 kB 72%] [Waiting for headers] [Waiting for he                                                                               50% [Waiting for headers] [Waiting for headers] [Waiting for headers]50% [Waiting for headers] [Waiting for headers] [Waiting for headers]50% [Waiting for headers] [Waiting for headers] [Waiting for headers]                                                                     Get:20 http://http.kali.org/kali kali-rolling/main amd64 libwbclient0 amd64 2:4.22.0+dfsg-3 [67.3 kB]
+50% [20 libwbclient0 42.0 kB/67.3 kB 62%] [Waiting for headers] [Waiting for he                                                                               Get:28 http://http.kali.org/kali kali-rolling/main amd64 python3-talloc amd64 2:2.4.3+samba4.22.0+dfsg-3 [48.0 kB]
+50% [20 libwbclient0 67.3 kB/67.3 kB 100%] [28 python3-talloc 48.0 kB/48.0 kB 151% [Waiting for headers] [28 python3-talloc 48.0 kB/48.0 kB 100%] [Waiting for                                                                               51% [Waiting for headers] [Waiting for headers]                                               Get:21 http://http.kali.org/kali kali-rolling/main amd64 samba-libs amd64 2:4.22.0+dfsg-3 [6036 kB]
+51% [21 samba-libs 64.1 kB/6036 kB 1%] [Waiting for headers] [Waiting for heade                                                                               Get:29 http://http.kali.org/kali kali-rolling/main amd64 python3-samba amd64 2:4.22.0+dfsg-3 [2867 kB]
+53% [21 samba-libs 401 kB/6036 kB 7%] [29 python3-samba 45.1 kB/2867 kB 2%] [Wa58% [21 samba-libs 1674 kB/6036 kB 28%] [29 python3-samba 360 kB/2867 kB 13%] [81% [21 samba-libs 5752 kB/6036 kB 95%] [Waiting for headers] [Waiting for head                                                                               Get:30 http://http.kali.org/kali kali-rolling/main amd64 samba-common all 2:4.22.0+dfsg-3 [55.4 kB]
+81% [21 samba-libs 5817 kB/6036 kB 96%] [30 samba-common 55.2 kB/55.4 kB 100%] 83% [Waiting for headers] [30 samba-common 55.2 kB/55.4 kB 100%] [Waiting for h                                                                               Get:22 http://http.kali.org/kali kali-rolling/main amd64 libsmbclient0 amd64 2:4.22.0+dfsg-3 [94.8 kB]
+83% [22 libsmbclient0 65.1 kB/94.8 kB 69%] [30 samba-common 55.2 kB/55.4 kB 10083% [22 libsmbclient0 94.8 kB/94.8 kB 100%] [30 samba-common 55.4 kB/55.4 kB 10                                                                               84% [Waiting for headers]                         Get:23 http://http.kali.org/kali kali-rolling/main amd64 python3-bcrypt amd64 4.2.0-2.1+b1 [211 kB]
+84% [23 python3-bcrypt 65.0 kB/211 kB 31%] [Waiting for headers]                                                                Get:32 http://http.kali.org/kali kali-rolling/main amd64 smbclient amd64 2:4.22.0+dfsg-3 [498 kB]
+85% [23 python3-bcrypt 126 kB/211 kB 60%] [32 smbclient 11.3 kB/498 kB 2%]                                                                          86% [Waiting for headers] [32 smbclient 38.8 kB/498 kB 8%]                                                          Get:24 http://http.kali.org/kali kali-rolling/main amd64 python3-cffi-backend amd64 1.17.1-2+b2 [93.6 kB]
+86% [24 python3-cffi-backend 53.9 kB/93.6 kB 58%] [32 smbclient 38.8 kB/498 kB                                                                                87% [Waiting for headers] [32 smbclient 38.8 kB/498 kB 8%]                                                          Get:25 http://kali.download/kali kali-rolling/main amd64 python3-cryptography amd64 43.0.0-2 [941 kB]
+87% [25 python3-cryptography 15.5 kB/941 kB 2%] [32 smbclient 117 kB/498 kB 23%                                                                               91% [Waiting for headers] [32 smbclient 273 kB/498 kB 55%]                                                          Get:26 http://http.kali.org/kali kali-rolling/main amd64 python3-ldb amd64 2:2.11.0+samba4.22.0+dfsg-3 [73.4 kB]
+91% [26 python3-ldb 31.2 kB/73.4 kB 43%] [32 smbclient 273 kB/498 kB 55%]                                                                         92% [Waiting for headers] [32 smbclient 273 kB/498 kB 55%]                                                          93% [Waiting for headers]                         Get:27 http://http.kali.org/kali kali-rolling/main amd64 python3-tdb amd64 2:1.4.13+samba4.22.0+dfsg-3 [50.2 kB]
+94% [Waiting for headers]                         Get:31 http://http.kali.org/kali kali-rolling/main amd64 samba-common-bin amd64 2:4.22.0+dfsg-3 [1331 kB]
+94% [31 samba-common-bin 39.5 kB/1331 kB 3%]                                            99% [Waiting for headers]                         Get:33 http://http.kali.org/kali kali-rolling/main amd64 tdb-tools amd64 2:1.4.13+samba4.22.0+dfsg-3 [61.3 kB]
+99% [33 tdb-tools 61.3 kB/61.3 kB 100%]                                       100% [Working]              Fetched 23.7 MB in 1s (23.7 MB/s)
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 79, <STDIN> line 33.)
+debconf: falling back to frontend: Readline
+Extracting templates from packages: 90%Extracting templates from packages: 100%
+Preconfiguring packages ...
+Selecting previously unselected package sensible-utils.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 73524 files and directories currently installed.)
+Preparing to unpack .../00-sensible-utils_0.0.24_all.deb ...
+Unpacking sensible-utils (0.0.24) ...
+Selecting previously unselected package libtext-charwidth-perl:amd64.
+Preparing to unpack .../01-libtext-charwidth-perl_0.04-11+b4_amd64.deb ...
+Unpacking libtext-charwidth-perl:amd64 (0.04-11+b4) ...
+Selecting previously unselected package libtext-wrapi18n-perl.
+Preparing to unpack .../02-libtext-wrapi18n-perl_0.06-10_all.deb ...
+Unpacking libtext-wrapi18n-perl (0.06-10) ...
+Selecting previously unselected package ucf.
+Preparing to unpack .../03-ucf_3.0051_all.deb ...
+Moving old data out of the way
+Unpacking ucf (3.0051) ...
+Selecting previously unselected package libarchive13t64:amd64.
+Preparing to unpack .../04-libarchive13t64_3.7.4-1.1_amd64.deb ...
+Unpacking libarchive13t64:amd64 (3.7.4-1.1) ...
+Selecting previously unselected package libavahi-common-data:amd64.
+Preparing to unpack .../05-libavahi-common-data_0.8-16_amd64.deb ...
+Unpacking libavahi-common-data:amd64 (0.8-16) ...
+Selecting previously unselected package libavahi-common3:amd64.
+Preparing to unpack .../06-libavahi-common3_0.8-16_amd64.deb ...
+Unpacking libavahi-common3:amd64 (0.8-16) ...
+Selecting previously unselected package libavahi-client3:amd64.
+Preparing to unpack .../07-libavahi-client3_0.8-16_amd64.deb ...
+Unpacking libavahi-client3:amd64 (0.8-16) ...
+Selecting previously unselected package libcups2t64:amd64.
+Preparing to unpack .../08-libcups2t64_2.4.10-2+b1_amd64.deb ...
+Unpacking libcups2t64:amd64 (2.4.10-2+b1) ...
+Selecting previously unselected package libicu76:amd64.
+Preparing to unpack .../09-libicu76_76.1-3_amd64.deb ...
+Unpacking libicu76:amd64 (76.1-3) ...
+Selecting previously unselected package liblmdb0:amd64.
+Preparing to unpack .../10-liblmdb0_0.9.31-1+b2_amd64.deb ...
+Unpacking liblmdb0:amd64 (0.9.31-1+b2) ...
+Selecting previously unselected package libtalloc2:amd64.
+Preparing to unpack .../11-libtalloc2_2%3a2.4.3+samba4.22.0+dfsg-3_amd64.deb ...
+Unpacking libtalloc2:amd64 (2:2.4.3+samba4.22.0+dfsg-3) ...
+Selecting previously unselected package libtdb1:amd64.
+Preparing to unpack .../12-libtdb1_2%3a1.4.13+samba4.22.0+dfsg-3_amd64.deb ...
+Unpacking libtdb1:amd64 (2:1.4.13+samba4.22.0+dfsg-3) ...
+Selecting previously unselected package libtevent0t64:amd64.
+Preparing to unpack .../13-libtevent0t64_2%3a0.16.2+samba4.22.0+dfsg-3_amd64.deb ...
+Unpacking libtevent0t64:amd64 (2:0.16.2+samba4.22.0+dfsg-3) ...
+Selecting previously unselected package libldb2:amd64.
+Preparing to unpack .../14-libldb2_2%3a2.11.0+samba4.22.0+dfsg-3_amd64.deb ...
+Unpacking libldb2:amd64 (2:2.11.0+samba4.22.0+dfsg-3) ...
+Selecting previously unselected package libncurses6:amd64.
+Preparing to unpack .../15-libncurses6_6.5+20250216-1_amd64.deb ...
+Unpacking libncurses6:amd64 (6.5+20250216-1) ...
+Selecting previously unselected package libpopt0:amd64.
+Preparing to unpack .../16-libpopt0_1.19+dfsg-2_amd64.deb ...
+Unpacking libpopt0:amd64 (1.19+dfsg-2) ...
+Selecting previously unselected package libtirpc-common.
+Preparing to unpack .../17-libtirpc-common_1.3.4+ds-1.3_all.deb ...
+Unpacking libtirpc-common (1.3.4+ds-1.3) ...
+Selecting previously unselected package libtirpc3t64:amd64.
+Preparing to unpack .../18-libtirpc3t64_1.3.4+ds-1.3+b1_amd64.deb ...
+Adding 'diversion of /lib/x86_64-linux-gnu/libtirpc.so.3 to /lib/x86_64-linux-gnu/libtirpc.so.3.usr-is-merged by libtirpc3t64'
+Adding 'diversion of /lib/x86_64-linux-gnu/libtirpc.so.3.0.0 to /lib/x86_64-linux-gnu/libtirpc.so.3.0.0.usr-is-merged by libtirpc3t64'
+Unpacking libtirpc3t64:amd64 (1.3.4+ds-1.3+b1) ...
+Selecting previously unselected package libwbclient0:amd64.
+Preparing to unpack .../19-libwbclient0_2%3a4.22.0+dfsg-3_amd64.deb ...
+Unpacking libwbclient0:amd64 (2:4.22.0+dfsg-3) ...
+Selecting previously unselected package samba-libs:amd64.
+Preparing to unpack .../20-samba-libs_2%3a4.22.0+dfsg-3_amd64.deb ...
+Unpacking samba-libs:amd64 (2:4.22.0+dfsg-3) ...
+Selecting previously unselected package libsmbclient0:amd64.
+Preparing to unpack .../21-libsmbclient0_2%3a4.22.0+dfsg-3_amd64.deb ...
+Unpacking libsmbclient0:amd64 (2:4.22.0+dfsg-3) ...
+Selecting previously unselected package python3-bcrypt.
+Preparing to unpack .../22-python3-bcrypt_4.2.0-2.1+b1_amd64.deb ...
+Unpacking python3-bcrypt (4.2.0-2.1+b1) ...
+Selecting previously unselected package python3-cffi-backend:amd64.
+Preparing to unpack .../23-python3-cffi-backend_1.17.1-2+b2_amd64.deb ...
+Unpacking python3-cffi-backend:amd64 (1.17.1-2+b2) ...
+Selecting previously unselected package python3-cryptography.
+Preparing to unpack .../24-python3-cryptography_43.0.0-2_amd64.deb ...
+Unpacking python3-cryptography (43.0.0-2) ...
+Selecting previously unselected package python3-ldb.
+Preparing to unpack .../25-python3-ldb_2%3a2.11.0+samba4.22.0+dfsg-3_amd64.deb ...
+Unpacking python3-ldb (2:2.11.0+samba4.22.0+dfsg-3) ...
+Selecting previously unselected package python3-tdb.
+Preparing to unpack .../26-python3-tdb_2%3a1.4.13+samba4.22.0+dfsg-3_amd64.deb ...
+Unpacking python3-tdb (2:1.4.13+samba4.22.0+dfsg-3) ...
+Selecting previously unselected package python3-talloc:amd64.
+Preparing to unpack .../27-python3-talloc_2%3a2.4.3+samba4.22.0+dfsg-3_amd64.deb ...
+Unpacking python3-talloc:amd64 (2:2.4.3+samba4.22.0+dfsg-3) ...
+Selecting previously unselected package python3-samba.
+Preparing to unpack .../28-python3-samba_2%3a4.22.0+dfsg-3_amd64.deb ...
+Unpacking python3-samba (2:4.22.0+dfsg-3) ...
+Selecting previously unselected package samba-common.
+Preparing to unpack .../29-samba-common_2%3a4.22.0+dfsg-3_all.deb ...
+Unpacking samba-common (2:4.22.0+dfsg-3) ...
+Selecting previously unselected package samba-common-bin.
+Preparing to unpack .../30-samba-common-bin_2%3a4.22.0+dfsg-3_amd64.deb ...
+Unpacking samba-common-bin (2:4.22.0+dfsg-3) ...
+Selecting previously unselected package smbclient.
+Preparing to unpack .../31-smbclient_2%3a4.22.0+dfsg-3_amd64.deb ...
+Unpacking smbclient (2:4.22.0+dfsg-3) ...
+Selecting previously unselected package tdb-tools.
+Preparing to unpack .../32-tdb-tools_2%3a1.4.13+samba4.22.0+dfsg-3_amd64.deb ...
+Unpacking tdb-tools (2:1.4.13+samba4.22.0+dfsg-3) ...
+Setting up liblmdb0:amd64 (0.9.31-1+b2) ...
+Setting up libtext-charwidth-perl:amd64 (0.04-11+b4) ...
+Setting up libtdb1:amd64 (2:1.4.13+samba4.22.0+dfsg-3) ...
+Setting up libtirpc-common (1.3.4+ds-1.3) ...
+Setting up python3-bcrypt (4.2.0-2.1+b1) ...
+Setting up libtext-wrapi18n-perl (0.06-10) ...
+Setting up libwbclient0:amd64 (2:4.22.0+dfsg-3) ...
+Setting up libtalloc2:amd64 (2:2.4.3+samba4.22.0+dfsg-3) ...
+Setting up python3-tdb (2:1.4.13+samba4.22.0+dfsg-3) ...
+Setting up libavahi-common-data:amd64 (0.8-16) ...
+Setting up libncurses6:amd64 (6.5+20250216-1) ...
+Setting up tdb-tools (2:1.4.13+samba4.22.0+dfsg-3) ...
+update-alternatives: using /usr/bin/tdbbackup.tdbtools to provide /usr/bin/tdbbackup (tdbbackup) in auto mode
+Setting up sensible-utils (0.0.24) ...
+Setting up libicu76:amd64 (76.1-3) ...
+Setting up libarchive13t64:amd64 (3.7.4-1.1) ...
+Setting up libtevent0t64:amd64 (2:0.16.2+samba4.22.0+dfsg-3) ...
+Setting up python3-cffi-backend:amd64 (1.17.1-2+b2) ...
+Setting up libpopt0:amd64 (1.19+dfsg-2) ...
+Setting up libtirpc3t64:amd64 (1.3.4+ds-1.3+b1) ...
+Setting up python3-talloc:amd64 (2:2.4.3+samba4.22.0+dfsg-3) ...
+Setting up libavahi-common3:amd64 (0.8-16) ...
+Setting up python3-cryptography (43.0.0-2) ...
+Setting up ucf (3.0051) ...
+Setting up libldb2:amd64 (2:2.11.0+samba4.22.0+dfsg-3) ...
+Setting up libavahi-client3:amd64 (0.8-16) ...
+Setting up samba-libs:amd64 (2:4.22.0+dfsg-3) ...
+Setting up samba-common (2:4.22.0+dfsg-3) ...
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 79.)
+debconf: falling back to frontend: Readline
+Creating config file /etc/samba/smb.conf with new version
+Setting up python3-ldb (2:2.11.0+samba4.22.0+dfsg-3) ...
+Setting up libsmbclient0:amd64 (2:4.22.0+dfsg-3) ...
+Setting up libcups2t64:amd64 (2.4.10-2+b1) ...
+Setting up python3-samba (2:4.22.0+dfsg-3) ...
+Setting up smbclient (2:4.22.0+dfsg-3) ...
+Setting up samba-common-bin (2:4.22.0+dfsg-3) ...
+Processing triggers for libc-bin (2.40-3) ...
+Processing triggers for mailcap (3.74) ...
+
+assistant:
+The command executed was `apt-get update && apt-get install -y smbclient`. It successfully updated package lists, downloaded approximately 23.7 MB of archives, and installed the `smbclient` package along with 32 additional dependencies. After the installation, 104 MB of additional disk space was used. Moreover, during the installation, there was a notification regarding the fallback to the Readline frontend due to the absence of a usable dialog-like program for the debconf configuration.

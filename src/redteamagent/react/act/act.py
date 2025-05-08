@@ -1,4 +1,5 @@
 from termcolor import colored
+from ...config.config import configuration
 # this module will have the role of action
 # It will take some input(reasonning, given by the reason component, chose an action to execute and do it)
 # Many execution rounds can happen consecutively
@@ -133,7 +134,7 @@ class Act(LLM):
             # get the function result 
             result = func(**args)
             # summarize result
-            if len(result) > 3000 : 
+            if len(result) > 3000 and configuration.activate_summary: 
                 result = self.summarizer.send_process_prompt(f"command:{args}\nresult:\n{result}")
 
             # add results to tool_call_execution  

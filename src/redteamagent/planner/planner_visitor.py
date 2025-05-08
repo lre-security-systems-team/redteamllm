@@ -1,4 +1,5 @@
 from ..visitor import AbstractVisitor
+from ..config.config import configuration
 from typing import Optional
 from multimethod import multimethod
 from ..execution_tree import ExecutionNode,FailedNode,PlanningNode, AbstractNode
@@ -21,7 +22,7 @@ class PlannerVisitor(AbstractVisitor):
         # mempry manager not yet installed
         self.memory_man = memory_manager
         
-        self.llm_planner= LLMPlanner(api_key="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",model_name="gpt-4o")
+        self.llm_planner= LLMPlanner(api_key=configuration.api_key,model_name=configuration.model_name)
 
 
         

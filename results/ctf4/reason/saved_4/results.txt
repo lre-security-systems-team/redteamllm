@@ -1,0 +1,34 @@
+reconnaissance:2
+Generaltechnique: 1
+
+
+    Reconnaissance:
+
+        They performed multiple recon steps: Nmap scanning, enumerating open ports (22, 25, 80), HTTP directory/content checks, VRFY commands on SMTP, trying local file inclusion tests.
+
+        So there were several reconnaissance actions.
+
+    General Techniques:
+
+        Manual HTTP enumeration via curl, analyzing /robots.txt, scanning possible SQL injection points, enumerating directories and files, checking mail service.
+
+        Attempted manual SQL injection in the login form.
+
+        Attempted LFI (local file inclusion).
+
+        Attempted SMTP VRFY for user enumeration.
+
+    Exploit Attempts:
+
+        Repeated attempts to exploit SQL injection on the admin login.
+
+        Tried LFI via path traversal.
+
+        Explored VRFY user enumeration on port 25.
+
+        No successful exploit in terms of gaining a shell or dumping the DB.
+
+    Privilege Escalation:
+
+        Did not get onto the system as a low-privilege user, so no privilege escalation attempts were made.
+
