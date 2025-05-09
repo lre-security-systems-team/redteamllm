@@ -58,6 +58,9 @@ python3 -m pip install --upgrade build pip
 # from the repo root
 python3 -m build .          # creates dist/*.whl and *.tar.gz
 pip install dist/*.whl      # install into your environment
+
+# if you want to modify the configuration without having to rebuild the package 
+pip install -e . # This will create a link directly to the local package. When ever a modification is made you can just run the command again and it will take the changes in consideration
 ```
 
 ### 3.2  Launch
