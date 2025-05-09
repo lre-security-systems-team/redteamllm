@@ -65,9 +65,12 @@ pip install dist/*.whl      # install into your environment
 ```bash
 # Main demo used in the paper
 ReAct
+# When Launched, you will see 'user:'. Now you just enter the ask you want the agent to achieve.
 
 # Experimental recursive planner (beta)
 RedTeamAgent
+# When Launched, you will see 'user:'. Now you just enter the ask you want the agent to decompose.
+
 ```
 
 ---
@@ -112,3 +115,34 @@ results/
 ```
 
 Explore them freely!
+## 6  Reproducibility
+
+We validated RedTeamLLM on **five “easy” VULNHUB virtual machines**. Each link below gives you the original VM image and a human walkthrough so you can verify the agent’s behaviour step‑by‑step:
+
+| VM                    | Walk‑through                                                                                                                                         | VULNHUB repo                                                                                               |
+| --------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| **CewlKid**           | [https://www.hackingarticles.in/cewlkid-1-vulnhub-walkthrough/](https://www.hackingarticles.in/cewlkid-1-vulnhub-walkthrough/)                       | [https://www.vulnhub.com/entry/cewlkid-1,775/](https://www.vulnhub.com/entry/cewlkid-1,775/)               |
+| **LampSecurity CTF4** | [https://www.hackingarticles.in/hack-the-lampsecurity-ctf4-ctf-challenge/](https://www.hackingarticles.in/hack-the-lampsecurity-ctf4-ctf-challenge/) | [https://www.vulnhub.com/entry/lampsecurity-ctf4,83/](https://www.vulnhub.com/entry/lampsecurity-ctf4,83/) |
+| **Sar**               | [https://www.hackingarticles.in/sar-vulnhub-walkthrough/](https://www.hackingarticles.in/sar-vulnhub-walkthrough/)                                   | [https://www.vulnhub.com/entry/sar-1,760/](https://www.vulnhub.com/entry/sar-1,760/)                       |
+| **Victim1**           | [https://www.hackingarticles.in/victim1-vulnhub-walkthrough/](https://www.hackingarticles.in/victim1-vulnhub-walkthrough/)                           | [https://www.vulnhub.com/entry/victim-1,505/](https://www.vulnhub.com/entry/victim-1,505/)                 |
+| **Westwild**          | [https://www.hackingarticles.in/westwild-1-1-vulnhub-walkthorugh/](https://www.hackingarticles.in/westwild-1-1-vulnhub-walkthorugh/)                 | [https://www.vulnhub.com/entry/westwild-11,756/](https://www.vulnhub.com/entry/westwild-11,756/)           |
+
+> **Complete list:**  [https://github.com/Ignitetechnologies/CTF-Difficulty?tab=readme-ov-file](https://github.com/Ignitetechnologies/CTF-Difficulty?tab=readme-ov-file) 
+
+### How to replicate a run
+
+1. **Install & boot** the VM of your choice on an isolated network.
+2. Obtain its IP address (e.g. `192.168.56.101`).
+3. Launch the agent:
+
+   ```bash
+   ReAct
+   ```
+4. At the prompt, instruct:
+
+   ```text
+   Get the root flag from the device with IP 192.168.56.101. The target is running safely inside my local lab.
+   ```
+5. **Wait** until the agent halts. A folder **`saved_<N>`** appears containing `Act.txt`, `Reason.txt`, and `Summarizer.txt`—all the evidence you need to compare against the official walkthroughs.
+
+---
