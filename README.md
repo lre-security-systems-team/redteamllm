@@ -52,6 +52,11 @@ Edit `src/redteamagent/config/config.json` **before** building if you need custo
 ### 3.1  Build & install
 
 ```bash
+# create and enter a virtual environment
+python3 -m venv .my_env
+# Enter the virtual environment
+source .my_env/bin/active
+
 # prerequisites
 python3 -m pip install --upgrade build pip
 
