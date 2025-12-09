@@ -5,7 +5,7 @@ The immutable hybrid logging system has been successfully implemented and integr
 
 ---
 
-## ✅ Core Components Implemented
+## Core Components Implemented
 
 ### 1. **ImmutableLogger** (`src/redteamagent/security/logger/logger.py`)
 The main logging engine that implements:
@@ -56,7 +56,7 @@ NIST SP 800-92 framework integration (consolidated single file):
 - System Events
 - Security State Change
 
-**EventCategory Enum:** 40+ standardized event types covering:
+**EventCategory Enum:** 
 - Authentication (success/failure, account lifecycle)
 - Execution & Commands (process, script, external)
 - File Operations (access, modify, delete, create)
@@ -109,7 +109,7 @@ _generate_signature(data: str, timestamp: str) -> str
 
 ---
 
-## ✅ Integration Points in RedTeamLLM
+## [x] Integration Points in RedTeamLLM
 
 ### 1. **RedTeamAgent** (`src/redteamagent/redteamagent.py`)
 ```python
@@ -188,7 +188,7 @@ class PlannerVisitor(AbstractVisitor):
 
 ---
 
-## 📋 Event Classification Examples
+## Event Classification Examples
 
 ### RedTeamAgent Execution Flow
 ```
@@ -223,7 +223,7 @@ class PlannerVisitor(AbstractVisitor):
 
 ---
 
-## 🔒 Security Features
+## Security Features
 
 ### Cryptographic Integrity
 - **Hash Chaining Formula**: `HashN = SHA256(ContentN + HashN-1)`
@@ -233,44 +233,6 @@ class PlannerVisitor(AbstractVisitor):
 - **Chain Verification**: `verify_chain_integrity(start_seq, end_seq)` detects any modification to past entries
 - **Tamper Detection**: Alerts on hash mismatches during chain validation
 
-### WORM Storage Architecture
-The logger implements a hybrid storage strategy with automatic fallback:
-
-```
-┌─────────────────────────────────────┐
-│     log_event(SecurityEvent)        │
-└────────────┬────────────────────────┘
-             │
-             ▼
-┌─────────────────────────────────────┐
-│  1. Try WORM Storage (Primary)      │
-│     SocarratClient.store_event()    │
-│     - HMAC-SHA256 signatures        │
-│     - mTLS client certificates      │
-│     - 10s timeout protection        │
-└────────────┬────────────────────────┘
-             │
-    ┌────────┴─────────┐
-    │ Success? Yes     │ Success? No
-    │                  │
-    ▼                  ▼
- [DONE]      ┌──────────────────────┐
-             │ 2. Fallback: Write   │
-             │ Local Disk (JSON)    │
-             │ logs/security_*.log  │
-             └──────────┬───────────┘
-                        │
-             ┌──────────┴──────────┐
-             │ Success? Yes        │ Success? No
-             │                     │
-             ▼                     ▼
-          [DONE]          ┌──────────────────┐
-                          │ 3. Queue for     │
-                          │    Retry         │
-                          │ Exponential      │
-                          │ backoff (60s...) │
-                          └──────────────────┘
-```
 
 **WORM (Write Once Read Many) Storage:**
 - **SocarratClient** handles communication with external WORM endpoint
@@ -285,7 +247,7 @@ The logger implements a hybrid storage strategy with automatic fallback:
 - **Secure Event Delivery**: Events encrypted in transit to WORM storage
 
 **Local Disk Fallback:**
-- Append-only JSON storage in `logs/security_audit.log`
+- Append-only JSON storage in `security/security_audit.log`
 - Preserves full event history if WORM endpoint unavailable
 - Enables forensic analysis even during network disruptions
 
@@ -309,158 +271,7 @@ The logger implements a hybrid storage strategy with automatic fallback:
 
 ---
 
-## 📊 Usage Examples
-
-### Basic Logging
-```python
-from redteamagent.security.logger import get_logger, SecurityEvent, ComponentType, RiskLevel, EventCategory
-from datetime import datetime
-
-logger = get_logger()
-
-event = SecurityEvent(
-    timestamp=datetime.utcnow(),
-    component=ComponentType.ACT,
-    event_type='COMMAND_EXECUTION',
-    description='Execute: whoami',
-    risk_level=RiskLevel.HIGH
-)
-event.enrich_with_classification(EventCategory.COMMAND_EXECUTION)
-logger.log_event(event)
-```
-
-### Log Retrieval and Analysis
-```python
-# Get all logs
-all_logs = logger.get_logs()
-
-# Filter by event type
-command_logs = logger.get_logs(event_type='COMMAND_EXECUTION')
-
-# Get statistics
-stats = logger.get_statistics()
-print(f"Total entries: {stats['total_entries']}")
-print(f"By risk level: {stats['by_risk_level']}")
-
-# Verify chain integrity
-is_valid = logger.verify_chain_integrity()
-
-# Export for forensic analysis
-logger.export_logs_json('forensic_export.json')
-```
-
-### Queue Management
-```python
-from redteamagent.security.logger import QueueManager
-
-qm = QueueManager()
-
-# Check pending retries
-pending = qm.get_pending_retries()
-
-# Get queue statistics
-stats = qm.get_queue_stats()
-
-# Cleanup old failed items
-cleaned = qm.cleanup_failed_items(older_than_days=7)
-```
-
----
-
-## 📁 File Structure
-
-```
-src/redteamagent/security/
-├── __init__.py                    # Module exports
-└── logger/
-    ├── __init__.py                # Logger package exports (SocarratClient, LogConfig)
-    ├── logger.py                  # ImmutableLogger class (WORM fallback, hash chaining)
-    ├── queue_manager.py           # QueueManager for exponential backoff retries
-    ├── event_types.py             # SecurityEvent, EventCategory, NIST classification
-    ├── log_config.py              # LogConfig dataclass (WORM endpoint settings)
-    └── socarrat_client.py         # SocarratClient with HMAC-SHA256, mTLS support
-
-tests/
-└── test_logger.py                 # Comprehensive unit tests
-```
-
-**Key Files:**
-
-| File | Purpose | Features |
-|------|---------|----------|
-| `logger.py` | Core immutable logging engine | Hash chaining, WORM fallback, retry queue, chain verification |
-| `event_types.py` | Consolidated event definitions (NIST only) | 40+ event types, NIST classification, SecurityEvent dataclass |
-| `queue_manager.py` | Persistent retry queue | Exponential backoff, failed write recovery, cleanup |
-| `socarrat_client.py` | WORM storage client | HMAC-SHA256 signatures, mTLS support, timeout protection |
-| `log_config.py` | Configuration management | WORM endpoint settings, SSL/mTLS certificates, local storage paths |
-
----
-
-## ✅ Unit Tests
-
-Comprehensive test coverage with 15+ test classes:
-
-1. **TestChainedLogEntry** - Hash calculation and structure
-2. **TestQueueManager** - Retry queue operations and backoff
-3. **TestEventTaxonomy** - NIST/MITRE classification
-4. **TestSecurityEventEnhancement** - Event enrichment
-5. **TestImmutableLogger** - Core logging functionality
-6. **TestWORMIntegration** - WORM storage and fallback
-7. **TestGlobalLoggerInstance** - Singleton pattern
-8. **TestIntegration** - End-to-end workflows
-
-**Test Coverage:**
-- ✓ Hash chaining correctness
-- ✓ Tamper detection
-- ✓ Retry mechanisms with exponential backoff
-- ✓ Thread safety
-- ✓ WORM fallback scenarios
-- ✓ Event filtering and retrieval
-- ✓ JSON export
-- ✓ Chain integrity verification
-- ✓ Statistics collection
-
-Run tests with:
-```bash
-pytest tests/test_logger.py -v
-```
-
----
-
-## 🚀 Non-Intrusive Integration
-
-The logger integration follows these principles:
-
-1. **Singleton Pattern**: Global logger instance shared across all modules
-2. **Optional Initialization**: Logging can be disabled via LogConfig
-3. **Minimal Dependencies**: Only standard library + existing project dependencies
-4. **Graceful Degradation**: WORM failures don't stop agent execution
-5. **Backward Compatible**: Existing functionality remains unchanged
-6. **Console Control**: Logging output can be disabled via config
-
----
-
-## 📝 Configuration Example
-
-```python
-from redteamagent.security.logger import LogConfig, initialize_logger
-
-config = LogConfig(
-    worm_endpoint="https://worm.example.com",
-    worm_api_key="your_api_key",
-    worm_secret_key="your_secret",
-    local_log_path="logs/security_audit.log",
-    enable_console_output=True,
-    max_local_logs=10000,
-    verify_ssl=True
-)
-
-logger = initialize_logger(config=config)
-```
-
----
-
-## 🔍 Forensic Analysis Capabilities
+## Forensic Analysis Capabilities
 
 The logger supports comprehensive forensic investigation:
 
@@ -468,47 +279,42 @@ The logger supports comprehensive forensic investigation:
 2. **Chain Verification**: Detect if logs were modified
 3. **Session Correlation**: Track related events by session ID
 4. **Risk Stratification**: Identify high-risk operations
-5. **Taxonomy Mapping**: Classify events per NIST/MITRE standards
+5. **Taxonomy Mapping**: Classify events per NIST standards
 6. **Export for Analysis**: JSON export for external tools
 7. **Statistics**: Aggregate event data for pattern analysis
 
 ---
 
-## 📌 Integration Checklist
+## Integration Checklist
 
-- ✅ ImmutableLogger with SHA256(ContentN + HashN-1) hash chaining
-- ✅ QueueManager with exponential backoff retries
-- ✅ SocarratClient with HMAC-SHA256 signatures and mTLS support
-- ✅ WORM (Write Once Read Many) storage endpoint integration
-- ✅ Hybrid fallback: WORM → Local Disk → Retry Queue
-- ✅ NIST SP 800-92 classification (consolidated, single file)
-- ✅ RedTeamAgent integration
-- ✅ ReAct integration
-- ✅ Act integration (with command logging)
-- ✅ Reason integration (with reasoning logging)
-- ✅ Planner integration (with planning decisions)
-- ✅ 40+ standardized event types
-- ✅ Thread-safe implementation with locks
-- ✅ Singleton logger instance
-- ✅ JSON export capability
-- ✅ Chain integrity verification
-- ✅ Graceful fallback mechanisms
-- ✅ HMAC-SHA256 request authentication
-- ✅ mTLS client certificate authentication
-- ✅ 10-second network timeout protection
+- [x] ImmutableLogger with SHA256(ContentN + HashN-1) hash chaining
+- [x] QueueManager with exponential backoff retries
+- [x] SocarratClient with HMAC-SHA256 signatures and mTLS support
+- [x] WORM (Write Once Read Many) storage endpoint integration
+- [x] Hybrid fallback: WORM → Local Disk → Retry Queue
+- [x] NIST SP 800-92 classification (consolidated, single file)
+- [x] RedTeamAgent integration
+- [x] ReAct integration
+- [x] Act integration (with command logging)
+- [x] Reason integration (with reasoning logging)
+- [x] Planner integration (with planning decisions)
+- [x] Thread-safe implementation with locks
+- [x] Singleton logger instance
+- [x] JSON export capability
+- [x] Chain integrity verification
+- [x] Graceful fallback mechanisms
+- [x] HMAC-SHA256 request authentication
+- [x] mTLS client certificate authentication
+- [x] 10-second network timeout protection
 
 ---
 
-## 📚 References
+## References
 
 - **NIST SP 800-92**: Guide to Computer Security Log Management
 - **NIST SP 800-107**: Guidelines for Cryptographic Algorithms
 - **ISO/IEC 27035**: Information Security Incident Management
 - **OWASP**: Logging Cheat Sheet
 - **RFC 2104**: HMAC: Keyed-Hashing for Message Authentication
+- **Study** : Guardiola et al. (2025), arXiv:2509.17969
 
----
-
-**Implementation Date:** December 9, 2025  
-**Status:** ✅ Complete and Integrated (NIST + WORM + Hash Chaining)  
-**Ready for Production:** Yes
