@@ -1,5 +1,9 @@
 # this component will be given a task. It will reason about it and give the result, usually to the act component
 from ...llm import LLM, register
+from datetime import datetime
+from ...security.logger import (
+    get_logger, SecurityEvent, ComponentType, RiskLevel, EventCategory
+)
 
 
 #WHY ARE WE REWRITING THIS FUNCTION, IT IS ALREADY IN LLM
@@ -26,6 +30,24 @@ class Reason(LLM):
     # it will be added to the parent class
     tools : dict = {}
     tool_descriptions : list[dict]= []
+    
+    def __init__(self, *args, **kwargs):
+        """Initialize Reason module with logger"""
+        super().__init__(*args, **kwargs)
+        self.logger = get_logger()
+        self._log_reason_initialization()
+    
+    def _log_reason_initialization(self):
+        """Log Reason module initialization"""
+        event = SecurityEvent(
+            timestamp=datetime.utcnow(),
+            component=ComponentType.REASON,
+            event_type='MODULE_INIT',
+            description='Reason module initialized',
+            risk_level=RiskLevel.LOW
+        )
+        event.enrich_with_classification(EventCategory.OPERATIONAL_EVENT)
+        self.logger.log_event(event)
 
 
     def __process_n_times(self,n:int)-> str:
@@ -58,7 +80,31 @@ class Reason(LLM):
             str: _description_
         """        
         assert(n>0)
+        
+        # Log reasoning start
+        reason_event = SecurityEvent(
+            timestamp=datetime.utcnow(),
+            component=ComponentType.REASON,
+            event_type='PLANNING_START',
+            description=f'Reasoning process initiated with {n} iterations',
+            risk_level=RiskLevel.MEDIUM
+        )
+        reason_event.enrich_with_classification(EventCategory.RECONNAISSANCE)
+        self.logger.log_event(reason_event)
+        
         self._add_user_message(content)
         reasonning = self.__process_n_times(n)
+        
+        # Log reasoning complete
+        complete_event = SecurityEvent(
+            timestamp=datetime.utcnow(),
+            component=ComponentType.REASON,
+            event_type='PLANNING_COMPLETE',
+            description='Reasoning process completed',
+            risk_level=RiskLevel.MEDIUM
+        )
+        complete_event.enrich_with_classification(EventCategory.TASK_COMPLETED)
+        self.logger.log_event(complete_event)
+        
         return reasonning
 

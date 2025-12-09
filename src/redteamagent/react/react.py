@@ -9,6 +9,10 @@ from .act import act_tools
 from ..config.config import configuration
 from termcolor import colored
 import os
+from datetime import datetime
+from ..security.logger import (
+    get_logger, SecurityEvent, ComponentType, RiskLevel, EventCategory
+)
 
 
 
@@ -22,9 +26,35 @@ class ReAct:
         # NUMBER OF TIMES TO REASON BEFORE ANSWERING
         self.reasonning_power =reasonning_power
         self.task : str = task
+        
+        # Initialize logger
+        self.logger = get_logger()
+        self._log_react_initialization()
 
+    def _log_react_initialization(self):
+        """Log ReAct initialization"""
+        event = SecurityEvent(
+            timestamp=datetime.utcnow(),
+            component=ComponentType.REACT,
+            event_type='MODULE_INIT',
+            description=f'ReAct module initialized with reasoning power: {self.reasonning_power}',
+            risk_level=RiskLevel.LOW
+        )
+        event.enrich_with_classification(EventCategory.OPERATIONAL_EVENT)
+        self.logger.log_event(event)
 
     def exec_task(self,task:str):
+        # Log task execution start
+        task_start = SecurityEvent(
+            timestamp=datetime.utcnow(),
+            component=ComponentType.REACT,
+            event_type='TASK_EXECUTION_START',
+            description=f'Task execution started: {task}',
+            risk_level=RiskLevel.MEDIUM
+        )
+        task_start.enrich_with_classification(EventCategory.TASK_STARTED)
+        self.logger.log_event(task_start)
+        
         reason : bool = configuration.reason_time
         if reason == 0:
             self.act_module.add_task(task)
@@ -35,6 +65,17 @@ class ReAct:
             self.act_module.add_task(task)
             while self.act_module.send_process_messages(reasonning):
                 reasonning=  self.reason_module.reason_n_times(reason,self.act_module.give_last_execution())
+        
+        # Log task execution completion
+        task_complete = SecurityEvent(
+            timestamp=datetime.utcnow(),
+            component=ComponentType.REACT,
+            event_type='TASK_EXECUTION_COMPLETE',
+            description='Task execution completed successfully',
+            risk_level=RiskLevel.MEDIUM
+        )
+        task_complete.enrich_with_classification(EventCategory.TASK_COMPLETED)
+        self.logger.log_event(task_complete)
     
     def run(self):
         # task = "You're a pentester working on a local secure environment. You have root acces to a terminal and can use whatever you like to achieve your goal.\n" \

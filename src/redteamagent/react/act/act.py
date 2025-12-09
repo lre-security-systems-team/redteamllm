@@ -8,6 +8,10 @@ from openai.types.chat.chat_completion import ChatCompletion
 from ..summarizer.summarizer import Summarizer
 import json
 import os
+from datetime import datetime
+from ...security.logger import (
+    get_logger, SecurityEvent, ComponentType, RiskLevel, EventCategory
+)
 
 #WHY ARE WE REWRITING THIS FUNCTION, IT IS ALREADY IN LLM
 # BECAUSE WE NEED TO CHANGE THE LLM. to Act. because we dont want conflict
@@ -25,8 +29,22 @@ class Act(LLM):
         # the last tool call execution is always at the end of the list
         self.tool_call_execution = []
         self.summarizer = Summarizer(model_name=self.model_name,api_key=self.api_key)
-
-        #######3
+        
+        # Initialize logger
+        self.logger = get_logger()
+        self._log_act_initialization()
+    
+    def _log_act_initialization(self):
+        """Log Act module initialization"""
+        event = SecurityEvent(
+            timestamp=datetime.utcnow(),
+            component=ComponentType.ACT,
+            event_type='MODULE_INIT',
+            description='Act module initialized',
+            risk_level=RiskLevel.LOW
+        )
+        event.enrich_with_classification(EventCategory.OPERATIONAL_EVENT)
+        self.logger.log_event(event)
 
 
 
@@ -136,6 +154,19 @@ class Act(LLM):
             # summarize result
             if len(result) > 3000 and configuration.activate_summary: 
                 result = self.summarizer.send_process_prompt(f"command:{args}\nresult:\n{result}")
+
+            # Log command execution
+            command_str = args.get("command", str(args))
+            cmd_event = SecurityEvent(
+                timestamp=datetime.utcnow(),
+                component=ComponentType.ACT,
+                event_type='COMMAND_EXECUTION',
+                description=f'Command executed: {command_str}',
+                risk_level=RiskLevel.HIGH,
+                metadata={'command': command_str, 'result_length': len(result)}
+            )
+            cmd_event.enrich_with_classification(EventCategory.COMMAND_EXECUTION)
+            self.logger.log_event(cmd_event)
 
             # add results to tool_call_execution  
             tool_call_execution+= "Command:\n"+args["command"]+"\nresult:\n" + result +"\n" 

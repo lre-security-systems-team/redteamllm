@@ -4,6 +4,10 @@ from typing import Optional
 from multimethod import multimethod
 from ..execution_tree import ExecutionNode,FailedNode,PlanningNode, AbstractNode
 from .llm_planner import LLMPlanner
+from datetime import datetime
+from ..security.logger import (
+    get_logger, SecurityEvent, ComponentType, RiskLevel, EventCategory
+)
 
 class PlannerVisitor(AbstractVisitor):
 
@@ -23,7 +27,9 @@ class PlannerVisitor(AbstractVisitor):
         self.memory_man = memory_manager
         
         self.llm_planner= LLMPlanner(api_key=configuration.api_key,model_name=configuration.model_name)
-
+        
+        # Initialize logger
+        self.logger = get_logger()
 
         
         prompt = "You are a planner. The user will give you a single task. Your job is to decide whether the task truly needs decomposition into subtasks considering that you (the LLM have full access to a terminal).\n"\
@@ -110,6 +116,19 @@ class PlannerVisitor(AbstractVisitor):
         # plan representing the tree of tasks        
         from termcolor import colored
         tree_plan_prompt = self.__get_all_tasks(node)
+        
+        # Log planning decision
+        plan_event = SecurityEvent(
+            timestamp=datetime.utcnow(),
+            component=ComponentType.PLANNER,
+            event_type='PLANNING_START',
+            description=f'Planning task decomposition at level {node.lvl}: {node.task}',
+            risk_level=RiskLevel.MEDIUM,
+            metadata={'task': node.task, 'level': node.lvl}
+        )
+        plan_event.enrich_with_classification(EventCategory.PLAN_GENERATED)
+        self.logger.log_event(plan_event)
+        
         print(colored(tree_plan_prompt,"blue"))
 
         # create the prompt
@@ -117,6 +136,17 @@ class PlannerVisitor(AbstractVisitor):
         # check if response is null (just return)
         result_node = LLMPlanner.llm_plan_result
         if result_node == None:
+            # Log no decomposition decision
+            no_decomp_event = SecurityEvent(
+                timestamp=datetime.utcnow(),
+                component=ComponentType.PLANNER,
+                event_type='PLANNING_COMPLETE',
+                description=f'Task does not require decomposition: {node.task}',
+                risk_level=RiskLevel.LOW,
+                metadata={'task': node.task, 'level': node.lvl, 'decomposed': False}
+            )
+            no_decomp_event.enrich_with_classification(EventCategory.TASK_COMPLETED)
+            self.logger.log_event(no_decomp_event)
             return
         ######################
         new_node = PlanningNode(node.task)
@@ -125,6 +155,19 @@ class PlannerVisitor(AbstractVisitor):
         if new_node.lvl == 0:
             self.root_task_node[0] = new_node
         result_node = LLMPlanner.llm_plan_result
+        
+        # Log decomposition decision
+        decomp_event = SecurityEvent(
+            timestamp=datetime.utcnow(),
+            component=ComponentType.PLANNER,
+            event_type='PLANNING_COMPLETE',
+            description=f'Task decomposed into {len(result_node)} subtasks: {node.task}',
+            risk_level=RiskLevel.MEDIUM,
+            metadata={'task': node.task, 'level': node.lvl, 'decomposed': True, 'subtasks': len(result_node)}
+        )
+        decomp_event.enrich_with_classification(EventCategory.TASK_COMPLETED)
+        self.logger.log_event(decomp_event)
+        
         ###################
         node.change_node_to_planning(new_node=new_node,children=result_node)
         # we created a new node so we visit it
