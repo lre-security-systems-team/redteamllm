@@ -4,7 +4,6 @@ from ...config.config import configuration
 # It will take some input(reasonning, given by the reason component, chose an action to execute and do it)
 # Many execution rounds can happen consecutively
 from ...llm import LLM,register
-from openai.types.chat.chat_completion import ChatCompletion
 from ..summarizer.summarizer import Summarizer
 import json
 import os
@@ -63,14 +62,15 @@ class Act(LLM):
         super()._add_tool_call_message(tool_call_id, content)
         print(colored(f"{content}","red"))
     
-    def _add_assistant_response(self, completion:ChatCompletion)->None:
+    def _add_assistant_response(self, completion)->None:
         """_summary_
         Overloaded to add printing options
         Args:
             completion (ChatCompletion): _description_
         """        
         super()._add_assistant_response(completion)
-        print(colored(f"assistant:\n{completion.choices[0].message.content}"))
+        text = next((b.text for b in completion.content if b.type == "text"), "")
+        print(colored(f"assistant:\n{text}"))
 
     
 
@@ -91,16 +91,25 @@ class Act(LLM):
         return super().send_process_prompt(content)
     
     def give_last_execution(self) -> str:
-        """_summary_
-        Returns last tool execution
-        Returns:
-            str: commands and result of the last tool execution
-        """        
+        """
+        Returns last tool execution (raw).
+        """
         return self.tool_call_execution[-1]
+
+    def give_last_execution_for_reason(self) -> str:
+        """
+        Returns a trimmed version of the last execution for the Reason session.
+        Caps at 2000 chars to prevent Reason context from bloating on verbose
+        tool output. Reason needs the conclusion, not the full raw result.
+        """
+        last = self.tool_call_execution[-1]
+        if len(last) > 2000:
+            return last[:2000] + "\n...[truncated for reasoning efficiency]"
+        return last
 
     
 
-    def _process_tool_call(self, completion:ChatCompletion)->None: 
+    def _process_tool_call(self, completion)->None: 
         """_summary_
         overriding parent class function and adding tool_call_execution.
         At every tool processing,tool calls and results are appendend to
@@ -112,47 +121,63 @@ class Act(LLM):
             Exception: _description_
         """        
         tool_call_execution = ""
-        response_message = completion.choices[0].message
-        for tool_call in response_message.tool_calls:
+        for block in completion.content:
+            if block.type != "tool_use":
+                continue
             # increment tool call nb
             self._increment_tool_call_count()
-            #add the tool call to the list of messages
-            function_name = tool_call.function.name
+            function_name = block.name
             # check if the function name is present in the tools dict
-            if not self.__class__.tools[function_name]:
-                raise Exception("LLM trying to call a missing function")
-            
+            if not self.__class__.tools.get(function_name):
+                raise Exception(f"LLM trying to call a missing function: {function_name}")
+
             # get the function to use
             func = self.__class__.tools[function_name]
-            # get arguments of the func
-            args = json.loads(tool_call.function.arguments)
-            # add args to tool_call_execution
- #           do = input(colored(f"Want to execute {function_name} with {args} ? ","red"))
-#            if do != "y" and do !="yes":
-  #              raise Exception("USER DIDNT WANT TO EXECUTE COMMAND")
+            # get arguments (Anthropic provides input as a dict, not JSON string)
+            args = block.input
             print(colored(f"Command: {args}",'red',"on_black"))
-            # get the function result 
+            # get the function result
             result = func(**args)
             # summarize result
-            if len(result) > 3000 and configuration.activate_summary: 
-                result = self.summarizer.send_process_prompt(f"command:{args}\nresult:\n{result}")
+            if len(result) > 3000 and configuration.activate_summary:
+                # Inject engagement context so summarizer knows what to keep
+                self.summarizer.set_engagement_context(
+                    target=getattr(self, '_current_target', 'unknown'),
+                    phase=getattr(self, '_current_phase', 'unknown'),
+                    findings=getattr(self, '_current_findings', 'none established yet')
+                )
+                result = self.summarizer.send_process_prompt(
+                    f"command:{args}\nresult:\n{result}"
+                )
 
             # add results to tool_call_execution  
             tool_call_execution+= "Command:\n"+args["command"]+"\nresult:\n" + result +"\n" 
             #append the result
-            self._add_tool_call_message(tool_call.id,result)
+            self._add_tool_call_message(block.id,result)
         self.tool_call_execution.append(tool_call_execution)
 
     
-    def add_task(self,task:str):
-        """_summary_
-        add task to act
-        Args:
-            task (str): _description_
-        """        
+    def add_task(self, task: str):
+        """
+        Add task to act.
+        """
         self._add_user_message(task)
 
-    def send_process_messages(self,reasonning:str = None)->bool: 
+    def set_context(self, target: str = "", phase: str = "", findings: str = "") -> None:
+        """
+        Set engagement context so the summarizer can make informed decisions.
+        Call this whenever the phase changes or a significant finding is made.
+
+        Args:
+            target   (str): target IP or hostname
+            phase    (str): current phase (recon, enumeration, exploitation, post-exploit)
+            findings (str): key findings so far, 1-5 lines
+        """
+        self._current_target = target
+        self._current_phase = phase
+        self._current_findings = findings
+
+    def send_process_messages(self, reasonning:str = None)->bool: 
         """_summary_
         looks like 'send_process_messages' but with some twists.
         doesnt take any argument. Task is given before.
@@ -166,10 +191,8 @@ class Act(LLM):
         if reasonning:
             self.__add_reasonning(reasonning)
         # send past messages and recieve answer
-        completion : ChatCompletion =self._get_response()
-        # while the answer is a tool call
-        if completion.choices[0].message.tool_calls:
-            # treat the tool calls
+        completion = self._get_response()
+        if any(b.type == "tool_use" for b in completion.content):
             self._process_tool_call(completion)
             return True
         return False

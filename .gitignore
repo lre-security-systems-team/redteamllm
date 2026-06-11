@@ -22,3 +22,12 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+src/redteamagent/config/config.json
+*.original
+src/redteamagent/config/config.json
+saved_*/
+*.log
+*.rec
+*.bak
+__pycache__/
+.venv/

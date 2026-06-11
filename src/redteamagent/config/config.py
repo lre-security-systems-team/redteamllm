@@ -17,11 +17,14 @@ class Config:
         self.planner_system_prompt : Optional[str] = self.data.get("planner_system_prompt")
         self.reason_time : int = self.data.get("reason_time")
         self.activate_summary : bool  = self.data.get("activate_summary")
+        self.max_history_messages : int = self.data.get("max_history_messages", 10)
+        self.max_iterations : int = self.data.get("max_iterations", 30)
         self.model_name: str = self.data.get("model_name")
         self.api_key:str = self.data.get("api_key")
 
         if self.base_prompt is None or self.act_system_prompt is None or self.reason_system_prompt is None or self.summarizer_system_prompt is None or self.planner_system_prompt is None or self.reason_time is None or self.activate_summary is None or self.model_name is None or self.api_key is None:
             raise Exception("Configuration needs to include all fields")
+        # max_history_messages is optional, defaults to 10 if not set
         
 
 configuration = Config()
